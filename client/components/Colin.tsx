@@ -1,5 +1,5 @@
 function Colin() {
-  return <div>
+  return <div className="colin">
     This is Colins cave!
   </div>
 }

@@ -4,7 +4,7 @@ import DrawingZone from './DrawingZone'
 function PlayHotSeat() {
   return (
     <>
-      <div>This is Playhotseat</div>
+      <div className="play-hot-seat">This is Playhotseat</div>
       <Colin />
       <DrawingZone />
     </>

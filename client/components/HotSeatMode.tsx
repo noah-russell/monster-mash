@@ -4,7 +4,7 @@ import PlayHotSeat from './PlayHotSeat'
 function HotSeatMode() {
   return (
     <>
-      <div>This is hot seat mode!</div>
+      <div className="hot-seat-mode">This is hot seat mode!</div>
       <Welcome />
       <PlayHotSeat />
     </>
