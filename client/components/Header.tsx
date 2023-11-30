@@ -1,7 +1,7 @@
 function Header() {
   return (
     <>
-      <div className="header-wrapper">
+      <div className="header">
         <h1>Monster Mash</h1>
         <p>Create your creepiest creation!</p>
       </div>

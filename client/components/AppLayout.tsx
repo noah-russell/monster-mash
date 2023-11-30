@@ -4,9 +4,9 @@ import { Outlet } from 'react-router-dom'
 function AppLayout() {
   return (
     <>
-        <Header />This is app layout yo!
+        <Header />
       <div className="app-layout">
-
+      This is app layout yo!
         <Outlet />
       </div>
     </>
