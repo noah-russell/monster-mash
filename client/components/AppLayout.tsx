@@ -1,9 +1,14 @@
-//This is the basic app layout
+import Header from './Header'
+import { Outlet } from 'react-router-dom'
 
 function AppLayout() {
   return (
     <>
-      <div className="appLayout">This is app layout yo!</div>
+      <Header />
+      <div className="appLayout">
+        This is app layout yo!
+        <Outlet />
+      </div>
     </>
   )
 }
