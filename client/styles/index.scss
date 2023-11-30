@@ -2,15 +2,23 @@
 
 html, 
 body {
-  font-family: 'Montserrat', sans-serif;
+
 }
 
 
-
-
 //BASIC APP "FRAME" CSS
+body {  
+  background-image: url("../public/background.png");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  color: azure;
+}
+
 
 .app-layout {
+
 
 }
 
@@ -35,5 +43,5 @@ body {
 }
 
 .welcome {
-  
+
 }
