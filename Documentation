@@ -1,14 +1,92 @@
-MVP, How much work will it take?
-What tech will we be using?
-Making the “frame” will take under a day, incorporating the drawing element (i.e HTMLCanvas) is a partial unknown. We expect this to take another half day but more research is required. Tech we will be using:
--Database, SQLite3, Knex
--multer(middleware, for storing images) 
--HTMLCanvas (pending RnD)
--Typescript
--ReactJS
+<h1>Documentation for Monster-Mash!</h1>
+
+<h3>Schema</h3>
+<h4>Monster artowrk data:</h4>
+
+```json
+[
+  {
+    "id": 1,
+    "monster_name": "colin",
+    "top_artist": "Dave",
+    "bottom_artist": "Zoe",
+    "date_created": 23434554624356,
+    "image_url": "???",
+  },
+]
+```
 
 
-Things to research?
+<h3>What does a day look like?</h3>
+<ul>
+<li><b>0900:</b> Morning standup. Establish plan/goals for the day and goals before the next standup. Vibe check and coffee!</li>
+<li><b>0915:</b> Coding time. Step aways as needed. </li>
+<li><b>1145:</b> Pre-lunch standup. What have you done, what is to do, any blockers? Update Kanban. Vibe check!</li>
+<li><b>1200:</b> Lunch! </li>
+<li><b>1300:</b> Coding time. Step aways etc.</li>
+<li><b>1500:</b> If needed to bring eachother up to speed.</li>
+<li><b>1645:</b> Retro stand-down. How did you go with your goals? Day in, day out, blockers etc. Any workflow changes? Vibe check, vibe adjustments(agile)! Celebrate!</li>
+<li>Optional working after <b>1700</b> otherwise go home!.</li>
+</ul>
+<br>
+<br>
+
+<h3>Roles:</h3>
+Responsibilities and expectations:
+<ul>
+<li><b>Product owner (Cody).</b> Client stories, product decisions align with client stories, final say on product decisions.</li>
+<li><b>Scrum facilitator (Rose).</b> Structured, time-capped, planned standups. Kanban.</li>
+<li><b>Git keeper (Noah).</b> Merge authority (pull req.), git process/workflow (branches, pulls, etc. )</li>
+<li><b>Vibe watcher (Iggy).</b> Inclusion, expression, engagement and morale. </li>
+</ul> 
+<br>
+<br>
+
+<h3>Git flow and conventions:</h3>
+<h4>Branches:</h4>
+<ul>
+<li>Main. <b>"main"</b> This is our production code and represents the product in its most complete state.</li>
+
+<li>Dev. <b>“dev”</b> This is our working “merge” branch. This represents our current sprint (of 3 planned) </li>
+<li>Feature Branch. <b>“S1-canvasStamps”</b> This represents a feature currently in development. When starting a new feature a new branch is made, old branches are kept.  </li>
+</ul>
+<h4>Working within the same file:</h4>
+<ul>
+<li>Communicate to the other team you will be doing work in their file, explain what the work is and if any existing code will need to be altered.  Loop the plan and ensure understanding from both teams. </li>
+<li>
+Ask yourself if working in the same file is necessary.  
+If at all possible, section off the work and comment to make merging easier. 
+</li>
+<li>
+If you need to alter anyone else's code, you must communicate this beforehand! Understanding and respect is important.
+</li>
+</ul>
+
+<h4>Push, Merge, Pull workflow:</h4>
+<ul>
+<li>When a group finishes a feature, both groups will do a push to github and create a pull request from their feature branch into dev.</li>
+<li>Git keeper (Noah) will merge the requests, if there are conflicts everyone should mob the merge machine.</li>
+<li>Both groups will pull into local dev from remote dev and update both their dev branch and feature branch. This ensures both groups are up to date with each other after every merge. (RESEARCH!)</li>
+<li><b>git checkout dev, git pull origin dev, git checkout “feature”, git pull origin dev</b></li>
+</ul>
+
+<h4>Commits:</h4>
+Commit regularly, and leave a short descriptive message. Celebrate on commit.
+<b>Make sure you git iam every commit!!</b>  
+<br>
+<br>
+
+<h3>How and when will we get help?</h3>
+<ul>
+<li>Stuck timers (~20mins), sticker rewards.</li>
+<li>Research/chat GPT.</li>
+<li>Ask other people within team.</li>
+<li>Ask facilitator.</li>
+</ul>
+
+
+
+<h3>Things to research?</h3>
 Our main point of uncertainty is how to facilitate drawing on our app. HTMLCanvas is our primary candidate. 
 We need to somehow restrict a user from seeing or drawing on half of the image, and then stitching them together to one image. 
 In sprint 2 we are working out how to save our drawing as a PNG(?, multer) and export them as an image to the user's machine, we can refer to our foundation's exercise “dress the clown” for reference. 
@@ -17,48 +95,107 @@ Part of the game is the second player needs a reference to “join” the parts 
 Saving the drawing client side/keeping them safe from react. React context or useRefs, for saving every click. Preserved against page refresh, state change etc. THIS IS A BIG ONE!!
        
 
-
-Git flow:
-Branches:
-Main. This is our production code and represents the product in its most complete state. Naming: “main”
-Dev. This is our working “merge” branch. This represents our current sprint (of 3 planned) Naming: “dev”
-“Feature Branch”. This represents a feature currently in development. When starting a new feature a new branch is made, old branches are kept. Naming: “S1-canvasStamps” 
-
-Working within the same file:
-Communicate to the other team you will be doing work in their file, explain what the work is and if any existing code will need to be altered. Loop the plan and ensure understanding from both teams. 
-Ask yourself if working in the same file is necessary.  
-If at all possible, section off the work and comment to make merging easier. 
-If you need to alter anyone else's code, you must communicate this beforehand! Understanding and respect is important.
-
-Push, Merge, Pull workflow:
-When a group finishes a feature, both groups will do a push to github and create a pull request from their feature branch into dev.
-Git keeper (Noah) will merge the requests, if there are conflicts everyone should mob the merge machine.
-Both groups will pull into local dev from remote dev and update both their dev branch and feature branch. This ensures both groups are up to date with each other after every merge. (RESEARCH!)
-git checkout “dev”, git pull origin “dev”, git checkout “feature”, git pull origin “dev”
-
-Commits:
-Commit regularly, and leave a short descriptive message. Celebrate on commit.
-Make sure you git iam every commit!!  
+<br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br>       
 
 
-Roles:
-Responsibilities and expectations:
- 
-Product owner (Cody). Client stories, product decisions align with client stories, final say on product decisions.
-Scrum facilitator (Rose). Structured, time-capped, planned standups. Kanban.
-Git keeper (Noah). Merge authority (pull req.), git process/workflow (branches, pulls, etc. )
-Vibe watcher (Iggy). Inclusion, expression, engagement and morale. 
+
+<h2>Pre Planning</h2>
+
+<h4>Expectations:</h4>
+<ul>
+<li>Extra work, Saturday is off day! Limited work on Sunday.</li>
+<li>5 min step aways.</li>
+<li>Developing and prioritising process.</li>
+<li>Use new tech (HTML canvas?).</li>
+<li>Achievable MVP (literally minimum viable product), with sprints to add on top. </li>
+<li>Get some learning stories, taking notes!</li>
+<li>Respecting roles and taking them seriously.</li>
+<li>Have fun on top of all this!</li>
+<li>Bootcamp times mon-fri. Here at 9.</li>
+<li>Planned breaks, 12-1pm plus additional if needed. </li>
+<li>After hours no expectation to do work.</li>
+<li></li>
+
+</ul>
+
+<h4>Communication: </h4>
+<ul>
+<li>Handovers (handshake), run through of your code, looping. </li>
+<li>Communicate deviation from expectations in Facebook GC or in person.</li>
+<li>Talking elephant/pillow in standups.</li>
+<li>Looping the plan.</li>
+<li>Facebook messenger (Discord for transfer of media/code). </li>
+<li>Everyone's responsibility, do not assume. </li>
+<li></li>
+</ul>
+
+<h4>Decisions/Conflict: </h4>
+<ul>
+<li>Product owner final say on product decisions, listens to what others have to say.</li>
+<li>Technical decisions, made as a group(Bring it back to process).</li>
+<li>Communicate early if you have an issue.</li>
+<li>Step away from computer if you feel agitated.</li>
+<li>Feel free to talk about feelings (Normalise it!)  </li>
+</ul>
+
+<h4>How and when we will involve people in conversations:</h4>
+<ul>
+<li>Pairing and switching of pairs.</li>
+<li>If your code interacts with code outside of where you are working, clear this with other team.</li>
+<li>Planning involves everyone.</li>
+<li>Standups/vibe check-ins involve everyone. </li>
+<li>If external help (for features that involve more than one person) is required everyone is involved!</li>
+<li>Share your learnings in standups.</li>
+<li>Quick standups together then breakout groups (pairs).</li>
+</ul>
+
+<h4>Planning tools:</h4>
+<ul>
+<li>Kanban (physical), update on standups.</li>
+<li>Small, high resolution kanban tasks.</li>
+<li>Sprints (MVP, then stretch blocks).</li>
+<li>Standups.</li>
+<li>Documentation, shape of data, wireframe, stack diagram.</li>
+
+</ul>
+
+<h4></h4>
+
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<h4></h4>
 
 
-What does a day look like? (agile)
-9am Morning standup. Establish plan/goals for the day and goals before the next standup. Vibe check and coffee!
-9:15 Coding time. Step aways as needed. 
-11:45am Pre-lunch standup. What have you done, what is to do, any blockers? Update Kanban. Vibe check!
-12pm Lunch! 
-1pm Coding time. Step aways etc.
-3pm if needed to bring eachother up to speed.
-4:45 retro stand-down. How did you go with your goals? Day in, day out, blockers etc. Any workflow changes? Vibe check, vibe adjustments(agile)! Celebrate!
-Optional working after 5.
+
+<h1>Unorganised thus far</h1>
+<h3>MVP, How much work will it take?</h3>
+Making the “frame” will take under a day, incorporating the drawing element (i.e HTMLCanvas) is a partial unknown. We expect this to take another day but more research is required. Tech we will be using:
+-Database, SQLite3, Knex
+-multer(middleware, for storing images) 
+-HTMLCanvas (pending RnD)
+-Typescript
+-ReactJS
+
+
+
+
+
+
+
+
 
 Will we go outside?
  Weather permitting, one stand-up walk around the block. 
@@ -110,6 +247,3 @@ Artist 2. Second artist can draw. Done button appears.
 Finished drawing. Add monster name and artist names. 
 Save your monster. 
 Go home or gallery.
-
-
-  
