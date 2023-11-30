@@ -1,7 +1,11 @@
 //This is the basic app layout
 
 function AppLayout() {
-  return <>This is app layout yo!</>
+  return (
+    <>
+      <div className="appLayout">This is app layout yo!</div>
+    </>
+  )
 }
 
 export default AppLayout
