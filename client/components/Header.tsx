@@ -1,7 +1,7 @@
 function Header() {
   return (
     <>
-      <header clasName='hflex'>
+      <header className='hflex'>
         <div className='header-box'>
         <h1>Monster Mash</h1>
         </div>

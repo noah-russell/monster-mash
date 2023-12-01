@@ -1,26 +1,164 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
 // @import '../public/Courgette-Regular.ttf'
 
+// __________________________________
 // Colour Variables
 $red: rgb(128, 46, 53);
 $lightPurple: rgb(178, 131, 206);
 $whiteIsh: #d1d1d1;
 
+// __________________________________
+// grandparent styling
+
 *{
   box-sizing: border-box;
 }
 
+html, 
+body {
+  margin:0;
+  display:flex;
+  flex-direction: column;
+  height:100%;
+}
+
+body {  
+  background-image: url("../public/background.png");
+  background-size: cover;
+  font-family: 'agbalumo';
+  color: $whiteIsh;
+  background-repeat: no-repeat;
+}
+
+#app{
+  display: flex;
+  flex-direction:column;
+  height:100%;
+}
+
+
+// ________________________________
+// universal classes
+// can be used anywhere for a quick format
+.hflex{
+display:flex; 
+}
+.vflex{
+  display:flex;
+  flex-direction: column;
+}
+
+// ________________________________
+// top level component
+
+.app-layout{
+  height:100%;
+}
+// ________________________________
+// Header Styling
+header{
+  background-color: rgba(0, 0, 0, 0.507);
+  height: 6rem;
+}
+
+.header-box{
+  display: flex;
+  justify-content: center;
+  width:100%;
+}
+
+h1{
+  font-family: Creepster;
+  font-size: 4rem;
+  font-weight: 100;
+  padding: 0.5rem;
+  margin:0;
+  letter-spacing: 1rem;
+  color: $whiteIsh;
+}
+
+nav{
+  position: absolute;
+  top:0;
+  right:0;
+  height: 6rem;
+  align-items: center;
+  justify-content: center;
+  padding:0.5rem;
+}
+
+nav button{
+  height:4rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;;
+  background-color: $lightPurple;
+  border: transparent solid 2pt;
+}
+nav button:hover{
+  background-color: $red;
+  border: solid 2pt $whiteIsh;
+}
+
+nav p{
+  font-family:'Permanent Marker';
+  font-size:2rem;
+  margin:0 0.5rem;
+}
+
+// ___________________________________________
+// Second Level Component
+.hot-seat-mode{
+  height:100%;
+}
+
+// __________________________________________
+// Third Level Component
+.play-hot-seat {
+  display: flex;
+  justify-content: space-between;
+  height:100%;
+}
+
+// __________________________________________
+// colin
+.colin {
+  display: flex;
+  width: 25%;
+}
+
+.colin-image {
+  margin-top: auto;
+  width:90%;
+}
+// __________________________________________
+// Drawing Zone
+
+.drawing-zone {
+  width: 50%;
+  justify-content: center;
+  align-items:center;
+}
+
+.canvas{
+  background-color: $whiteIsh;
+  max-width: 30rem;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+// _________________________________________
+// Controls
+.controls{
+  width: 25%;
+}
+
+
+// __________________________________
+// Small Screen Size Stuff
 @media only screen and (max-width:1050px){
-    header h1{
+  header h1{
     letter-spacing:0.5rem;
     font-size: 2.5rem;
-   
-    }
-    header{
-      height: 4rem;
-    }
-    nav{
-      height:4rem;
     }
     nav.hflex button{
       height: 3rem;
@@ -38,171 +176,25 @@ $whiteIsh: #d1d1d1;
     }
   }
 
-
-html, 
-body {
-  margin:0;
-  display:flex;
-  flex-direction: column;
-  height:100%;
-}
-
-header{
-  display:flex;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.507);
-  height: 6rem;
-}
-
-nav{
-  position: absolute;
-  top:0;
-  right:0;
-  height: 6rem;
-  align-items: center;
-  justify-content: center;
-  width: 20%;
-}
-
-nav button{
-  height:4rem;
-  margin: 0.5rem;
-  border-radius: 0.5rem;;
-  background-color: $lightPurple;
-  border: transparent solid 2pt;
-}
-
-nav button:hover{
-  background-color: $red;
-  border: solid 2pt $whiteIsh;
-}
-
-.hflex{
-display:flex; 
-}
-.vflex{
-  display:flex;
-  flex-direction: column;
-}
-
-h1{
-  font-family: Creepster;
-  font-size: 4rem;
-  font-weight: 100;
-  padding: 0.5rem;
-  margin:0;
-  letter-spacing: 1rem;
-  color: $whiteIsh;
-}
-
-nav p{
-  font-family:'Permanent Marker';
-  font-size:2rem;
-  margin:0 0.5rem;
-}
-
-
-//BASIC APP "FRAME" CSS
-body {  
-  background-image: url("../public/background.png");
-  background-size: cover;
-  font-family: 'agbalumo';
-  color: $whiteIsh;
-  background-repeat: no-repeat;
-}
-
-.header-box{
-  display: flex;
-  justify-content: center;
-  width:100%;
-}
-
-
-
-#app{
-  display: flex;
-  flex-direction:column;
-  justify-content: right;
-  height:100%;
-}
-
-body{
-  display: flex;
-  flex-direction:column;
-  justify-content: right;
-  height:100%;
-}
-
-
-
-.app-layout{
-  display: flex;
-  flex-direction:column;
-  justify-content: right;
-  height:100%;
-}
-
-.hot-seat-mode{
-  display: flex;
-  flex-direction:column;
-  justify-content: right;
-  height:100%;
-}
-.play-hot-seat {
-  display: flex;
-  justify-content: space-between;
-  flex:1;
-  align-items: stretch;
-  height:100%;
-}
-
-.drawing-zone {
-  width: 50%;
-  justify-content: center;
-  align-items:center;
-}
-
-.canvas{
-  background-color: $whiteIsh;
-  max-width: 30rem;
-  width: 100%;
-  aspect-ratio: 1;
-}
-
-.controls{
-  width: 25%;
-}
-
-.colin {
-  display: flex;
-  width: 25%;
-}
-
-.colin-image {
- margin-top: auto;
- width:90%;
-}
-
-
-
+  // ____________________________________________
 // Canvas CSS
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // .App {
-//   text-align: center;
-// }
+  //   text-align: center;
+  // }
 
-// .App-logo {
-//   height: 40vmin;
-//   pointer-events: none;
-// }
-
-// @media (prefers-reduced-motion: no-preference) {
+  // .App-logo {
+    //   height: 40vmin;
+    //   pointer-events: none;
+    // }
+    
+    // @media (prefers-reduced-motion: no-preference) {
 //   .App-logo {
-//     animation: App-logo-spin infinite 20s linear;
-//   }
-// }
-
+  //     animation: App-logo-spin infinite 20s linear;
+  //   }
+  // }
+  
 // .App-header {
 //   background-color: #282c34;
 //   min-height: 100vh;
