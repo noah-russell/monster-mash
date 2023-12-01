@@ -5,7 +5,9 @@
 // Colour Variables
 $red: rgb(128, 46, 53);
 $lightPurple: rgb(178, 131, 206);
+$highlighterPurple: rgb(208, 150, 242);
 $whiteIsh: #d1d1d1;
+$colinGrey: #aba4a4;
 
 // __________________________________
 // grandparent styling
@@ -36,12 +38,41 @@ body {
   height:100%;
 }
 
+// _______________________________________________
+// Generic Styling
+img{
+  max-width: 100%;
+}
+
+button{
+  height:3rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;;
+  background-color: $colinGrey;
+  border: transparent solid 2pt;
+  width: 6rem;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+button:hover{
+  background-color: $highlighterPurple;
+  border: solid 2pt $whiteIsh;
+}
+button p{
+  font-family:'Permanent Marker';
+  font-size:1.5rem;
+  margin:0 0.5rem;
+}
+button p:hover{
+  font-size: 1.7rem;
+}
 
 // ________________________________
 // universal classes
 // can be used anywhere for a quick format
 .hflex{
-display:flex; 
+  display:flex; 
 }
 .vflex{
   display:flex;
@@ -87,12 +118,14 @@ nav{
   padding:0.5rem;
 }
 
+
 nav button{
   height:4rem;
   margin: 0.5rem;
   border-radius: 0.5rem;;
   background-color: $lightPurple;
   border: transparent solid 2pt;
+  width:auto;
 }
 nav button:hover{
   background-color: $red;
@@ -150,8 +183,18 @@ nav p{
 // Controls
 .controls{
   width: 25%;
+  justify-content: space-between;
+  padding:3rem 0.2rem;
 }
-
+.colour-controls{
+  background-image: url('../public/toolbar.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding:30%;
+  margin:-1rem;
+  aspect-ratio: 3;
+}
 
 // __________________________________
 // Small Screen Size Stuff

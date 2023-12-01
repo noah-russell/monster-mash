@@ -13,8 +13,12 @@ function PlayHotSeat() {
             <DrawingZone />
           </div>
         </div>
-        <div className="controls">
-          <div className="colour-controls"></div>
+        <div className="controls vflex">
+          <div className="colour-controls">
+            <img src='client/public/pencil.png'/>
+            <img src='client/public/rubber.png'/>
+          </div>
+          <button><p>done</p></button>
         </div>
       </div>
     </>
