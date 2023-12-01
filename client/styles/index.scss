@@ -13,7 +13,7 @@ $whiteIsh: #d1d1d1;
 @media only screen and (max-width:1050px){
     header h1{
     letter-spacing:0.5rem;
-    font-size: 3rem;
+    font-size: 2.5rem;
    
     }
     header{
@@ -44,7 +44,7 @@ body {
   margin:0;
   display:flex;
   flex-direction: column;
-  min-height: 100vh;
+  height:100%;
 }
 
 header{
@@ -62,7 +62,6 @@ nav{
   align-items: center;
   justify-content: center;
   width: 20%;
-  
 }
 
 nav button{
@@ -118,28 +117,64 @@ body {
   width:100%;
 }
 
+
+
+#app{
+  display: flex;
+  flex-direction:column;
+  justify-content: right;
+  height:100%;
+}
+
+body{
+  display: flex;
+  flex-direction:column;
+  justify-content: right;
+  height:100%;
+}
+
+
+
+.app-layout{
+  display: flex;
+  flex-direction:column;
+  justify-content: right;
+  height:100%;
+}
+
+.hot-seat-mode{
+  display: flex;
+  flex-direction:column;
+  justify-content: right;
+  height:100%;
+}
 .play-hot-seat {
   display: flex;
   justify-content: space-between;
-  height:30rem;
+  flex:1;
+  align-items: stretch;
+  height:100%;
 }
 
 .drawing-zone {
-  border: solid 1px;
-  border-color: rgb(1, 224, 240);
   width: 50%;
+  justify-content: center;
+  align-items:center;
+}
+
+.canvas{
+  background-color: $whiteIsh;
+  max-width: 30rem;
+  width: 100%;
+  aspect-ratio: 1;
 }
 
 .controls{
   width: 25%;
-  border: solid 1px;
-  border-color: rgb(1, 224, 240);
 }
 
 .colin {
   display: flex;
-  border: solid 1px;
-  border-color: rgb(40, 69, 233);
   width: 25%;
 }
 

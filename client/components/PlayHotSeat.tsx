@@ -8,8 +8,10 @@ function PlayHotSeat() {
         <div className="colin">
           <Colin />
         </div>
-        <div className="drawing-zone">
-          <DrawingZone />
+        <div className="drawing-zone vflex">
+          <div className="canvas">
+            <DrawingZone />
+          </div>
         </div>
         <div className="controls">
           <div className="colour-controls"></div>
