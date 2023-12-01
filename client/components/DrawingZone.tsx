@@ -5,8 +5,8 @@ import { ClearCanvasButton } from './ClearCanvasButton'
 function DrawingZone() {
   return (
     <>
-      <Canvas />
-      <ClearCanvasButton />
+      {/* <Canvas />
+      <ClearCanvasButton /> */}
     </>
   )
 

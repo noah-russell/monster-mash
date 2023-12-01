@@ -1,9 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
 // @import '../public/Courgette-Regular.ttf'
 
+// Colour Variables
+$red: rgb(128, 46, 53);
+$lightPurple: rgb(178, 131, 206);
+$whiteIsh: #d1d1d1;
+
+
+
+
+
 html, 
 body {
+  margin:0;
 
+}
+
+
+
+header{
+  display:flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.507);
+  height: 6rem;
+}
+
+nav{
+  position: absolute;
+  top:0;
+  right:0;
+  height: 6rem;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  
+}
+
+nav button{
+  height:4rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;;
+  background-color: $lightPurple;
+  border: transparent solid 2pt;
+}
+
+nav button:hover{
+  background-color: $red;
+  border: solid 2pt $whiteIsh;
+}
+
+.hflex{
+display:flex;
+}
+.vflex{
+  display:flex;
+  flex-direction: column;
+}
+
+h1{
+  font-family: Creepster;
+  font-size: 4rem;
+  font-weight: 100;
+  padding: 0.5rem;
+  margin:0;
+  letter-spacing: 1rem;
+  color: $whiteIsh;
+}
+
+nav p{
+  font-family:'Permanent Marker';
+  font-size:2rem;
+  margin:0 0.5rem;
 }
 
 
@@ -17,30 +84,19 @@ body {
   color: azure;
 }
 
-.header {
-  border: solid 5px;
-  border-color: rgb(223, 238, 20);
-}
-
-.app-layout {
-border: solid 5px;
-border-color: rgb(240, 77, 1);
-}
-
-.hot-seat-mode {
-  border: solid 5px;
-  border-color: rgb(77, 181, 250);
+.header-box{
+  display: flex;
+  justify-content: center;
+  width:100%;
 }
 
 .play-hot-seat {
-  border: solid 5px;
-  border-color: rgb(8, 235, 38);
   display: flex;
   justify-content: left;
 }
 
 .drawing-zone {
-  border: solid 5px;
+  border: solid 1px;
   border-color: rgb(1, 224, 240);
   width: 700px;
   // min-width: 720;
@@ -51,7 +107,7 @@ border-color: rgb(240, 77, 1);
 
 .colin {
   display: flex;
-  border: solid 5px;
+  border: solid 1px;
   border-color: rgb(40, 69, 233);
   height: 700px;
   width: fit-content
@@ -68,74 +124,74 @@ border-color: rgb(240, 77, 1);
 
 
 .welcome {
-  border: solid 5px;
+  border: solid 1px;
   border-color: rgb(182, 230, 9);
 }
 
 // Canvas CSS
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.App {
-  text-align: center;
-}
+// .App {
+//   text-align: center;
+// }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+// .App-logo {
+//   height: 40vmin;
+//   pointer-events: none;
+// }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+// @media (prefers-reduced-motion: no-preference) {
+//   .App-logo {
+//     animation: App-logo-spin infinite 20s linear;
+//   }
+// }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+// .App-header {
+//   background-color: #282c34;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: calc(10px + 2vmin);
+//   color: white;
+// }
 
-.App-link {
-  color: #61dafb;
-}
+// .App-link {
+//   color: #61dafb;
+// }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+// @keyframes App-logo-spin {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+// body {
+//   margin: 0;
+//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+//     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+//     sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+// code {
+//   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+//     monospace;
+// }
 
-button {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  font-size: 32px;
-}
+// button {
+//   position: absolute;
+//   top: 30px;
+//   left: 30px;
+//   font-size: 32px;
+// }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

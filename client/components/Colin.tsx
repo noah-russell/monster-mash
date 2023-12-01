@@ -3,7 +3,7 @@ function Colin() {
     <div className="colin">
       <img
         className="colin-image"
-        src="client/public/colintalk.png"
+        src="client/public/colin.png"
         alt="colin"
       />
     </div>
