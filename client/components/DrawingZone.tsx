@@ -1,13 +1,15 @@
 import React from 'react'
 import { Canvas } from './Canvas'
 import { ClearCanvasButton } from './ClearCanvasButton'
+import { CanvasProvider } from './CanvasContext'
 
 function DrawingZone() {
   return (
-    <>
-    <p>drawing Zone</p>
-      {/* <Canvas />
-      <ClearCanvasButton /> */}
+
+      <CanvasProvider>
+        <Canvas />
+        <ClearCanvasButton />
+      </CanvasProvider>
     </>
   )
 }
