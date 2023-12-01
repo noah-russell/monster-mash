@@ -1,4 +1,15 @@
+import React from 'react'
+import { Canvas } from './Canvas'
+import { ClearCanvasButton } from './ClearCanvasButton'
+
 function DrawingZone() {
-  return <div className="drawing-zone">This is drawing zone!</div>
+  return (
+    <>
+      <Canvas />
+      <ClearCanvasButton />
+    </>
+  )
+
 }
+
 export default DrawingZone
