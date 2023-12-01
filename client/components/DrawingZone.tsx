@@ -9,6 +9,7 @@ function DrawingZone() {
       <ClearCanvasButton />
     </>
   )
+
 }
 
 export default DrawingZone
