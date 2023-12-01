@@ -49,12 +49,21 @@ border-color: rgb(240, 77, 1);
 }
 
 .colin {
+  display: flex;
   border: solid 5px;
   border-color: rgb(40, 69, 233);
-  height: 400px;
-
+  height: 700px;
+  width: fit-content
   
 }
+
+.colin-image {
+ margin-top: auto;
+
+
+
+}
+
 
 .welcome {
   border: solid 5px;
