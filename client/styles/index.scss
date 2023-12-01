@@ -32,6 +32,10 @@ border-color: rgb(240, 77, 1);
   border-color: rgb(77, 181, 250);
 }
 
+div .hot-seat-mode.hidden{
+  display:none;
+}
+
 .play-hot-seat {
   border: solid 5px;
   border-color: rgb(8, 235, 38);

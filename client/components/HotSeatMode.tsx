@@ -1,14 +1,23 @@
 import Welcome from './Welcome'
 import PlayHotSeat from './PlayHotSeat'
+import { useState } from 'react'
 
 function HotSeatMode() {
+  const [isWelcome, setIsWelcome] = useState(true)
+  console.log(isWelcome)
+
   return (
     <>
-      <div className="hot-seat-mode">This is hot seat mode!
-      <PlayHotSeat />
+      <div className={!isWelcome ? 'hot-seat-mode hidden' : 'hot-seat-mode'}>
+        <Welcome props={setIsWelcome}/>
       </div>
-      {/* <Welcome /> */}
-   
+      <div className={isWelcome ? 'hot-seat-mode hidden' : 'hot-seat-mode'}>
+        <p>hot seat mode!</p>
+        <div>
+          <p>another ptag</p>
+        </div>
+        <PlayHotSeat />
+      </div>
     </>
   )
 }
