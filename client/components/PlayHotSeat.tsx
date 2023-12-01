@@ -5,8 +5,15 @@ function PlayHotSeat() {
   return (
     <>
       <div className="play-hot-seat">
-        <Colin />
-        <DrawingZone />
+        <div className="colin">
+          <Colin />
+        </div>
+        <div className="drawing-zone">
+          <DrawingZone />
+        </div>
+        <div className="controls">
+          <div className="colour-controls"></div>
+        </div>
       </div>
     </>
   )

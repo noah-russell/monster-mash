@@ -6,6 +6,9 @@ $red: rgb(128, 46, 53);
 $lightPurple: rgb(178, 131, 206);
 $whiteIsh: #d1d1d1;
 
+*{
+  box-sizing: border-box;
+}
 
 
 
@@ -13,10 +16,10 @@ $whiteIsh: #d1d1d1;
 html, 
 body {
   margin:0;
-
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-
-
 
 header{
   display:flex;
@@ -78,10 +81,9 @@ nav p{
 body {  
   background-image: url("../public/background.png");
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
   font-family: 'agbalumo';
-  color: azure;
+  color: $whiteIsh;
+  background-repeat: no-repeat;
 }
 
 .header-box{
@@ -92,41 +94,35 @@ body {
 
 .play-hot-seat {
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
+  height:30rem;
 }
 
 .drawing-zone {
   border: solid 1px;
   border-color: rgb(1, 224, 240);
-  width: 700px;
-  // min-width: 720;
-  height: 700px;
-  
+  width: 50%;
 }
 
+.controls{
+  width: 25%;
+  border: solid 1px;
+  border-color: rgb(1, 224, 240);
+}
 
 .colin {
   display: flex;
   border: solid 1px;
   border-color: rgb(40, 69, 233);
-  height: 700px;
-  width: fit-content
-  
+  width: 25%;
 }
 
 .colin-image {
  margin-top: auto;
- max-height: min-content;
- max-width: min-content;
-
-
+ width:90%;
 }
 
 
-.welcome {
-  border: solid 1px;
-  border-color: rgb(182, 230, 9);
-}
 
 // Canvas CSS
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

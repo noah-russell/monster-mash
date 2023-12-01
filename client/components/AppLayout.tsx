@@ -6,7 +6,6 @@ function AppLayout() {
     <>
         <Header />
       <div className="app-layout">
-      This is app layout yo!
         <Outlet />
       </div>
     </>
