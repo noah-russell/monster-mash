@@ -39,15 +39,14 @@ border-color: rgb(240, 77, 1);
   justify-content: left;
 }
 
+// New drawing zone to make the canvas size responsive
 .drawing-zone {
   border: solid 5px;
   border-color: rgb(1, 224, 240);
-  width: 700px;
-  // min-width: 720;
-  height: 700px;
-  
+  width: 70%;
+  height: 70vh;
+  max-width: 700px;
 }
-
 
 .colin {
   display: flex;
