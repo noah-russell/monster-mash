@@ -1,11 +1,7 @@
 function Colin() {
   return (
     <div className="colin">
-      <img
-        className="colin-image"
-        src="client/public/colintalk.png"
-        alt="colin"
-      />
+      <img className="colin-image" src="client/public/colin.png" alt="colin" />
     </div>
   )
 }

@@ -5,11 +5,11 @@ import { ClearCanvasButton } from './ClearCanvasButton'
 function DrawingZone() {
   return (
     <>
-      <Canvas />
-      <ClearCanvasButton />
+    <p>drawing Zone</p>
+      {/* <Canvas />
+      <ClearCanvasButton /> */}
     </>
   )
-
 }
 
 export default DrawingZone
