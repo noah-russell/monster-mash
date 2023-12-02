@@ -138,6 +138,11 @@ nav p{
   margin:0 0.5rem;
 }
 
+nav button p:hover{
+  font-size: 2.1rem;
+  color:$whiteIsh;
+}
+
 // ___________________________________________
 // Second Level Component
 .hot-seat-mode{
