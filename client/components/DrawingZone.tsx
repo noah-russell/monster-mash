@@ -5,10 +5,15 @@ import { CanvasProvider } from './CanvasContext'
 import ColorChangeButton from './ColorChangeButton'
 
 function DrawingZone() {
+
+  const color = "purple"
+  
+
+
   return (
     <>
       <CanvasProvider>
-        <Canvas />
+        <Canvas color={color}/>
         <ClearCanvasButton />
         <ColorChangeButton />
       </CanvasProvider>

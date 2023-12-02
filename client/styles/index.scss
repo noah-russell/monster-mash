@@ -208,10 +208,13 @@ nav button p:hover{
 }
 
 .canvas{
-  background-color: $whiteIsh;
+  // background-color: $whiteIsh;
   max-width: 30rem;
   width: 100%;
   aspect-ratio: 1;
+}
+
+canvas{
 }
 
 // _________________________________________
@@ -234,6 +237,10 @@ nav button p:hover{
   flex-direction:column;
   width: 100%;
 }
+
+// __________________________________
+// Drawing Zone
+
 
 // __________________________________
 // Small Screen Size Stuff
