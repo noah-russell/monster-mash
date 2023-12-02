@@ -8,6 +8,7 @@ $lightPurple: rgb(178, 131, 206);
 $highlighterPurple: rgb(208, 150, 242);
 $whiteIsh: #d1d1d1;
 $colinGrey: #aba4a4;
+$speechBubbleGrey: #d2c8c8;
 
 // __________________________________
 // grandparent styling
@@ -162,11 +163,34 @@ nav button p:hover{
 .colin {
   display: flex;
   width: 25%;
+  // this bit is here so that the speech bubble can be overlapping.
+  position: relative;
 }
 
-.colin-image {
+.colin img{
   margin-top: auto;
   width:90%;
+  max-height:80%;
+}
+
+.speech-bubble{
+  position: absolute;
+  margin:1rem ;
+  background-color: $speechBubbleGrey;
+  color: black;
+  padding:1rem;
+  border-radius: 1rem;
+  min-height: 42%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.speech-bubble p{
+  font-family:'Permanent Marker';
+  text-align: center;
+  margin:0;
 }
 // __________________________________________
 // Drawing Zone
