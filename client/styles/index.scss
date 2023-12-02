@@ -185,6 +185,7 @@ nav p{
   width: 25%;
   justify-content: space-between;
   padding:3rem 0.2rem;
+  align-items: center;
 }
 .colour-controls{
   background-image: url('../public/toolbar.png');
@@ -194,6 +195,9 @@ nav p{
   padding:30%;
   margin:-1rem;
   aspect-ratio: 3;
+  display: flex;
+  flex-direction:column;
+  width: 100%;
 }
 
 // __________________________________
