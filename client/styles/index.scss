@@ -1,6 +1,327 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
+// @import '../public/Courgette-Regular.ttf'
+
+// __________________________________
+// Colour Variables
+$red: rgb(128, 46, 53);
+$lightPurple: rgb(178, 131, 206);
+$highlighterPurple: rgb(208, 150, 242);
+$whiteIsh: #d1d1d1;
+$colinGrey: #aba4a4;
+$speechBubbleGrey: #d2c8c8;
+
+// __________________________________
+// grandparent styling
+
+*{
+  box-sizing: border-box;
+}
 
 html, 
 body {
-  font-family: 'Montserrat', sans-serif;
+  margin:0;
+  display:flex;
+  flex-direction: column;
+  height:100%;
 }
+
+body {  
+  background-image: url("../public/background.png");
+  background-size: cover;
+  font-family: 'agbalumo';
+  color: $whiteIsh;
+  background-repeat: no-repeat;
+}
+
+#app{
+  display: flex;
+  flex-direction:column;
+  height:100%;
+}
+
+// _______________________________________________
+// Generic Styling
+img{
+  max-width: 100%;
+}
+
+button{
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;;
+  background-color: $colinGrey;
+  border: transparent solid 2pt;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+button:hover{
+  background-color: $highlighterPurple;
+  border: solid 2pt $whiteIsh;
+}
+button p{
+  font-family:'Permanent Marker';
+  font-size:3rem;
+  margin:0 0.5rem;
+}
+
+
+// ________________________________
+// universal classes
+// can be used anywhere for a quick format
+.hflex{
+  display:flex; 
+}
+.vflex{
+  display:flex;
+  flex-direction: column;
+}
+
+.hidden{
+  display:none;
+}
+
+// ________________________________
+// top level component
+
+.app-layout{
+  height:100%;
+}
+// ________________________________
+// Header Styling
+header{
+  background-color: rgba(0, 0, 0, 0.507);
+  height: 6rem;
+}
+
+.header-box{
+  display: flex;
+  justify-content: center;
+  width:100%;
+}
+
+h1{
+  font-family: Creepster;
+  font-size: 4rem;
+  font-weight: 100;
+  padding: 0.5rem;
+  margin:0;
+  letter-spacing: 1rem;
+  color: $whiteIsh;
+}
+
+nav{
+  position: absolute;
+  top:0;
+  right:0;
+  height: 6rem;
+  align-items: center;
+  justify-content: center;
+  padding:0.5rem;
+}
+
+nav button{
+  height:4rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;;
+  background-color: $lightPurple;
+  border: transparent solid 2pt;
+  width:auto;
+}
+nav button:hover{
+  background-color: $red;
+  border: solid 2pt $whiteIsh;
+}
+
+nav p{
+  font-family:'Permanent Marker';
+  font-size:2rem;
+  margin:0 0.5rem;
+}
+
+nav button p:hover{
+  font-size: 2.1rem;
+  color:$whiteIsh;
+}
+
+// ___________________________________________
+// Second Level Component
+.hot-seat-mode{
+  height:100%;
+}
+
+// __________________________________________
+// Third Level Component
+.play-hot-seat {
+  display: flex;
+  justify-content: space-between;
+  height:100%;
+}
+
+// __________________________________________
+// colin
+.colin {
+  display: flex;
+  max-width: 600px;
+
+  // this bit is here so that the speech bubble can be overlapping.
+  position: relative;
+}
+
+.colin img{
+  margin-top: auto;
+  width:90%;
+  max-height:80%;
+}
+
+.speech-bubble{
+  position: absolute;
+  margin:8% ;
+  background-color: $speechBubbleGrey;
+  color: black;
+  padding:1rem;
+  border-radius: 1rem;
+  min-height: 42%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.speech-bubble p{
+  font-family:'Permanent Marker';
+  text-align: center;
+  margin:0;
+  font-size: 2rem;
+}
+.speech-bubble em{
+  text-align: center;
+  margin:0;
+  font-size: 1.5rem;
+}
+
+// __________________________________________
+// Drawing Zone
+
+.drawing-zone {
+  // width: 50%;
+  justify-content: center;
+  align-items:center;
+}
+
+.canvas{
+  // background-color: $whiteIsh;
+  max-width: 513px;
+  width: 100%;
+  aspect-ratio: 1;
+  border:transparent solid 5pt;
+}
+
+.canvas:hover{
+  border:$lightPurple solid 5pt;
+}
+
+// _________________________________________
+// Controls
+.controls{
+  width: 25%;
+  justify-content: center;
+  padding:3rem 0.2rem;
+  align-items: center;
+  position: relative;
+}
+.colour-controls{
+  position: static;
+  display: flex;
+  flex-direction:column;
+  padding: 10rem 20%;
+  width:100%;
+  height:60%;
+}
+
+.colour-controls-bg{
+  position:static;
+  display:flex;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 120%;
+}
+.controls-img{
+  position:absolute;
+  z-index: -1;
+  width:100%;
+  height: 40%;
+}
+
+// __________________________________
+// Drawing Zone
+
+
+// __________________________________
+// Small Screen Size Stuff
+
+@media only screen and (max-width:1600px){
+  header h1{
+    letter-spacing:1rem;
+    font-size: 4rem;
+    }
+    
+    nav.hflex button{
+      height: 3rem;
+    }
+    nav p{
+      font-size:2rem;
+      margin:0 0.5rem;
+    }
+    
+    nav button p:hover{
+      font-size: 2.1rem;
+    }
+
+    .speech-bubble p{
+      font-size: 1.3rem;
+    }
+
+    .speech-bubble em{
+      font-size: 1.3rem;
+    }
+
+    button{
+      height:3rem;
+      margin: 0.5rem;
+      width: 6rem;
+    }
+
+    button p{
+      font-size:1.5rem;
+      margin:0 0.5rem;
+    }
+
+  }
+
+
+@media only screen and (max-width:1115px){
+  header h1{
+    letter-spacing:0.5rem;
+    font-size: 2.5rem;
+    }
+    nav.hflex button{
+      height: 3rem;
+    }
+    nav button p{
+      font-size:1.5rem;
+      margin:0 0.2rem;
+    }
+    header .header-box{
+      justify-content: left;
+      align-items: center;
+    }
+    header nav{
+      position: static;
+    }
+
+    .speech-bubble p{
+      font-size: 1rem;
+    }
+  }
