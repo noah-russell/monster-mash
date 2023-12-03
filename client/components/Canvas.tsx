@@ -3,7 +3,6 @@ import { useCanvas } from './CanvasContext'
 
 export function Canvas(Props) {
   
-
   const {
     canvasRef,
     prepareCanvas,
@@ -15,8 +14,6 @@ export function Canvas(Props) {
   } = useCanvas()
 
   
-
-
   // Clear canvas on reset to make it white
   useEffect(() => {
     prepareCanvas()

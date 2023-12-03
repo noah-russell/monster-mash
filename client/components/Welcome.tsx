@@ -1,4 +1,5 @@
-function Welcome() {
+function Welcome({setIsWelcome}) {
+
   return <div className="welcome">This is Welcome!</div>
 }
 

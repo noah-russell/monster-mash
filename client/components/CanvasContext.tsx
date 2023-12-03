@@ -23,6 +23,7 @@ export const CanvasProvider = ({ children }) => {
     context.scale(2, 2)
     context.lineCap = 'round'
     context.strokeStyle = brushColor // Use the current brush color
+
     context.lineWidth = 5
     contextRef.current = context
   }
@@ -79,7 +80,5 @@ export const CanvasProvider = ({ children }) => {
   )
 }
 
-export const useCanvas = () => useContext(CanvasContext)
 
-//useLocation
-//useNavigation
+export const useCanvas = () => useContext(CanvasContext)

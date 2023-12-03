@@ -1,7 +1,19 @@
 import Colin from './Colin'
 import DrawingZone from './DrawingZone'
+import { useState } from 'react'
 
 function PlayHotSeat() {
+  const [colour, setColour] = useState('black')
+
+  function handleBlackPencilClick() {
+    setColour('black')
+  }
+
+  function handleRubberClick() {
+    setColour('white')
+  }
+
+  console.log('colourState', colour)
   return (
     <>
       <div className="play-hot-seat">
@@ -17,8 +29,16 @@ function PlayHotSeat() {
           <img className="controls-img" src="client/public/toolbar.png" />
 
           <div className="colour-controls">
-            <img src="client/public/pencil.png" />
-            <img src="client/public/rubber.png" />
+            <img
+              onClick={handleBlackPencilClick}
+              src="client/public/pencil.png"
+              alt="pencil icon"
+            />
+            <img
+              onClick={handleRubberClick}
+              src="client/public/rubber.png"
+              alt="rubber icon"
+            />
           </div>
 
           <button>

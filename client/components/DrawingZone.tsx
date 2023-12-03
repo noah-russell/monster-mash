@@ -4,6 +4,7 @@ import { ClearCanvasButton } from './ClearCanvasButton'
 import { CanvasProvider } from './CanvasContext'
 import ColorChangeButton from './ColorChangeButton'
 
+
 function DrawingZone() {
 
   const color = "purple"
