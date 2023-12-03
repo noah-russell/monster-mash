@@ -2,9 +2,33 @@ import Colin from './Colin'
 import DrawingZone from './DrawingZone'
 import { useState } from 'react'
 import { useCanvas } from './CanvasContext'
+import { useQuery } from '@tanstack/react-query'
 
 function PlayHotSeat() {
+  //useQuery experiment
+
+  // function increaseGameState() {
+  //  return (gameState + 1)
+  // }
+
+  // const {
+  //   data: gameState
+  //   isLoading,
+  //   isError,
+  // } = useQuery({queryKey: ['gameState'], queryFn: increaseGameState})
+
+  //useState experiment
+  const [gameState, setGameState] = useState(0)
+
   const { changeBrushColor } = useCanvas()
+
+  function handleDoneClick() {
+    if (gameState < 2) {
+      setGameState(gameState + 1)
+    } else {
+      setGameState(0)
+    }
+  }
 
   function handleBlackPencilClick() {
     changeBrushColor('black')
@@ -13,7 +37,7 @@ function PlayHotSeat() {
   function handleRubberClick() {
     changeBrushColor('white')
   }
-
+  console.log('gameState', gameState)
   return (
     <>
       <div className="play-hot-seat">
@@ -41,7 +65,7 @@ function PlayHotSeat() {
             />
           </div>
 
-          <button>
+          <button onClick={handleDoneClick}>
             <p>done</p>
           </button>
         </div>
