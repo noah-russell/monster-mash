@@ -26,6 +26,18 @@
   },
 ]
 ```
+<h3>Server API Endpoints</h3>
+<h4>reqests:</h4>
+## Server API Endpoints
+
+| METHOD | ENDPOINT                     | USAGE                                      | RETURNS                     | QUERYKEY
+| ------ | ---------------------------- | ------------------------------------------ | --------------------------- | -------------------------
+| GET    | `/v1/galley`                 | Get a list of all monster artwork          | All artowrk and data        | 'monsters'
+| POST   | `/v1/add`                    | Add a new monster to db                    | Returns empty object        | 'monsters'
+| GET    | `/v1/monster/:id`            | Get single monster by id                   | A single artwork object (*) | 'monsters', id
+| PATCH  | `/v1/monster/:id`            | Edit a monsters name                       | An empty obj                | 'monsters', id
+| DELETE | `/v1/monster/:id/delete`     | Delete a monster obj from DB               | An empty obj                | 'monsters', id
+
 
 
 <h3>What does a day look like?</h3>
