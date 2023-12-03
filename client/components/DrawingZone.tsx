@@ -32,7 +32,7 @@ function DrawingZone() {
       onMouseMove={draw}
       ref={canvasRef}
     />
-        <ColorChangeButton />
+
     </>
   )
 }
