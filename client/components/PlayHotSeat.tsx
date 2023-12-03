@@ -50,18 +50,20 @@ function PlayHotSeat() {
           </div>
         </div>
         <div className="controls vflex">
-          <img className="controls-img" src="client/public/toolbar.png" />
+          <img className="controls-img" src="client/public/toolbar.png" draggable="false" />
 
           <div className="colour-controls">
             <img
               onClick={handleBlackPencilClick}
               src="client/public/pencil.png"
               alt="pencil icon"
+              draggable="false"
             />
             <img
               onClick={handleRubberClick}
               src="client/public/rubber.png"
               alt="rubber icon"
+              draggable="false"
             />
           </div>
 

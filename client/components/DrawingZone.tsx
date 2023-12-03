@@ -10,6 +10,7 @@ function DrawingZone({ gameState }) {
     draw,
     clearCanvas,
     changeBrushColor,
+    handleMouseLeave,
   } = useCanvas()
 
   // Set the intial States
@@ -40,6 +41,7 @@ function DrawingZone({ gameState }) {
           onMouseDown={startDrawing}
           onMouseUp={finishDrawing}
           onMouseMove={draw}
+          onMouseLeave={handleMouseLeave}
           ref={canvasRef}
         />
       </div>
