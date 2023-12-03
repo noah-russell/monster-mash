@@ -1,23 +1,50 @@
-import React from 'react'
-import { Canvas } from './Canvas'
-import { ClearCanvasButton } from './ClearCanvasButton'
-import { CanvasProvider } from './CanvasContext'
-import ColorChangeButton from './ColorChangeButton'
+import { useEffect } from 'react'
+import { useCanvas } from './CanvasContext'
 
+function DrawingZone({ gameState }) {
+  const {
+    canvasRef,
+    prepareCanvas,
+    startDrawing,
+    finishDrawing,
+    draw,
+    clearCanvas,
+    changeBrushColor,
+    handleMouseLeave,
+  } = useCanvas()
 
-function DrawingZone() {
-
-  const color = "purple"
-  
-
+  // Set the intial States
+  useEffect(() => {
+    prepareCanvas()
+    clearCanvas()
+    changeBrushColor()
+  }, [])
 
   return (
     <>
-      <CanvasProvider>
-        <Canvas color={color}/>
-        <ClearCanvasButton />
-        <ColorChangeButton />
-      </CanvasProvider>
+      <div className="canvas-container">
+        <img
+          className={gameState === 1 ? 'question-top' : 'question-top hidden'}
+          src="client/public/question.png"
+          alt="concealed canvas"
+          draggable="false"
+        />
+        <img
+          className={
+            gameState === 0 ? 'question-bottom' : 'question-bottom hidden'
+          }
+          src="client/public/question.png"
+          alt="concealed canvas"
+          draggable="false"
+        />
+        <canvas
+          onMouseDown={startDrawing}
+          onMouseUp={finishDrawing}
+          onMouseMove={draw}
+          onMouseLeave={handleMouseLeave}
+          ref={canvasRef}
+        />
+      </div>
     </>
   )
 }
