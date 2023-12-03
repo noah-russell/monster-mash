@@ -1,6 +1,7 @@
 import Colin from './Colin'
 import DrawingZone from './DrawingZone'
 import { useState } from 'react'
+import { CanvasProvider } from './CanvasContext'
 
 function PlayHotSeat() {
   const [colour, setColour] = useState('black')
@@ -22,7 +23,9 @@ function PlayHotSeat() {
         </div>
         <div className="drawing-zone vflex">
           <div className="canvas">
+          <CanvasProvider>
             <DrawingZone />
+          </CanvasProvider>
           </div>
         </div>
         <div className="controls vflex">
