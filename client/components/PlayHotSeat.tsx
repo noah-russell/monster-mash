@@ -5,7 +5,7 @@ import { useState } from 'react'
 function PlayHotSeat() {
   const [colour, setColour] = useState('black')
 
-  function handleBlackPencilClick(event) {
+  function handleBlackPencilClick() {
     setColour('black')
   }
 
