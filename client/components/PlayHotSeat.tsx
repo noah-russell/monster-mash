@@ -1,19 +1,19 @@
 import Colin from './Colin'
 import DrawingZone from './DrawingZone'
 import { useState } from 'react'
+import { useCanvas } from './CanvasContext'
 
 function PlayHotSeat() {
-  const [colour, setColour] = useState('black')
+  const { changeBrushColor } = useCanvas()
 
   function handleBlackPencilClick() {
-    setColour('black')
+    changeBrushColor('black')
   }
 
   function handleRubberClick() {
-    setColour('white')
+    changeBrushColor('white')
   }
 
-  console.log('colourState', colour)
   return (
     <>
       <div className="play-hot-seat">

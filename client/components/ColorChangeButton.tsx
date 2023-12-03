@@ -1,5 +1,4 @@
 // ColorChangeButton.js
-import React from 'react'
 import { useCanvas } from './CanvasContext'
 
 function ColorChangeButton() {

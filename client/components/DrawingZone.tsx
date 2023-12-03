@@ -1,23 +1,38 @@
-import React from 'react'
-import { Canvas } from './Canvas'
-import { ClearCanvasButton } from './ClearCanvasButton'
-import { CanvasProvider } from './CanvasContext'
 import ColorChangeButton from './ColorChangeButton'
+import { useEffect } from 'react'
+import { useCanvas } from './CanvasContext'
 
 
 function DrawingZone() {
-
-  const color = "purple"
   
+  const {
+    canvasRef,
+    prepareCanvas,
+    startDrawing,
+    finishDrawing,
+    draw,
+    clearCanvas,
+    changeBrushColor
+  } = useCanvas()
 
+  
+  // Set the intial States
+  useEffect(() => {
+    prepareCanvas()
+    clearCanvas()
+    changeBrushColor()
+  }, [])
 
+ 
   return (
     <>
-      <CanvasProvider>
-        <Canvas color={color}/>
-        <ClearCanvasButton />
+        <canvas
+      onMouseDown={startDrawing}
+      onMouseUp={finishDrawing}
+      onMouseMove={draw}
+      ref={canvasRef}
+    />
         <ColorChangeButton />
-      </CanvasProvider>
     </>
   )
 }
