@@ -1,5 +1,20 @@
 <h1>Documentation for Monster-Mash!</h1>
 
+
+
+<h3>React states</h3>
+<h4>Welcome page</h4>
+Welcome page. Colin welcomes you, start button. 
+<h4>Game states</h4>
+<ul>
+  <li>0. (activated by default) Colin says from colinTips[0]. Bottom half of canvas covered.</li>
+  <li>1. (activated with done button onClick)Colin says from colinTips[1]. Top half of canvas is obscured and bottom half is revealed.</li>
+  <li>2. (activated with done button onClick) Colin says from colinTips[2]. Top half is revealed. Name form and save button appear.</li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
 <h3>Schema</h3>
 <h4>Monster artowrk data:</h4>
 
@@ -240,13 +255,7 @@ Passing state into drawing zone to dictate pen colour etc.
 
 
 
-Game State:
-Welcome page. Colin welcomes you, start button. 
-Artist 1. Shows drawing page and half of canvas, colin gives instructions, next player button.
-Artist 2. Second artist can draw. Done button appears.
-Finished drawing. Add monster name and artist names. 
-Save your monster. 
-Go home or gallery.
+
 
 # Boilerplate: Fullstack with Sass
 
