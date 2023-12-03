@@ -5,13 +5,11 @@
 <h3>React states</h3>
 <h4>Welcome page</h4>
 Welcome page. Colin welcomes you, start button. 
-<h4>Game states</h4>
+<h4>Game states (gameState, setGameState)</h4>
 <ul>
   <li>0. (activated by default) Colin says from colinTips[0]. Bottom half of canvas covered.</li>
   <li>1. (activated with done button onClick)Colin says from colinTips[1]. Top half of canvas is obscured and bottom half is revealed.</li>
   <li>2. (activated with done button onClick) Colin says from colinTips[2]. Top half is revealed. Name form and save button appear.</li>
-  <li></li>
-  <li></li>
   <li></li>
 </ul>
 
