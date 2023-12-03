@@ -3,7 +3,7 @@ import PlayHotSeat from './PlayHotSeat'
 import { useState } from 'react'
 
 function HotSeatMode() {
-  const [isWelcome, setIsWelcome] = useState(true)
+  const [isWelcome, setIsWelcome] = useState(false)
   console.log(isWelcome)
 
   return (
