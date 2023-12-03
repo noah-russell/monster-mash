@@ -1,10 +1,7 @@
-import ColorChangeButton from './ColorChangeButton'
 import { useEffect } from 'react'
 import { useCanvas } from './CanvasContext'
 
-
 function DrawingZone() {
-  
   const {
     canvasRef,
     prepareCanvas,
@@ -12,10 +9,9 @@ function DrawingZone() {
     finishDrawing,
     draw,
     clearCanvas,
-    changeBrushColor
+    changeBrushColor,
   } = useCanvas()
 
-  
   // Set the intial States
   useEffect(() => {
     prepareCanvas()
@@ -23,16 +19,14 @@ function DrawingZone() {
     changeBrushColor()
   }, [])
 
- 
   return (
     <>
-        <canvas
-      onMouseDown={startDrawing}
-      onMouseUp={finishDrawing}
-      onMouseMove={draw}
-      ref={canvasRef}
-    />
-
+      <canvas
+        onMouseDown={startDrawing}
+        onMouseUp={finishDrawing}
+        onMouseMove={draw}
+        ref={canvasRef}
+      />
     </>
   )
 }

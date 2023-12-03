@@ -13,13 +13,9 @@ function HotSeatMode() {
         <Welcome props={setIsWelcome} />
       </div>
       <div className={isWelcome ? 'hot-seat-mode hidden' : 'hot-seat-mode'}>
-        <p>hot seat mode!</p>
-        <div>
-          <p>another ptag</p>
-        </div>
-        <CanvasProvider >
-        <PlayHotSeat />
-        </ CanvasProvider >
+        <CanvasProvider>
+          <PlayHotSeat />
+        </CanvasProvider>
       </div>
     </>
   )
