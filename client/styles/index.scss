@@ -140,8 +140,60 @@ nav p{
 }
 
 nav button p:hover{
-  font-size: 2.1rem;
   color:$whiteIsh;
+}
+
+//____________________________________________
+//Welcome
+.welcome-container img{
+  border-radius: 50%;
+  border: solid $lightPurple 1rem;
+  max-width: 30%;
+  margin: 5%;
+}
+
+.welcome-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-bubble{
+ background-color: $speechBubbleGrey;
+ border-radius: 10%;
+ padding: 2rem;
+ margin-right: 2rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
+
+.welcome-bubble h2{
+  color: black;
+  font-family: 'Permanent Marker';
+  font-size: 3rem;
+  line-height: 3rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+
+  
+}
+
+.welcome-flexbox{
+align-items: center;
+justify-content: center;
+
+}
+
+button.welcome{
+  padding: 5%;
+}
+
+button.welcome p{
+  font-size: 2rem;
+}
+button.welcome p:hover{
+  font-size: 2.5rem;
 }
 
 // ___________________________________________
@@ -275,10 +327,6 @@ nav button p:hover{
       margin:0 0.5rem;
     }
     
-    nav button p:hover{
-      font-size: 2.1rem;
-    }
-
     .speech-bubble p{
       font-size: 1.3rem;
     }

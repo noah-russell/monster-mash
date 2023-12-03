@@ -4,13 +4,13 @@ import { useState } from 'react'
 import { CanvasProvider } from './CanvasContext'
 
 function HotSeatMode() {
-  const [isWelcome, setIsWelcome] = useState(false)
-  console.log(isWelcome)
+  const [isWelcome, setIsWelcome] = useState(true)
+  console.log('isWelcome', isWelcome)
 
   return (
     <>
       <div className={!isWelcome ? 'hot-seat-mode hidden' : 'hot-seat-mode'}>
-        <Welcome props={setIsWelcome} />
+        <Welcome setIsWelcome={setIsWelcome} />
       </div>
       <div className={isWelcome ? 'hot-seat-mode hidden' : 'hot-seat-mode'}>
         <CanvasProvider>
