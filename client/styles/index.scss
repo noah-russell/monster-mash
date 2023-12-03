@@ -46,12 +46,11 @@ img{
 }
 
 button{
-  height:3rem;
+  padding: 1rem;
   margin: 0.5rem;
   border-radius: 0.5rem;;
   background-color: $colinGrey;
   border: transparent solid 2pt;
-  width: 6rem;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -62,12 +61,10 @@ button:hover{
 }
 button p{
   font-family:'Permanent Marker';
-  font-size:1.5rem;
+  font-size:3rem;
   margin:0 0.5rem;
 }
-button p:hover{
-  font-size: 1.7rem;
-}
+
 
 // ________________________________
 // universal classes
@@ -162,7 +159,8 @@ nav button p:hover{
 // colin
 .colin {
   display: flex;
-  width: 25%;
+  max-width: 600px;
+
   // this bit is here so that the speech bubble can be overlapping.
   position: relative;
 }
@@ -175,7 +173,7 @@ nav button p:hover{
 
 .speech-bubble{
   position: absolute;
-  margin:1rem ;
+  margin:8% ;
   background-color: $speechBubbleGrey;
   color: black;
   padding:1rem;
@@ -191,51 +189,66 @@ nav button p:hover{
   font-family:'Permanent Marker';
   text-align: center;
   margin:0;
-  font-size: 1.3rem;
+  font-size: 2rem;
 }
 .speech-bubble em{
   text-align: center;
   margin:0;
+  font-size: 1.5rem;
 }
 
 // __________________________________________
 // Drawing Zone
 
 .drawing-zone {
-  width: 50%;
+  // width: 50%;
   justify-content: center;
   align-items:center;
 }
 
 .canvas{
   // background-color: $whiteIsh;
-  max-width: 30rem;
+  max-width: 513px;
   width: 100%;
   aspect-ratio: 1;
+  border:transparent solid 5pt;
 }
 
-canvas{
+.canvas:hover{
+  border:$lightPurple solid 5pt;
 }
 
 // _________________________________________
 // Controls
 .controls{
   width: 25%;
-  justify-content: space-between;
+  justify-content: center;
   padding:3rem 0.2rem;
   align-items: center;
+  position: relative;
 }
 .colour-controls{
-  background-image: url('../public/toolbar.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding:30%;
-  margin:-1rem;
-  aspect-ratio: 3;
+  position: static;
   display: flex;
   flex-direction:column;
-  width: 100%;
+  padding: 10rem 20%;
+  width:100%;
+  height:60%;
+}
+
+.colour-controls-bg{
+  position:static;
+  display:flex;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 120%;
+}
+.controls-img{
+  position:absolute;
+  z-index: -1;
+  width:100%;
+  height: 40%;
 }
 
 // __________________________________
@@ -244,6 +257,47 @@ canvas{
 
 // __________________________________
 // Small Screen Size Stuff
+
+@media only screen and (max-width:1600px){
+  header h1{
+    letter-spacing:1rem;
+    font-size: 4rem;
+    }
+    
+    nav.hflex button{
+      height: 3rem;
+    }
+    nav p{
+      font-size:2rem;
+      margin:0 0.5rem;
+    }
+    
+    nav button p:hover{
+      font-size: 2.1rem;
+    }
+
+    .speech-bubble p{
+      font-size: 1.3rem;
+    }
+
+    .speech-bubble em{
+      font-size: 1.3rem;
+    }
+
+    button{
+      height:3rem;
+      margin: 0.5rem;
+      width: 6rem;
+    }
+
+    button p{
+      font-size:1.5rem;
+      margin:0 0.5rem;
+    }
+
+  }
+
+
 @media only screen and (max-width:1115px){
   header h1{
     letter-spacing:0.5rem;
