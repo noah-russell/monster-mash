@@ -46,7 +46,7 @@ function PlayHotSeat() {
         </div>
         <div className="drawing-zone vflex">
           <div className="canvas">
-            <DrawingZone />
+            <DrawingZone gameState={gameState} />
           </div>
         </div>
         <div className="controls vflex">

@@ -273,6 +273,23 @@ button.welcome p:hover{
   border:$lightPurple solid 5pt;
 }
 
+.canvas-container{
+position: relative;
+}
+
+.question-top{
+position: absolute;
+height: 230px;
+width: 500px;
+}
+
+.question-bottom{
+position: absolute;
+height: 250px;
+width: 500px;
+top: 250px;
+}
+
 // _________________________________________
 // Controls
 .controls{
@@ -306,8 +323,6 @@ button.welcome p:hover{
   height: 40%;
 }
 
-// __________________________________
-// Drawing Zone
 
 
 // __________________________________
