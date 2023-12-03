@@ -1,4 +1,3 @@
-import React from 'react'
 import { useCanvas } from './CanvasContext'
 
 export const ClearCanvasButton = () => {

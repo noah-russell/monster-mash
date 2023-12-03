@@ -1,29 +1,29 @@
+// CanvasProvider.js
 import React, { useContext, useRef, useState } from 'react'
 
 const CanvasContext = React.createContext()
 
 export const CanvasProvider = ({ children }) => {
   const [isDrawing, setIsDrawing] = useState(false)
+  const [brushColor, setBrushColor] = useState('black') // New state for brush color
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
 
-  const [isTopHalfVisible, setTopHalfVisible] = useState(true)
-
-  const toggleTopHalfVisibility = () => {
-    setTopHalfVisible((prev) => !prev)
-  }
-
   const prepareCanvas = () => {
     const canvas = canvasRef.current
-    canvas.width = window.innerWidth * 2
-    canvas.height = window.innerHeight * 2
-    canvas.style.width = `${window.innerWidth}px`
-    canvas.style.height = `${window.innerHeight}px`
+    const canvasWidth = 500 // Adjust as needed
+    const canvasHeight = 500 // Adjust as needed
+
+    canvas.width = canvasWidth * 2
+    canvas.height = canvasHeight * 2
+    canvas.style.width = `${canvasWidth}px`
+    canvas.style.height = `${canvasHeight}px`
 
     const context = canvas.getContext('2d')
     context.scale(2, 2)
     context.lineCap = 'round'
-    context.strokeStyle = 'black'
+    context.strokeStyle = brushColor // Use the current brush color
+
     context.lineWidth = 5
     contextRef.current = context
   }
@@ -45,11 +45,8 @@ export const CanvasProvider = ({ children }) => {
       return
     }
     const { offsetX, offsetY } = nativeEvent
-    const context = contextRef.current
-    if (isTopHalfVisible || offsetY >= canvasRef.current.height / 2) {
-      contextRef.current.lineTo(offsetX, offsetY)
-      contextRef.current.stroke()
-    }
+    contextRef.current.lineTo(offsetX, offsetY)
+    contextRef.current.stroke()
   }
 
   const clearCanvas = () => {
@@ -57,6 +54,11 @@ export const CanvasProvider = ({ children }) => {
     const context = canvas.getContext('2d')
     context.fillStyle = 'white'
     context.fillRect(0, 0, canvas.width, canvas.height)
+  }
+
+  const changeBrushColor = (color) => {
+    setBrushColor(color)
+    contextRef.current.strokeStyle = color
   }
 
   return (
@@ -69,13 +71,14 @@ export const CanvasProvider = ({ children }) => {
         finishDrawing,
         clearCanvas,
         draw,
-        isTopHalfVisible,
-        toggleTopHalfVisibility,
+        brushColor,
+        changeBrushColor,
       }}
     >
       {children}
     </CanvasContext.Provider>
   )
 }
+
 
 export const useCanvas = () => useContext(CanvasContext)

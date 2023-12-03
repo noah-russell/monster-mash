@@ -1,10 +1,15 @@
 function Header() {
   return (
     <>
-      <div className="header">
-        <h1 className="header-text">Monster Mash</h1>
-        <p>Create your creepiest creation!</p>
-      </div>
+      <header className='hflex'>
+        <div className='header-box'>
+        <h1>Monster Mash</h1>
+        </div>
+        <nav className='hflex'>
+          <button><p>Play</p></button>
+          <button><p>Gallery</p></button>
+        </nav>
+      </header>
     </>
   )
 }

@@ -17,12 +17,18 @@ function PlayHotSeat() {
   return (
     <>
       <div className="play-hot-seat">
-        <Colin />
-        <div className="drawing-zone">
-          <DrawingZone />
+        <div className="colin">
+          <Colin />
         </div>
-        <div className="controls">
-          <div className="drawing-tools">
+        <div className="drawing-zone vflex">
+          <div className="canvas">
+            <DrawingZone />
+          </div>
+        </div>
+        <div className="controls vflex">
+          <img className="controls-img" src="client/public/toolbar.png" />
+
+          <div className="colour-controls">
             <img
               onClick={handleBlackPencilClick}
               src="client/public/pencil.png"
@@ -34,7 +40,10 @@ function PlayHotSeat() {
               alt="rubber icon"
             />
           </div>
-          <button>Done</button>
+
+          <button>
+            <p>done</p>
+          </button>
         </div>
       </div>
     </>

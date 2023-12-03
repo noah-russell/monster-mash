@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useCanvas } from './CanvasContext'
 
-export function Canvas() {
+export function Canvas(Props) {
+  
   const {
     canvasRef,
     prepareCanvas,
@@ -9,11 +10,15 @@ export function Canvas() {
     finishDrawing,
     draw,
     clearCanvas,
+    changeBrushColor
   } = useCanvas()
+
+  
   // Clear canvas on reset to make it white
   useEffect(() => {
     prepareCanvas()
     clearCanvas()
+    changeBrushColor(Props.color)
   }, [])
 
   return (
