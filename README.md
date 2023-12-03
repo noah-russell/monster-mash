@@ -45,10 +45,10 @@ Responsibilities and expectations:
 <h3>Git flow and conventions:</h3>
 <h4>Branches:</h4>
 <ul>
-<li>Main. <b>"main"</b> This is our production code and represents the product in its most complete state.</li>
+<li>Main. <b>"main"</b> This is our production code and represents the product in its most complete and stable state.</li>
 
 <li>Dev. <b>“dev”</b> This is our working “merge” branch. This represents our current sprint (of 3 planned) </li>
-<li>Feature Branch. <b>“S1-canvasStamps”</b> This represents a feature currently in development. When starting a new feature a new branch is made, old branches are kept.  </li>
+<li>Feature Branch. <b>“S1-canvas-stamps”</b> This represents a feature currently in development. When starting a new feature a new branch is made, old branches are kept.  </li>
 </ul>
 <h4>Working within the same file:</h4>
 <ul>
