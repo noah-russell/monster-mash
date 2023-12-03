@@ -6,7 +6,7 @@ function Header() {
         <h1>Monster Mash</h1>
         </div>
         <nav className='hflex'>
-          <button><p>Play</p></button>
+          <button><p>New Game</p></button>
           <button><p>Gallery</p></button>
         </nav>
       </header>

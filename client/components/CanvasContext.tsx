@@ -40,6 +40,12 @@ export const CanvasProvider = ({ children }) => {
     setIsDrawing(false)
   }
 
+  const handleMouseLeave = () => {
+    if (isDrawing) {
+      finishDrawing();
+    }
+  };
+
   const draw = ({ nativeEvent }) => {
     if (!isDrawing) {
       return
@@ -73,6 +79,7 @@ export const CanvasProvider = ({ children }) => {
         draw,
         brushColor,
         changeBrushColor,
+        handleMouseLeave,
       }}
     >
       {children}
