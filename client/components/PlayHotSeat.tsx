@@ -42,7 +42,7 @@ function PlayHotSeat() {
     <>
       <div className="play-hot-seat">
         <div className="colin">
-          <Colin />
+          <Colin gameState={gameState} />
         </div>
         <div className="drawing-zone vflex">
           <div className="canvas">
