@@ -26,6 +26,7 @@ function DrawingZone({ gameState }) {
           className={gameState === 1 ? 'question-top' : 'question-top hidden'}
           src="client/public/question.png"
           alt="concealed canvas"
+          draggable="false"
         />
         <img
           className={
@@ -33,6 +34,7 @@ function DrawingZone({ gameState }) {
           }
           src="client/public/question.png"
           alt="concealed canvas"
+          draggable="false"
         />
         <canvas
           onMouseDown={startDrawing}
