@@ -11,3 +11,19 @@ export async function getAllMonsters(): Promise<Monster[]> {
     throw error
   }
 }
+
+export async function addMonster(newMonsterData) {
+  try {
+    const [insertedId] = await connection('monsters').insert({
+      monster_name: newMonsterData.monster_name,
+      top_artist: newMonsterData.top_artist,
+      bottom_artist: newMonsterData.bottom_artist,
+      image_url: newMonsterData.image_url,
+      date_created: newMonsterData.date_created,
+    });
+    return insertedId
+  } catch (error) {
+    console.error('Error in addArt:', error);
+    throw error;
+  }
+}

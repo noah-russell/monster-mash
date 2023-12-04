@@ -26,12 +26,11 @@ router.post('/add', upload.single('file'), async (req, res) => {
       res.status(400).json({ error: 'No file uploaded' });
       return;
     }
-
     const monsterDataForDb = {
       monster_name: req.body.monster_name,
       top_artist: req.body.top_artist,
       bottom_artist: req.body.bottom_artist,
-      imageUrl: `/${req.file.filename}`,
+      image_url: `/${req.file.filename}`,
     };
     console.log('monster Data For Db')
     console.log(monsterDataForDb)
