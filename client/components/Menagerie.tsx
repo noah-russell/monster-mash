@@ -13,17 +13,23 @@ function Menagerie() {
   } = useQuery(['monsters'], getAllMonsters, {})
   return (
     <>
-    <div className='menagerie'>
-      {monsters && monsters.map((monster) =>{ 
-        return(
-          <>
-            <div className='menagerie-item'>
-              <img src={monster.image_url} />
-            </div>  
-          </>
-        )}  
-      )}
-    </div>
+      <div className="menagerie">
+        {monsters &&
+          monsters.map((monster) => {
+            return (
+              <>
+                <div className="menagerie-item">
+                  <Link to={`/monster/${monster.id}`}>
+                    <img
+                      src={monster.image_url}
+                      alt="Monster gallery thumbnail"
+                    />
+                  </Link>
+                </div>
+              </>
+            )
+          })}
+      </div>
     </>
   )
 }
