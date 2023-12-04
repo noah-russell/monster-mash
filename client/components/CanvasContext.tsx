@@ -1,18 +1,20 @@
 // CanvasProvider.js
 import React, { useContext, useRef, useState } from 'react'
 
-const CanvasContext = React.createContext()
+const CanvasContext = React.createContext({})
 
 export const CanvasProvider = ({ children }) => {
   const [isDrawing, setIsDrawing] = useState(false)
-  const [brushColor, setBrushColor] = useState('black') // New state for brush color
+  const [brushColor, setBrushColor] = useState('black')
+  
+
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
 
   const prepareCanvas = () => {
     const canvas = canvasRef.current
-    const canvasWidth = 500 // Adjust as needed
-    const canvasHeight = 500 // Adjust as needed
+    const canvasWidth = 500 
+    const canvasHeight = 500 
 
     canvas.width = canvasWidth * 2
     canvas.height = canvasHeight * 2
@@ -22,8 +24,7 @@ export const CanvasProvider = ({ children }) => {
     const context = canvas.getContext('2d')
     context.scale(2, 2)
     context.lineCap = 'round'
-    context.strokeStyle = brushColor // Use the current brush color
-
+    context.strokeStyle = brushColor 
     context.lineWidth = 5
     contextRef.current = context
   }
@@ -42,9 +43,9 @@ export const CanvasProvider = ({ children }) => {
 
   const handleMouseLeave = () => {
     if (isDrawing) {
-      finishDrawing();
+      finishDrawing()
     }
-  };
+  }
 
   const draw = ({ nativeEvent }) => {
     if (!isDrawing) {
@@ -67,6 +68,16 @@ export const CanvasProvider = ({ children }) => {
     contextRef.current.strokeStyle = color
   }
 
+  const saveCanvasAsImage = () => {
+    const dataURL = canvasRef.current.toDataURL('image/png')
+    const link = document.createElement('a')
+    link.href = dataURL
+    link.download = 'canvas_image.png'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   return (
     <CanvasContext.Provider
       value={{
@@ -80,12 +91,12 @@ export const CanvasProvider = ({ children }) => {
         brushColor,
         changeBrushColor,
         handleMouseLeave,
+        saveCanvasAsImage,
       }}
     >
       {children}
     </CanvasContext.Provider>
   )
 }
-
 
 export const useCanvas = () => useContext(CanvasContext)

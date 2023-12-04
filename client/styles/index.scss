@@ -31,6 +31,7 @@ body {
   font-family: 'agbalumo';
   color: $whiteIsh;
   background-repeat: no-repeat;
+  height:100%;
 }
 
 #app{
@@ -114,6 +115,7 @@ header{
   justify-content: center;
   width:100%;
   align-items: center;
+  height:7rem;
 }
 
 h1{
@@ -143,6 +145,7 @@ nav button{
   background-color: $lightPurple;
   border: transparent solid 2pt;
   width:auto;
+  max-width:200px;
 }
 nav button:hover{
   background-color: $red;
@@ -153,6 +156,7 @@ nav p{
   font-family:'Permanent Marker';
   font-size:2rem;
   margin:0 0.5rem;
+  line-height: 1.2rem;
 }
 
 nav button p:hover{
@@ -166,14 +170,13 @@ nav button p:hover{
   border: solid $lightPurple 1rem;
   max-width: 30%;
   margin: 5%;
-  
 }
 
 .welcome-container{
   display:flex;
   flex-direction: column;
   align-items: center;
-  padding: 5% 10%;
+  padding: rem, 5rem, 5rem, 5rem;
 }
 
 .welcome-bubble{
@@ -193,6 +196,7 @@ nav button p:hover{
   line-height: 3rem;
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
+  font-weight: 200;
 }
 
 .welcome-flexbox{
@@ -392,6 +396,22 @@ user-select: none;
 .controls button:active{
   border: solid 0.3rem black;
 }
+// _________________________________
+// MENAGERIE
+
+.menagerie{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.menagerie img{
+  width:100px;
+}
+
+.menagerie-item{
+  margin:1rem;
+}
+
 
 
 
@@ -434,7 +454,7 @@ user-select: none;
   }
 
 
-@media only screen and (max-width:1200px){
+@media only screen and (max-width:1300px){
   header h1{
     letter-spacing:0.5rem;
     font-size: 2.5rem;

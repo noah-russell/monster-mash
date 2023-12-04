@@ -44,6 +44,7 @@ function DrawingZone({ gameState }) {
           onMouseLeave={handleMouseLeave}
           ref={canvasRef}
         />
+
       </div>
     </>
   )

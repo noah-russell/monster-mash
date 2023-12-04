@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function Header() {
   return (
     <>
@@ -6,8 +8,12 @@ function Header() {
         <h1>Monster Mash</h1>
         </div>
         <nav className='hflex'>
-          <button><p>New Game</p></button>
-          <button><p>Gallery</p></button>
+          <Link to="/">
+            <button><p>New Game</p></button>
+          </Link>
+          <Link to="/menagerie">
+            <button><p>Monster Menagerie</p></button>
+          </Link>
         </nav>
       </header>
     </>
