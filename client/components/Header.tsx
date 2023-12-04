@@ -7,7 +7,7 @@ function Header() {
         </div>
         <nav className='hflex'>
           <button><p>New Game</p></button>
-          <button><p>Gallery</p></button>
+          <button><p>Monster Menagerie</p></button>
         </nav>
       </header>
     </>
