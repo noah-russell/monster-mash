@@ -1,10 +1,25 @@
 import { useCanvas } from './CanvasContext'
+import { useState } from "react"
+import { uploadMonster } from "../apis/apiClient"
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 function SubmitMonsterForm() {
-
   const { canvasRef, saveCanvasAsImage } = useCanvas()
   const [blob, setBlob] = useState()
   const formData = new FormData();
+  const hardCodedArtists = ['simon', 'cindy']
+  const hardCodedMonsterName = ['lemon-breath']
+
+  const queryClient = useQueryClient()
+
+  const uploadArtMutation = useMutation({ 
+    mutationFn: uploadMonster, 
+    onSuccess: async()=>{
+      console.log("invalidate queries loop for add")
+      queryClient.invalidateQueries({queryKey:['monsters']})
+    }
+  })
+
 
   const generateBlob = async () => {
     const dataURL = canvasRef.current.toDataURL('image/png')
