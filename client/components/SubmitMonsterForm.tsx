@@ -5,7 +5,6 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 function SubmitMonsterForm() {
   const { canvasRef, saveCanvasAsImage } = useCanvas()
-  const [blob, setBlob] = useState()
   const formData = new FormData();
 
   // ____________________________________________________________
@@ -14,6 +13,7 @@ function SubmitMonsterForm() {
   const hardCodedMonsterName = 'lemon-breath'
   // Destructure hard coded data so that the code below will 
   // be the same when we add the real values
+  
   const top_artist = hardCodedArtists[0]
   const bottom_artist = hardCodedArtists[1]
   const monster_name = hardCodedMonsterName
@@ -26,7 +26,6 @@ function SubmitMonsterForm() {
     const generateFormDataWithBlob = async () => {
     const dataURL = canvasRef.current.toDataURL('image/png')
     const blobData = await fetch(dataURL).then((res) => res.blob())
-    setBlob(blobData);
     formData.append('file', blobData)
   }
 
