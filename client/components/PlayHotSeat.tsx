@@ -38,7 +38,7 @@ function PlayHotSeat() {
   function handleRubberClick() {
     changeBrushColor('white')
   }
-  console.log('gameState', gameState)
+  // console.log('gameState', gameState)
   return (
     <>
       <div className="play-hot-seat">

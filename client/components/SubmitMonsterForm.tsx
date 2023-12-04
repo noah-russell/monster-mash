@@ -1,6 +1,6 @@
 import { useCanvas } from './CanvasContext'
 import { useState } from "react"
-import { uploadMonster } from "../apis/apiClient"
+import { uploadMonster } from "../apiFunctions"
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 function SubmitMonsterForm() {
@@ -27,7 +27,7 @@ function SubmitMonsterForm() {
     const dataURL = canvasRef.current.toDataURL('image/png')
     const blobData = await fetch(dataURL).then((res) => res.blob())
     setBlob(blobData);
-    formData.append('file', blob)
+    formData.append('file', blobData)
   }
 
   const uploadMonsterMutation = useMutation({ 
@@ -40,7 +40,7 @@ function SubmitMonsterForm() {
 
   const uploadMonsterToMenagerie = async (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
-    generateFormDataWithBlob()
+    await generateFormDataWithBlob()
     formData.append("monster_name", monster_name);
     formData.append("top_artist", top_artist);
     formData.append("bottom_artist", bottom_artist);

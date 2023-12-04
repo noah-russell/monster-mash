@@ -9,6 +9,8 @@ export async function getAllMonsters(){
 
 
 export async function uploadMonster(formData: FormData){
+  console.log('api function')
+  console.log(formData)
   const response = await request
   .post('api/v1/add')
   .send(formData)
