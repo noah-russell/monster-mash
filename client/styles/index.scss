@@ -396,6 +396,22 @@ user-select: none;
 .controls button:active{
   border: solid 0.3rem black;
 }
+// _________________________________
+// MENAGERIE
+
+.menagerie{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.menagerie img{
+  width:100px;
+}
+
+.menagerie-item{
+  margin:1rem;
+}
+
 
 
 
