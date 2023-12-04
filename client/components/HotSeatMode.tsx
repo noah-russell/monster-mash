@@ -6,7 +6,6 @@ import SubmitMonsterForm from './SubmitMonsterForm'
 
 function HotSeatMode() {
   const [isWelcome, setIsWelcome] = useState(true)
-  console.log('isWelcome', isWelcome)
 
   return (
     <>

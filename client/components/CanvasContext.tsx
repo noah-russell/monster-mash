@@ -6,15 +6,15 @@ const CanvasContext = React.createContext({})
 export const CanvasProvider = ({ children }) => {
   const [isDrawing, setIsDrawing] = useState(false)
   const [brushColor, setBrushColor] = useState('black')
-  let [formData, setFormData] = useState()
-  // New state for brush color
+  
+
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
 
   const prepareCanvas = () => {
     const canvas = canvasRef.current
-    const canvasWidth = 500 // Adjust as needed
-    const canvasHeight = 500 // Adjust as needed
+    const canvasWidth = 500 
+    const canvasHeight = 500 
 
     canvas.width = canvasWidth * 2
     canvas.height = canvasHeight * 2
@@ -24,8 +24,7 @@ export const CanvasProvider = ({ children }) => {
     const context = canvas.getContext('2d')
     context.scale(2, 2)
     context.lineCap = 'round'
-    context.strokeStyle = brushColor // Use the current brush color
-
+    context.strokeStyle = brushColor 
     context.lineWidth = 5
     contextRef.current = context
   }
@@ -70,9 +69,7 @@ export const CanvasProvider = ({ children }) => {
   }
 
   const saveCanvasAsImage = () => {
-    const canvas = canvasRef.current
-    const dataURL = canvas.toDataURL('image/png')
-
+    const dataURL = canvasRef.current.toDataURL('image/png')
     const link = document.createElement('a')
     link.href = dataURL
     link.download = 'canvas_image.png'
@@ -80,27 +77,6 @@ export const CanvasProvider = ({ children }) => {
     link.click()
     document.body.removeChild(link)
   }
-
-  //put formData into state
-  // let formData
-
-  const saveCanvasToGallery = async () => {
-    const canvas = canvasRef.current
-    const dataURL = canvas.toDataURL('image/png')
-
-    // Convert data URL to Blob
-    const blob = await fetch(dataURL).then((res) => res.blob())
-
-    // Create a FormData object
-    formData = new FormData()
-    formData.append('canvasImage', blob, 'canvas_image.png')
-    // setFormData = formData
-    console.log('CanvasContext Formdata', formData)
-  }
-
-  // useEffect(() => {
-  //   saveCanvasToGallery()
-  // }, [saveCanvasToGallery])
 
   return (
     <CanvasContext.Provider
@@ -116,8 +92,6 @@ export const CanvasProvider = ({ children }) => {
         changeBrushColor,
         handleMouseLeave,
         saveCanvasAsImage,
-        saveCanvasToGallery,
-        formData,
       }}
     >
       {children}

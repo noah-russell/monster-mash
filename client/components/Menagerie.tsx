@@ -11,7 +11,6 @@ function Menagerie() {
     isError,
     error,
   } = useQuery(['monsters'], getAllMonsters, {})
-  console.log(monsters)
   return (
     <>
       {monsters.map((monster) => (
