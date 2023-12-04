@@ -12,7 +12,13 @@ function Menagerie() {
     error,
   } = useQuery(['monsters'], getAllMonsters, {})
   console.log(monsters)
-  return <></>
+  return (
+    <>
+      {monsters.map((monster) => (
+        <img src={monster.image_url} />
+      ))}
+    </>
+  )
 }
 
 export default Menagerie
