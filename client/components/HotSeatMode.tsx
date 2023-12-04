@@ -6,11 +6,18 @@ import SubmitMonsterForm from './SubmitMonsterForm'
 
 function HotSeatMode() {
   const [isWelcome, setIsWelcome] = useState(true)
+  const [artistNames, setArtistNames] = useState(['', ''])
+  const props = {
+    setArtistNames,
+    setIsWelcome,
+  }
+  console.log(isWelcome)
+  console.log(artistNames)
 
   return (
     <>
       <div className={!isWelcome ? 'hot-seat-mode hidden' : 'hot-seat-mode'}>
-        <Welcome setIsWelcome={setIsWelcome} />
+        <Welcome {...props} />
       </div>
       <div className={isWelcome ? 'hot-seat-mode hidden' : 'hot-seat-mode'}>
         <CanvasProvider>
