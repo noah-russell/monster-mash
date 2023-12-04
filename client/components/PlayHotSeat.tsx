@@ -3,6 +3,7 @@ import DrawingZone from './DrawingZone'
 import { useState } from 'react'
 import { useCanvas } from './CanvasContext'
 import { useQuery } from '@tanstack/react-query'
+import SubmitMonsterForm from './SubmitMonsterForm'
 
 function PlayHotSeat() {
   //useQuery experiment
@@ -50,7 +51,11 @@ function PlayHotSeat() {
           </div>
         </div>
         <div className="controls vflex">
-          <img className="controls-img" src="client/public/toolbar.png" draggable="false" />
+          <img
+            className="controls-img"
+            src="client/public/toolbar.png"
+            draggable="false"
+          />
 
           <div className="colour-controls">
             <img
@@ -70,6 +75,9 @@ function PlayHotSeat() {
           <button onClick={handleDoneClick}>
             <p>done</p>
           </button>
+          <div>
+            <SubmitMonsterForm gameState={gameState} />
+          </div>
         </div>
       </div>
     </>

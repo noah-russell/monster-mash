@@ -90,31 +90,8 @@ export const CanvasProvider = ({ children }) => {
     const formData = new FormData()
     formData.append('canvasImage', blob, 'canvas_image.png')
 
-    // Make a POST request to the server
-    fetch('/upload', {
-      method: 'POST',
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Server response:', data)
-      })
-      .catch((error) => {
-        console.error('Error sending canvas data to the server:', error)
-      })
+    console.log(formData)
   }
-
-  // - - - - - Save image as base64 string - - - - - //
-
-  // const saveCanvasToGallery = () => {
-  //   const canvas = canvasRef.current
-  //   const dataURL = canvas.toDataURL('image/png')
-  //   const base64ImageData = dataURL.replace(/^data:image\/\w+;base64,/, '')
-  //   return base64ImageData
-  // }
-
-  // const imageData = saveCanvasToGallery()
-  // console.log('Base64 Image Data:', imageData)
 
   return (
     <CanvasContext.Provider
