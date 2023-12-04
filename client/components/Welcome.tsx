@@ -1,23 +1,25 @@
 import { useState } from 'react'
 
-function Welcome({ setIsWelcome, setArtistNames }) {
-  const [topArtist, setTopArtist] = useState('')
-  const [bottomArtist, setBottomArtist] = useState('')
+function Welcome({ setIsWelcome, setTopArtist, setBottomArtist }) {
+  const [dummyTopArtist, setDummyTopArtist] = useState('')
+  const [dummyBottomArtist, setDummyBottomArtist] = useState('')
 
   const handleTopArtistChange = (event: React.ChangeEvent<HTMLFormElement>) => {
     setTopArtist(event.target.value)
+    setDummyTopArtist(event.target.value)
   }
   const handleBottomArtistChange = (
     event: React.ChangeEvent<HTMLFormElement>,
   ) => {
     setBottomArtist(event.target.value)
+    setDummyBottomArtist(event.target.value)
   }
-  console.log(topArtist, bottomArtist)
 
   const handleStart = async (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setArtistNames([topArtist, bottomArtist])
+    setIsWelcome(false)
   }
+
   return (
     <div className="welcome-container">
       <div className="welcome-flexbox hflex">
@@ -41,7 +43,6 @@ function Welcome({ setIsWelcome, setArtistNames }) {
           <input
             type="text"
             name="topArtist"
-            // value=
             onChange={handleTopArtistChange}
             required
           />
@@ -51,7 +52,6 @@ function Welcome({ setIsWelcome, setArtistNames }) {
           <input
             type="text"
             name="bottomArtist"
-            // value=
             onChange={handleBottomArtistChange}
             required
           />
@@ -60,10 +60,8 @@ function Welcome({ setIsWelcome, setArtistNames }) {
 
         <button
           className="welcome"
-          disabled={!topArtist || !bottomArtist}
-          onClick={() => {
-            setIsWelcome(false)
-          }}
+          onClick={handleStart}
+          disabled={!dummyTopArtist || !dummyBottomArtist}
         >
           <p>Start</p>
         </button>
