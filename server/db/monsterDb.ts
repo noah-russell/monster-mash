@@ -19,7 +19,7 @@ export async function addMonster(newMonsterData) {
       top_artist: newMonsterData.top_artist,
       bottom_artist: newMonsterData.bottom_artist,
       image_url: newMonsterData.image_url,
-      date_created: newMonsterData.date_created,
+      date_created: new Date(),
     });
     return insertedId
   } catch (error) {

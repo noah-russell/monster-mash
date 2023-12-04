@@ -30,7 +30,7 @@ router.post('/add', upload.single('file'), async (req, res) => {
       monster_name: req.body.monster_name,
       top_artist: req.body.top_artist,
       bottom_artist: req.body.bottom_artist,
-      image_url: `/${req.file.filename}`,
+      image_url: `monsters/${req.file.filename}`,
     };
     console.log('monster Data For Db')
     console.log(monsterDataForDb)
