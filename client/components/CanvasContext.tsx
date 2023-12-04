@@ -1,11 +1,13 @@
 // CanvasProvider.js
 import React, { useContext, useEffect, useRef, useState } from 'react'
 
-const CanvasContext = React.createContext()
+const CanvasContext = React.createContext({})
 
 export const CanvasProvider = ({ children }) => {
   const [isDrawing, setIsDrawing] = useState(false)
-  const [brushColor, setBrushColor] = useState('black') // New state for brush color
+  const [brushColor, setBrushColor] = useState('black')
+  let [formData, setFormData] = useState()
+  // New state for brush color
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
 
@@ -79,7 +81,8 @@ export const CanvasProvider = ({ children }) => {
     document.body.removeChild(link)
   }
 
-  let formData
+  //put formData into state
+  // let formData
 
   const saveCanvasToGallery = async () => {
     const canvas = canvasRef.current
@@ -91,7 +94,8 @@ export const CanvasProvider = ({ children }) => {
     // Create a FormData object
     formData = new FormData()
     formData.append('canvasImage', blob, 'canvas_image.png')
-    console.log('not this one', formData)
+    // setFormData = formData
+    console.log('CanvasContext Formdata', formData)
   }
 
   // useEffect(() => {

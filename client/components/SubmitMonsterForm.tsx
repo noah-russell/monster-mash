@@ -3,28 +3,13 @@ import { useCanvas } from './CanvasContext'
 import { useEffect, useState } from 'react'
 
 function SubmitMonsterForm() {
-  const {
-    canvasRef,
-    contextRef,
-    prepareCanvas,
-    startDrawing,
-    finishDrawing,
-    clearCanvas,
-    draw,
-    brushColor,
-    changeBrushColor,
-    handleMouseLeave,
-    saveCanvasAsImage,
-    saveCanvasToGallery,
-    formData,
-  } = useCanvas()
+  const { formData } = useCanvas()
 
-  useEffect(() => {
-    saveCanvasToGallery()
-  }, [saveCanvasToGallery])
+  // useEffect(() => {
+  //   saveCanvasToGallery()
+  // }, [saveCanvasToGallery])
 
-  console.log('formComponent', formData)
-  return <></>
+  console.log('formComponent Formdata', formData)
 }
 
 export default SubmitMonsterForm
