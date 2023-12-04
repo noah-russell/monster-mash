@@ -13,7 +13,7 @@ function Menagerie() {
   } = useQuery(['monsters'], getAllMonsters, {})
   return (
     <>
-      {monsters.map((monster) => (
+      {monsters && monsters.map((monster) => (
         <img src={monster.image_url} />
       ))}
     </>
