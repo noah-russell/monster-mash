@@ -1,6 +1,4 @@
-import { Form } from 'react-router-dom'
 import { useCanvas } from './CanvasContext'
-import { useEffect, useState } from 'react'
 
 function SubmitMonsterForm() {
 
@@ -12,7 +10,7 @@ function SubmitMonsterForm() {
     const dataURL = canvasRef.current.toDataURL('image/png')
     const blobData = await fetch(dataURL).then((res) => res.blob())
     setBlob(blobData);
-    formData.append('canvasImage', blob)
+    formData.append('file', blob)
   }
 
   console.log(formData)

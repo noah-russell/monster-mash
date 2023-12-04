@@ -11,9 +11,6 @@ function DrawingZone({ gameState }) {
     clearCanvas,
     changeBrushColor,
     handleMouseLeave,
-    saveCanvasAsImage,
-    saveCanvasToGallery,
-    formData
   } = useCanvas()
 
   // Set the intial States
