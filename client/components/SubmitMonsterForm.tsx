@@ -1,54 +1,30 @@
 import { Form } from 'react-router-dom'
 import { useCanvas } from './CanvasContext'
+import { useEffect, useState } from 'react'
 
-function SubmitMonsterForm({ formData }) {
+function SubmitMonsterForm() {
   const {
     canvasRef,
+    contextRef,
     prepareCanvas,
     startDrawing,
     finishDrawing,
-    draw,
     clearCanvas,
+    draw,
+    brushColor,
     changeBrushColor,
     handleMouseLeave,
     saveCanvasAsImage,
-    // saveCanvasToGallery,
+    saveCanvasToGallery,
+    formData,
   } = useCanvas()
 
-  const [addMonsterState, setAddMonsterState] = useState({
-    id: '',
-    monster_name: '',
-    top_artist: '',
-    bottom_artist: '',
-    date_created: '',
-    image_url: '',
-  })
+  useEffect(() => {
+    saveCanvasToGallery()
+  }, [saveCanvasToGallery])
 
-  const addMonsterMutation = function handleMonsterNameChange() {}
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    addMonsterMutation.mutate(addMonsterState)
-  }
-
-  return (
-    <div>
-      <form action="/" onSubmit={handleSubmit} method="post">
-        <label htmlFor="monster_name">Name your Monster: </label>
-        <input
-          type="text"
-          id="monster_name"
-          value={taskState.title}
-          onChange={handleTitleChange}
-          required={true}
-          placeholder="Your task title"
-        />
-        <button className="add" type="submit">
-          Add
-        </button>
-      </form>
-    </div>
-  )
+  console.log('formComponent', formData)
+  return <></>
 }
 
 export default SubmitMonsterForm

@@ -1,5 +1,5 @@
 // CanvasProvider.js
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 
 const CanvasContext = React.createContext()
 
@@ -79,6 +79,8 @@ export const CanvasProvider = ({ children }) => {
     document.body.removeChild(link)
   }
 
+  let formData
+
   const saveCanvasToGallery = async () => {
     const canvas = canvasRef.current
     const dataURL = canvas.toDataURL('image/png')
@@ -87,11 +89,14 @@ export const CanvasProvider = ({ children }) => {
     const blob = await fetch(dataURL).then((res) => res.blob())
 
     // Create a FormData object
-    const formData = new FormData()
+    formData = new FormData()
     formData.append('canvasImage', blob, 'canvas_image.png')
-
-    console.log(formData)
+    console.log('not this one', formData)
   }
+
+  // useEffect(() => {
+  //   saveCanvasToGallery()
+  // }, [saveCanvasToGallery])
 
   return (
     <CanvasContext.Provider
@@ -108,6 +113,7 @@ export const CanvasProvider = ({ children }) => {
         handleMouseLeave,
         saveCanvasAsImage,
         saveCanvasToGallery,
+        formData,
       }}
     >
       {children}

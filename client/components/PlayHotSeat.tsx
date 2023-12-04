@@ -76,7 +76,7 @@ function PlayHotSeat() {
             <p>done</p>
           </button>
           <div>
-            <SubmitMonsterForm gameState={gameState} />
+            <SubmitMonsterForm />
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import Welcome from './Welcome'
 import PlayHotSeat from './PlayHotSeat'
 import { useState } from 'react'
 import { CanvasProvider } from './CanvasContext'
+import SubmitMonsterForm from './SubmitMonsterForm'
 
 function HotSeatMode() {
   const [isWelcome, setIsWelcome] = useState(true)
