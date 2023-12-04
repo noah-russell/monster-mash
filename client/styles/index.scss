@@ -31,6 +31,7 @@ body {
   font-family: 'agbalumo';
   color: $whiteIsh;
   background-repeat: no-repeat;
+  height:100%;
 }
 
 #app{
@@ -175,7 +176,7 @@ nav button p:hover{
   display:flex;
   flex-direction: column;
   align-items: center;
-  padding: 5% 10%;
+  padding: rem, 5rem, 5rem, 5rem;
 }
 
 .welcome-bubble{
