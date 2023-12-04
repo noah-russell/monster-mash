@@ -3,7 +3,7 @@ import { useState } from "react"
 import { uploadMonster } from "../apiFunctions"
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
-function SubmitMonsterForm() {
+function SubmitMonsterForm({topArtist, bottomArtist, gameState}) {
   const { canvasRef, saveCanvasAsImage } = useCanvas()
   const formData = new FormData();
 
@@ -14,8 +14,8 @@ function SubmitMonsterForm() {
   // Destructure hard coded data so that the code below will 
   // be the same when we add the real values
   
-  const top_artist = hardCodedArtists[0]
-  const bottom_artist = hardCodedArtists[1]
+  const top_artist = topArtist
+  const bottom_artist = bottomArtist
   const monster_name = hardCodedMonsterName
 
   // ____________________________________________________________
