@@ -11,6 +11,8 @@ function DrawingZone({ gameState }) {
     clearCanvas,
     changeBrushColor,
     handleMouseLeave,
+    saveCanvasAsImage,
+    saveCanvasToGallery,
   } = useCanvas()
 
   // Set the intial States
@@ -44,6 +46,8 @@ function DrawingZone({ gameState }) {
           onMouseLeave={handleMouseLeave}
           ref={canvasRef}
         />
+        <button onClick={saveCanvasAsImage}>Save as Image</button>
+        <button onClick={saveCanvasToGallery}>Save to Gallery</button>
       </div>
     </>
   )

@@ -42,9 +42,9 @@ export const CanvasProvider = ({ children }) => {
 
   const handleMouseLeave = () => {
     if (isDrawing) {
-      finishDrawing();
+      finishDrawing()
     }
-  };
+  }
 
   const draw = ({ nativeEvent }) => {
     if (!isDrawing) {
@@ -67,6 +67,55 @@ export const CanvasProvider = ({ children }) => {
     contextRef.current.strokeStyle = color
   }
 
+  const saveCanvasAsImage = () => {
+    const canvas = canvasRef.current
+    const dataURL = canvas.toDataURL('image/png')
+
+    const link = document.createElement('a')
+    link.href = dataURL
+    link.download = 'canvas_image.png'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
+  const saveCanvasToGallery = async () => {
+    const canvas = canvasRef.current
+    const dataURL = canvas.toDataURL('image/png')
+
+    // Convert data URL to Blob
+    const blob = await fetch(dataURL).then((res) => res.blob())
+
+    // Create a FormData object
+    const formData = new FormData()
+    formData.append('canvasImage', blob, 'canvas_image.png')
+
+    // Make a POST request to the server
+    fetch('/upload', {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Server response:', data)
+      })
+      .catch((error) => {
+        console.error('Error sending canvas data to the server:', error)
+      })
+  }
+
+  // - - - - - Save image as base64 string - - - - - //
+
+  // const saveCanvasToGallery = () => {
+  //   const canvas = canvasRef.current
+  //   const dataURL = canvas.toDataURL('image/png')
+  //   const base64ImageData = dataURL.replace(/^data:image\/\w+;base64,/, '')
+  //   return base64ImageData
+  // }
+
+  // const imageData = saveCanvasToGallery()
+  // console.log('Base64 Image Data:', imageData)
+
   return (
     <CanvasContext.Provider
       value={{
@@ -80,12 +129,13 @@ export const CanvasProvider = ({ children }) => {
         brushColor,
         changeBrushColor,
         handleMouseLeave,
+        saveCanvasAsImage,
+        saveCanvasToGallery,
       }}
     >
       {children}
     </CanvasContext.Provider>
   )
 }
-
 
 export const useCanvas = () => useContext(CanvasContext)
