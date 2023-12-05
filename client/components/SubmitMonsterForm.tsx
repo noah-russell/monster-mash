@@ -17,7 +17,6 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
     setMonsterName(event.target.value)
   }
 
-  
   const generateFormDataWithBlob = async () => {
     const dataURL = canvasRef.current.toDataURL('image/png')
     const blobData = await fetch(dataURL).then((res) => res.blob())
@@ -47,25 +46,33 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
   }
 
   return (
-    <> 
-    <form className="vflex">
-        <div className='labels'>
-        <label className="vflex">
-          <h3>Name your child:</h3>
-          <input
-            type="text"
-            name="name"
-            // value=
-            onChange={handleMonsterNameChange}
-          />
-        </label>
+    <>
+      <form className={gameState === 2 ? 'vflex' : 'hidden'}>
+        <div className="labels">
+          <label className="vflex">
+            <h3>Name your child:</h3>
+            <input
+              type="text"
+              name="name"
+              // value=
+              onChange={handleMonsterNameChange}
+            />
+          </label>
         </div>
         <br />
       </form>
-      <button className= 'download' onClick={saveCanvasAsImage}><p>Download</p></button>
-      <button className = 'save-monster' onClick={uploadMonsterToMenagerie}><p>Save to Monster Menagerie</p></button>
-
-     
+      <button
+        className={gameState === 2 ? 'download' : 'hidden'}
+        onClick={saveCanvasAsImage}
+      >
+        <p>Download</p>
+      </button>
+      <button
+        className={gameState === 2 ? 'save-monster' : 'hidden'}
+        onClick={uploadMonsterToMenagerie}
+      >
+        <p>Save to Monster Menagerie</p>
+      </button>
     </>
   )
 }

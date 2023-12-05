@@ -3,7 +3,6 @@ import PlayHotSeat from './PlayHotSeat'
 import { useState } from 'react'
 import { CanvasProvider } from './CanvasContext'
 
-
 function HotSeatMode() {
   const [isWelcome, setIsWelcome] = useState(true)
   // const [artistNames, setArtistNames] = useState(['', ''])
@@ -14,16 +13,15 @@ function HotSeatMode() {
     setTopArtist,
     setBottomArtist,
     setIsWelcome,
+    isWelcome,
   }
 
-  const playHotSeatProps={
+  const playHotSeatProps = {
     topArtist,
-    bottomArtist
+    bottomArtist,
   }
 
-
-  
-  // console.log(artistNames)
+  console.log('isWelcome in HotSeatMode', isWelcome)
 
   return (
     <>
@@ -32,7 +30,7 @@ function HotSeatMode() {
       </div>
       <div className={isWelcome ? 'hot-seat-mode hidden' : 'hot-seat-mode'}>
         <CanvasProvider>
-          <PlayHotSeat {...playHotSeatProps}/>
+          <PlayHotSeat {...playHotSeatProps} {...welcomeProps} />
         </CanvasProvider>
       </div>
     </>
