@@ -82,8 +82,6 @@ button{
   border-radius: 0.5rem;
   border: transparent solid 2pt;
   background-color: $lightPurple;
-  margin:0.5rem;
-  padding:1rem
   }
   
   button:hover{
@@ -278,6 +276,11 @@ input{
   line-height:2rem;
   width:10rem;
   padding: 0.5rem;
+}
+
+.welcome-container button{
+  padding: 0.5rem;
+  margin:0.5rem;
 }
 
 @media only screen and (max-width:1360px){
