@@ -10,6 +10,7 @@ function PlayHotSeat(props) {
     ...props,
     gameState,
   }
+  console.log(gameState)
 
   const { changeBrushColor, changeBrushSize } = useCanvas()
 
@@ -63,7 +64,7 @@ function PlayHotSeat(props) {
         </div>
 
         <div className="controls vflex">
-          <div className="colour-controls">
+          <div className={gameState===2?'hidden colour-controls':"colour-controls"}>
             <img
               className="controls-img"
               src="client/public/toolbar.png"
@@ -114,9 +115,9 @@ function PlayHotSeat(props) {
             </div>
           </div>
 
-          <div className="button-and-form-controls">
-            <button onClick={handleDoneClick}>
-              <p>done</p>
+          <div className='button-and-form-controls'>
+            <button className={gameState===2?'hidden':""} onClick={handleDoneClick}>
+              <p>{`${gameState===0? props.topArtist : props.bottomArtist} done!`}</p>
             </button>
             <div>
               <SubmitMonsterForm {...artistNamesAndGameState} />

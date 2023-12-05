@@ -103,14 +103,13 @@ button{
 
   button p{
     font-size: 2rem;
+    font-family:'Permanent Marker';
   }
 
 a{
   text-decoration: none;
 }
-button p{
-  font-family:'Permanent Marker';
-}
+
 .hflex{
   display:flex;
 }
@@ -365,6 +364,30 @@ input{
   height:100%;
   display: flex;
   flex-direction: column;
+  align-items:center;
+  justify-content: center;
+}
+
+.button-and-form-controls button{
+  margin:0.5rem;
+  padding:0.4rem;
+}
+
+button.save-monster{
+  background-color: $highlighterPurple;
+}
+button.save-monster:hover{
+  background-color: $darkPurple;
+}
+
+button.download{
+  color:rgba(0, 0, 0, 0.519);
+}
+
+.button-and-form-controls div{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
 }
 
 .controls-img{
