@@ -1,4 +1,8 @@
-import { getMonsterById, deleteMonsterById } from '../apiFunctions'
+import {
+  getMonsterById,
+  deleteMonsterById,
+  editMonsterName,
+} from '../apiFunctions'
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
@@ -25,6 +29,9 @@ function SingleMonsterView() {
     },
   })
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+  const [newMonsterName, setNewMonsterName] = useState('')
+
   if (isLoading) {
     return <div>Loading...</div>
   }
@@ -35,6 +42,20 @@ function SingleMonsterView() {
 
   function handleMonsterDelete(id: number) {
     deleteMonsterMutation.mutate(id)
+  }
+
+  const handlePopupOpen = () => {
+    setIsPopupOpen(true)
+  }
+
+  const handlePopupClose = () => {
+    setIsPopupOpen(false)
+  }
+
+  const handleEditMonsterName = async () => {
+    await editMonsterName(monster.id, newMonsterName)
+    queryClient.invalidateQueries(['monster', id])
+    handlePopupClose()
   }
 
   return (
@@ -57,7 +78,26 @@ function SingleMonsterView() {
             Delete!
           </button>
         </Link>
+        <button onClick={handlePopupOpen}>Edit Monster Name</button>
       </div>
+
+      {/* Pop-up form */}
+      {isPopupOpen && (
+        <div className="popup">
+          <div className="popup-content">
+            <span className="close" onClick={handlePopupClose}>
+              &times;
+            </span>
+            <p>Edit Monster Name:</p>
+            <input
+              type="text"
+              value={newMonsterName}
+              onChange={(e) => setNewMonsterName(e.target.value)}
+            />
+            <button onClick={handleEditMonsterName}>Save</button>
+          </div>
+        </div>
+      )}
     </>
   )
 }
