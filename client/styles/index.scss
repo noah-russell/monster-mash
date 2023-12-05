@@ -348,7 +348,7 @@ input{
   display:flex;
   flex-direction: column;
   height:100%;
-  width:100%;
+  width:400px;
   padding:2rem;
 }
 
@@ -407,14 +407,23 @@ button.download{
   align-items: center;
   top:20%;
   left:4%;
-  width:90%;
+  width:80%;
 }
 
 .colours img{
-  width:40%;
-  margin:-6%;
+  width:100%;
+  height:150%;
+  max-height:none;
+  overflow: hidden; 
 }
 
+
+.pencil-crop{
+  height:2rem;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .controls label h3{
   margin:0.5rem;

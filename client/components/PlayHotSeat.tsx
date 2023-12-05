@@ -64,49 +64,71 @@ function PlayHotSeat(props) {
         </div>
 
         <div className="controls vflex">
-          <div className={gameState===2?'hidden colour-controls':"colour-controls"}>
+          <div
+            className={
+              gameState === 2 ? 'hidden colour-controls' : 'colour-controls'
+            }
+          >
             <img
               className="controls-img"
               src="client/public/toolbar.png"
               draggable="false"
             />
+
             <div className="colours">
-              <img
-                onClick={handlePencilClick}
-                src="client/public/pencil.png"
-                alt="black pencil icon"
-                draggable="false"
-              />
-              <img
+              <div className="pencil-crop" onClick={handlePencilClick}>
+                <img
+                  src="client/public/pencil.png"
+                  alt="black pencil icon"
+                  draggable="false"
+                />
+              </div>
+
+              <div
+                className="pencil-crop"
                 onClick={handleDarkPurplePencilClick}
-                src="client/public/darkPurple.png"
-                alt="dark purple pencil icon"
-                draggable="false"
-              />
-              <img
+              >
+                <img
+                  src="client/public/darkPurple.png"
+                  alt="dark purple pencil icon"
+                  draggable="false"
+                />
+              </div>
+
+              <div
+                className="pencil-crop"
                 onClick={handleLightPurplePencilClick}
-                src="client/public/lightPurple.png"
-                alt="light purple pencil icon"
-                draggable="false"
-              />
-              <img
-                onClick={handleColinGreyPencilClick}
-                src="client/public/colinGrey.png"
-                alt="pencil icon"
-                draggable="false"
-              />
-              <img
-                onClick={handleRedPencilClick}
-                src="client/public/red.png"
-                alt="red pencil icon"
-                draggable="false"
-              />
-              <img
-                onClick={handleRubberClick}
-                src="client/public/rubber.png"
-                alt="rubber icon"
-                draggable="false"
-              />
+              >
+                <img
+                  src="client/public/lightPurple.png"
+                  alt="light purple pencil icon"
+                  draggable="false"
+                />
+              </div>
+
+              <div className="pencil-crop" onClick={handleColinGreyPencilClick}>
+                <img
+                  src="client/public/colinGrey.png"
+                  alt="pencil icon"
+                  draggable="false"
+                />
+              </div>
+
+              <div className="pencil-crop" onClick={handleRedPencilClick}>
+                <img
+                  src="client/public/red.png"
+                  alt="red pencil icon"
+                  draggable="false"
+                />
+              </div>
+
+              <div className="pencil-crop" onClick={handleRubberClick}>
+                <img
+                  src="client/public/rubber.png"
+                  alt="rubber icon"
+                  draggable="false"
+                />
+              </div>
               <div className="hflex brush-sizes">
                 <button onClick={handleSmallBrushChange}>small</button>
                 <button onClick={handleMediumBrushChange}>medium</button>
@@ -115,9 +137,14 @@ function PlayHotSeat(props) {
             </div>
           </div>
 
-          <div className='button-and-form-controls'>
-            <button className={gameState===2?'hidden':""} onClick={handleDoneClick}>
-              <p>{`${gameState===0? props.topArtist : props.bottomArtist} done!`}</p>
+          <div className="button-and-form-controls">
+            <button
+              className={gameState === 2 ? 'hidden' : ''}
+              onClick={handleDoneClick}
+            >
+              <p>{`${
+                gameState === 0 ? props.topArtist : props.bottomArtist
+              } done!`}</p>
             </button>
             <div>
               <SubmitMonsterForm {...artistNamesAndGameState} />
