@@ -26,6 +26,9 @@ function PlayHotSeat(props) {
   function handleBlackPencilClick() {
     changeBrushColor('black')
   }
+  function handleLightPurplePencilClick() {
+    changeBrushColor('#ae76b3')
+  }
 
   function handleRubberClick() {
     changeBrushColor('white')
@@ -63,6 +66,12 @@ function PlayHotSeat(props) {
           />
 
           <div className="colour-controls">
+            <img
+              onClick={handleLightPurplePencilClick}
+              src="client/public/lightPurple.png"
+              alt="light purple pencil icon"
+              draggable="false"
+            />
             <img
               onClick={handleBlackPencilClick}
               src="client/public/pencil.png"
