@@ -40,3 +40,8 @@ export async function addMonster(newMonsterData) {
     throw error
   }
 }
+
+export async function deleteMonsterById(id: number) {
+  const result = await connection('monsters').where({ id }).delete()
+  return result
+}

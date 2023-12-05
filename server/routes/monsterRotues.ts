@@ -72,4 +72,11 @@ router.get('/monster/:id', async (req, res) => {
   }
 })
 
+router.delete('/monster/:id/delete', async (req, res) => {
+  const id = req.params.id
+  await db.deleteMonsterById(id)
+  res.json({})
+
+})
+
 export default router
