@@ -2,10 +2,13 @@ import { useCanvas } from './CanvasContext'
 import { useState } from 'react'
 import { uploadMonster } from '../apiFunctions'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useNavigate } from 'react-router-dom'
 
 function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
   const { canvasRef, saveCanvasAsImage } = useCanvas()
   const formData = new FormData()
+
+  const navigate = useNavigate()
 
   const [monsterName, setMonsterName] = useState('')
 
@@ -56,6 +59,7 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
     try {
       uploadMonsterMutation.mutate(formData)
       console.log('add monster mutation successful on component')
+      navigate(`/menagerie`)
     } catch (error) {
       console.error('An error occurred during uploading:', error)
     }
