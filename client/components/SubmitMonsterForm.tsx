@@ -52,8 +52,9 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
       <button onClick={uploadMonsterToMenagerie}>Save to Gallery</button>
 
       <form className="vflex">
+        <div className='labels'>
         <label className="hflex">
-          Name your child:
+          <h3>Name your child:</h3>
           <input
             type="text"
             name="name"
@@ -61,6 +62,7 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
             onChange={handleMonsterNameChange}
           />
         </label>
+        </div>
         <br />
       </form>
     </>
