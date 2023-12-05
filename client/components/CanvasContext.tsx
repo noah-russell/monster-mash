@@ -7,15 +7,14 @@ export const CanvasProvider = ({ children }) => {
   const [isDrawing, setIsDrawing] = useState(false)
   const [brushColor, setBrushColor] = useState('black')
   const [brushSize, setBrushSize] = useState(5)
-  
 
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
 
   const prepareCanvas = () => {
     const canvas = canvasRef.current
-    const canvasWidth = 500 
-    const canvasHeight = 500 
+    const canvasWidth = 500
+    const canvasHeight = 500
 
     canvas.width = canvasWidth * 2
     canvas.height = canvasHeight * 2
@@ -25,12 +24,10 @@ export const CanvasProvider = ({ children }) => {
     const context = canvas.getContext('2d')
     context.scale(2, 2)
     context.lineCap = 'round'
-    context.strokeStyle = brushColor 
+    context.strokeStyle = brushColor
     context.lineWidth = brushSize
     contextRef.current = context
   }
-  
-
 
   const startDrawing = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent
@@ -71,7 +68,7 @@ export const CanvasProvider = ({ children }) => {
     contextRef.current.strokeStyle = color
   }
   const changeBrushSize = (size) => {
-  //   // setBrushSize(brushSize)
+    //   // setBrushSize(brushSize)
     contextRef.current.lineWidth = size
   }
 
