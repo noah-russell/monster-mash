@@ -34,6 +34,8 @@ export const CanvasProvider = ({ children }) => {
     contextRef.current.beginPath()
     contextRef.current.moveTo(offsetX, offsetY)
     setIsDrawing(true)
+    contextRef.current.lineTo(offsetX, offsetY)
+    contextRef.current.stroke()
   }
 
   const finishDrawing = () => {
