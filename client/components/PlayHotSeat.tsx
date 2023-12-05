@@ -13,7 +13,7 @@ function PlayHotSeat(props) {
     gameState,
   }
 
-  const { changeBrushColor } = useCanvas()
+  const { changeBrushColor, changeBrushSize } = useCanvas()
 
   function handleDoneClick() {
     if (gameState < 2) {
@@ -30,6 +30,19 @@ function PlayHotSeat(props) {
   function handleRubberClick() {
     changeBrushColor('white')
   }
+  function handleSmallBrushChange() {
+    // console.log('handleSmallBrushChange')
+    changeBrushSize(5)
+  }
+  function handleMediumBrushChange() {
+    // console.log('handleMediumBrushChange')
+    changeBrushSize(15)
+  }
+  function handleLargeBrushChange() {
+    // console.log('handleLargeBrushChange')
+    changeBrushSize(30)
+  }
+
   // console.log('gameState', gameState)
   return (
     <>
@@ -38,9 +51,9 @@ function PlayHotSeat(props) {
           <Colin {...artistNamesAndGameState} />
         </div>
         <div className="drawing-zone vflex">
-            <div className="canvas">
-              <DrawingZone gameState={gameState} />
-            </div>
+          <div className="canvas">
+            <DrawingZone gameState={gameState} />
+          </div>
         </div>
         <div className="controls vflex">
           <img
@@ -62,6 +75,11 @@ function PlayHotSeat(props) {
               alt="rubber icon"
               draggable="false"
             />
+            <div className="hflex brush-sizes">
+              <button onClick={handleSmallBrushChange}>small</button>
+              <button onClick={handleMediumBrushChange}>medium</button>
+              <button onClick={handleLargeBrushChange}>large</button>
+            </div>
           </div>
 
           <button onClick={handleDoneClick}>

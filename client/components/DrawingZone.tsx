@@ -10,6 +10,7 @@ function DrawingZone({ gameState }) {
     draw,
     clearCanvas,
     changeBrushColor,
+    changeBrushSize,
     handleMouseLeave,
   } = useCanvas()
 
@@ -18,6 +19,7 @@ function DrawingZone({ gameState }) {
     prepareCanvas()
     clearCanvas()
     changeBrushColor()
+    changeBrushSize()
   }, [])
 
   return (
