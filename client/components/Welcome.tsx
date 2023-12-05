@@ -24,7 +24,7 @@ function Welcome({ setIsWelcome, setTopArtist, setBottomArtist }) {
     <div className="welcome-container">
       <div className="welcome-flexbox hflex">
         <img
-          src="client/public/colinwelcome.png"
+          src="client/public/colin.png"
           alt="colin waving"
           className="colin"
         />
