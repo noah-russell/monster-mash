@@ -283,6 +283,66 @@ input{
   margin:0.5rem;
 }
 
+// play-------------------------------
+.play-hot-seat{
+  display:flex;
+  height:100%;
+  width:100%;
+}
+
+.colin{
+  flex: 1;
+}
+
+
+
+.drawing-zone{
+  flex: 0 0 600px; 
+  display:flex;
+  justify-content: center;
+  align-items: start;
+  height:100%;
+}
+
+.canvas{
+  position:relative;
+  width:600px;
+  height:600px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.done-frame{
+  position:absolute;
+  top:0;
+  left:0px;
+  z-index:2;
+}
+
+.canvas-container{
+  position: relative;
+  top:25px;
+  left:0;
+  z-index:1;
+}
+
+.question-top{
+  position: absolute;
+  height: 230px;
+  width: 500px;
+}
+.question-bottom{
+  position:absolute;
+  height: 250px;
+  width: 500px;
+  top: 250px;
+}
+
+.controls{
+  flex:1;
+}
+
+
 @media only screen and (max-width:1360px){
   header{
     justify-content: left;

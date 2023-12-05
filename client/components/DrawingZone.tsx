@@ -24,6 +24,7 @@ function DrawingZone({ gameState }) {
 
   return (
     <>
+        <img className='done-frame' alt="frame" src='client/public/gameDoneFrame.png' />
         <div className="canvas-container">
           <img
             className={gameState === 1 ? 'question-top' : 'question-top hidden'}

@@ -54,14 +54,17 @@ function PlayHotSeat(props) {
   return (
     <>
       <div className="play-hot-seat">
+        
         <div className="colin">
           <Colin {...artistNamesAndGameState} />
         </div>
+
         <div className="drawing-zone vflex">
           <div className="canvas">
             <DrawingZone gameState={gameState} />
           </div>
         </div>
+
         <div className="controls vflex">
           <img
             className="controls-img"
