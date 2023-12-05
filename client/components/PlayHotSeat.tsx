@@ -21,7 +21,6 @@ function PlayHotSeat(props) {
     }
   }
 
-
   function handlePencilClick() {
     changeBrushColor('black')
   }
@@ -50,11 +49,9 @@ function PlayHotSeat(props) {
     changeBrushSize(30)
   }
 
-
   return (
     <>
       <div className="play-hot-seat">
-        
         <div className="colin">
           <Colin {...artistNamesAndGameState} />
         </div>
@@ -66,53 +63,54 @@ function PlayHotSeat(props) {
         </div>
 
         <div className="controls vflex">
-          <img
-            className="controls-img"
-            src="client/public/toolbar.png"
-            draggable="false"
-          />
-
           <div className="colour-controls">
             <img
-              onClick={handlePencilClick}
-              src="client/public/pencil.png"
-              alt="black pencil icon"
+              className="controls-img"
+              src="client/public/toolbar.png"
               draggable="false"
             />
-            <img
-              onClick={handleDarkPurplePencilClick}
-              src="client/public/darkPurple.png"
-              alt="dark purple pencil icon"
-              draggable="false"
-            />
-            <img
-              onClick={handleLightPurplePencilClick}
-              src="client/public/lightPurple.png"
-              alt="light purple pencil icon"
-              draggable="false"
-            />
-            <img
-              onClick={handleColinGreyPencilClick}
-              src="client/public/colinGrey.png"
-              alt="pencil icon"
-              draggable="false"
-            />
-            <img
-              onClick={handleRedPencilClick}
-              src="client/public/red.png"
-              alt="red pencil icon"
-              draggable="false"
-            />
-            <img
-              onClick={handleRubberClick}
-              src="client/public/rubber.png"
-              alt="rubber icon"
-              draggable="false"
-            />
-            <div className="hflex brush-sizes">
-              <button onClick={handleSmallBrushChange}>small</button>
-              <button onClick={handleMediumBrushChange}>medium</button>
-              <button onClick={handleLargeBrushChange}>large</button>
+            <div className="colours">
+              <img
+                onClick={handlePencilClick}
+                src="client/public/pencil.png"
+                alt="black pencil icon"
+                draggable="false"
+              />
+              <img
+                onClick={handleDarkPurplePencilClick}
+                src="client/public/darkPurple.png"
+                alt="dark purple pencil icon"
+                draggable="false"
+              />
+              <img
+                onClick={handleLightPurplePencilClick}
+                src="client/public/lightPurple.png"
+                alt="light purple pencil icon"
+                draggable="false"
+              />
+              <img
+                onClick={handleColinGreyPencilClick}
+                src="client/public/colinGrey.png"
+                alt="pencil icon"
+                draggable="false"
+              />
+              <img
+                onClick={handleRedPencilClick}
+                src="client/public/red.png"
+                alt="red pencil icon"
+                draggable="false"
+              />
+              <img
+                onClick={handleRubberClick}
+                src="client/public/rubber.png"
+                alt="rubber icon"
+                draggable="false"
+              />
+              <div className="hflex brush-sizes">
+                <button onClick={handleSmallBrushChange}>small</button>
+                <button onClick={handleMediumBrushChange}>medium</button>
+                <button onClick={handleLargeBrushChange}>large</button>
+              </div>
             </div>
           </div>
 
