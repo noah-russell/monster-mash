@@ -23,13 +23,21 @@ function PlayHotSeat(props) {
     }
   }
 
-  function handleBlackPencilClick() {
+  function handlePencilClick() {
     changeBrushColor('black')
   }
   function handleLightPurplePencilClick() {
     changeBrushColor('#ae76b3')
   }
-
+  function handleDarkPurplePencilClick() {
+    changeBrushColor('#471352')
+  }
+  function handleRedPencilClick() {
+    changeBrushColor('#9b3008')
+  }
+  function handleColinGreyPencilClick() {
+    changeBrushColor('#9a9a9a')
+  }
   function handleRubberClick() {
     changeBrushColor('white')
   }
@@ -67,15 +75,33 @@ function PlayHotSeat(props) {
 
           <div className="colour-controls">
             <img
+              onClick={handlePencilClick}
+              src="client/public/pencil.png"
+              alt="black pencil icon"
+              draggable="false"
+            />
+            <img
+              onClick={handleDarkPurplePencilClick}
+              src="client/public/darkPurple.png"
+              alt="dark purple pencil icon"
+              draggable="false"
+            />
+            <img
               onClick={handleLightPurplePencilClick}
               src="client/public/lightPurple.png"
               alt="light purple pencil icon"
               draggable="false"
             />
             <img
-              onClick={handleBlackPencilClick}
-              src="client/public/pencil.png"
+              onClick={handleColinGreyPencilClick}
+              src="client/public/colinGrey.png"
               alt="pencil icon"
+              draggable="false"
+            />
+            <img
+              onClick={handleRedPencilClick}
+              src="client/public/red.png"
+              alt="red pencil icon"
               draggable="false"
             />
             <img
