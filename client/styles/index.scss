@@ -339,7 +339,7 @@ input{
 }
 
 .controls{
-  flex:1;
+  flex: 0 0 400px; 
   display:flex;
   flex-direction: column;
   height:100%;
@@ -384,7 +384,7 @@ input{
 // colin
 .colin {
   display: flex;
-  max-width: 600px;
+  // max-width: 600px;
   height:100%;
 
   // this bit is here so that the speech bubble can be overlapping.
@@ -393,8 +393,8 @@ input{
 
 .colin img{
   margin-top: auto;
-  width:80%;
   max-height:80%;
+  max-width:80%;
 }
 
 .speech-bubble{
