@@ -21,9 +21,7 @@ function HotSeatMode() {
     bottomArtist
   }
 
-  console.log(isWelcome)
-  console.log(topArtist)
-  console.log(bottomArtist)
+
   
   // console.log(artistNames)
 

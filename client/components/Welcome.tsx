@@ -22,41 +22,44 @@ function Welcome({ setIsWelcome, setTopArtist, setBottomArtist }) {
 
   return (
     <div className="welcome-container">
-      <div className="welcome-flexbox hflex">
+      <div className="colin-welcome">
         <img
           src="client/public/colinwelcome.png"
           alt="colin waving"
           className="colin"
         />
         <div className="welcome-bubble">
-          <h2>
-            Greetings minion! I need you to make a scary new monster... Make
-            sure you have a friend with you, it takes two to make a truly
-            terrifying beast
-          </h2>
+          <div>
+            <h2>
+              Greetings, my favourite two minions! Make me a scary new monster.
+              Write your nicknames below to begin. It takes two to make a truly
+              terrifying beast...
+            </h2>
+          </div>
         </div>
       </div>
 
-      <form className="vflex">
-        <label className="hflex">
-          Artist 1 Nickname:
-          <input
-            type="text"
-            name="topArtist"
-            onChange={handleTopArtistChange}
-            required
-          />
-        </label>
-        <label className="hflex">
-          Artist 2 Nickname:
-          <input
-            type="text"
-            name="bottomArtist"
-            onChange={handleBottomArtistChange}
-            required
-          />
-        </label>
-        <br />
+      <form className="nicknames-welcome">
+        <div className="labels">
+          <label className="hflex">
+            <h3>Minion 1 :</h3>
+            <input
+              type="text"
+              name="topArtist"
+              onChange={handleTopArtistChange}
+              required
+            />
+          </label>
+          <label className="hflex">
+            <h3>Minion 2 :</h3>
+            <input
+              type="text"
+              name="bottomArtist"
+              onChange={handleBottomArtistChange}
+              required
+            />
+          </label>
+        </div>
 
         <button
           className="welcome"

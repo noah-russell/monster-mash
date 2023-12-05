@@ -47,13 +47,11 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
   }
 
   return (
-    <>
-      <button onClick={saveCanvasAsImage}>Save as Image</button>
-      <button onClick={uploadMonsterToMenagerie}>Save to Gallery</button>
-
-      <form className="vflex">
-        <label className="hflex">
-          Name your child:
+    <> 
+    <form className="vflex">
+        <div className='labels'>
+        <label className="vflex">
+          <h3>Name your child:</h3>
           <input
             type="text"
             name="name"
@@ -61,8 +59,13 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
             onChange={handleMonsterNameChange}
           />
         </label>
+        </div>
         <br />
       </form>
+      <button className= 'download' onClick={saveCanvasAsImage}><p>Download</p></button>
+      <button className = 'save-monster' onClick={uploadMonsterToMenagerie}><p>Save to Monster Menagerie</p></button>
+
+     
     </>
   )
 }
