@@ -14,52 +14,51 @@ function SingleMonsterView() {
   function getMounthName(mounthNumber) {
     switch (mounthNumber) {
       case 1:
-        return 'January';
+        return 'January'
       case 2:
-        return 'February';
+        return 'February'
       case 3:
-        return 'March';
+        return 'March'
       case 4:
-        return 'April';
+        return 'April'
       case 5:
-        return 'May';
+        return 'May'
       case 6:
-        return 'June';
+        return 'June'
       case 7:
-        return 'July';
+        return 'July'
       case 8:
-        return 'August';
+        return 'August'
       case 9:
-        return 'September';
+        return 'September'
       case 10:
-        return 'October';
+        return 'October'
       case 11:
-        return 'November';
+        return 'November'
       case 12:
-        return 'December';
+        return 'December'
       default:
-        return 'Invalid month number';
+        return 'Invalid month number'
     }
   }
 
   function getDayWithSuffix(day) {
     if (day < 1 || day > 31) {
-      return 'Invalid day';
+      return 'Invalid day'
     }
-    const lastDigit = day % 10;
-    let suffix = 'th';
+    const lastDigit = day % 10
+    let suffix = 'th'
     if (day >= 11 && day <= 13) {
-      suffix = 'th'; 
+      suffix = 'th'
     } else if (lastDigit === 1) {
-      suffix = 'st';
+      suffix = 'st'
     } else if (lastDigit === 2) {
-      suffix = 'nd';
+      suffix = 'nd'
     } else if (lastDigit === 3) {
-      suffix = 'rd';
+      suffix = 'rd'
     }
-    return `${day}${suffix}`;
+    return `${day}${suffix}`
   }
-  
 
   const {
     data: monster,
@@ -116,13 +115,13 @@ function SingleMonsterView() {
 
   const monsterDate = new Date(monster.date_created)
   const dayNum = getDayWithSuffix(monsterDate.getDate())
-  const month = getMounthName(monsterDate.getMonth()+1)
+  const month = getMounthName(monsterDate.getMonth() + 1)
   const year = monsterDate.getFullYear()
 
-console.log(dayNum)
+  console.log(dayNum)
   return (
     <>
-<!-- <<<<<<< S4-noah
+      {/* <!-- <<<<<<< S4-noah
       <div className="single-monster-view">
         <p>Monster name: {monster.monster_name}</p>
         <p>
@@ -133,7 +132,7 @@ console.log(dayNum)
           Date created: {new Date(monster.date_created).toLocaleDateString()}
         </p>
         <img src={'/' + monster.image_url} alt="single monster view" />
-======= -->
+======= --> */}
       {/* <p>Monster name:{monster.monster_name}</p> */}
 
       {/* <p>
@@ -182,7 +181,7 @@ console.log(dayNum)
           </div>
           <div className="single-view-delete"></div>
         </div>
-        <div className='single-view-bottom'>
+        <div className="single-view-bottom">
           <div className="creater-details">
             <h3>Created By: </h3>
             <h2>{`${monster.top_artist} `}</h2>
