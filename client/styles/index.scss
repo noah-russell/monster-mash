@@ -8,6 +8,7 @@ $highlighterPurple: rgb(208, 150, 242);
 $whiteIsh: #d1d1d1;
 $colinGrey: #aba4a4;
 $speechBubbleGrey: #d2c8c8;
+$darkPurple: #401043;
 
 // grandparent styling--------------------------
 *{
@@ -51,12 +52,7 @@ body{
   justify-content: space-between;
   height:100%;
 }
-.welcome-container{
-  display:flex;
-  flex-direction:column;
-  justify-content: space-between;
-  height:100%;
-}
+
 
 // universal styling ---------------------------------
 .hidden{
@@ -81,6 +77,36 @@ button{
   justify-content: center;
   align-items: center;
 }
+
+button{
+  border-radius: 0.5rem;
+  border: transparent solid 2pt;
+  background-color: $lightPurple;
+  margin:0.5rem;
+  padding:1rem
+  }
+  
+  button:hover{
+    background-color: $red;
+    border: solid 2pt $whiteIsh;
+    color: $whiteIsh;
+  }
+
+  button:disabled:hover {
+    cursor: not-allowed;
+    background-color: $lightPurple;
+    color: $lightPurple;
+    border: transparent solid 2pt;
+  }
+  
+  button:active{
+    border: solid 2pt black;
+  }
+
+  button p{
+    font-size: 2rem;
+  }
+
 a{
   text-decoration: none;
 }
@@ -152,6 +178,11 @@ nav button:hover{
   color: $whiteIsh;
 }
 
+nav button:active{
+  border: solid 2pt black;
+}
+
+
 nav p{
   font-family:'Permanent Marker';
   font-size:2rem;
@@ -168,6 +199,8 @@ nav p:hover{
   display:flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height:100%;
 }
 
 .colin-welcome{
@@ -212,6 +245,40 @@ nav p:hover{
   padding:2rem;
 }
 
+.nicknames-welcome{
+  padding:2rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+}
+
+.labels{
+  display:flex;
+  background-color: $darkPurple;
+  color:$whiteIsh;
+  border: 0.5rem solid black;
+}
+
+label{
+  margin:1rem 2rem;
+}
+label h3{
+  margin:2rem;
+  font-family:'Permanent Marker';
+  font-size:2rem;
+  line-height: 1.6rem;
+  font-weight:200;
+}
+
+input{
+  font-family: 'Patrick Hand';
+  font-size: 2rem;
+  line-height:2rem;
+  width:10rem;
+  padding: 0.5rem;
+}
 
 @media only screen and (max-width:1360px){
   header{
