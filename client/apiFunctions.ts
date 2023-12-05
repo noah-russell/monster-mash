@@ -15,3 +15,14 @@ export async function getMonsterById(id: number) {
 export async function uploadMonster(formData: FormData) {
   const response = await request.post('api/v1/add').send(formData)
 }
+
+export async function deleteMonsterById(id: number) {
+  const response = await request.delete(`/api/v1/monster/${id}/delete`)
+}
+
+export async function editMonsterName(id: number, newMonsterName: string) {
+  const response = await request
+    .patch(`/api/v1/monster/${id}/edit`)
+    .send({ monster_name: newMonsterName })
+  return response.body
+}

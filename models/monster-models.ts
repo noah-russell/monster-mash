@@ -13,3 +13,7 @@ export interface Monster {
   id: number
   date_created: Date
 }
+
+export interface newMonsterName {
+  monster_name: string
+}

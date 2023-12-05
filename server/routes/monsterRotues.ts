@@ -72,4 +72,17 @@ router.get('/monster/:id', async (req, res) => {
   }
 })
 
+router.delete('/monster/:id/delete', async (req, res) => {
+  const id = req.params.id
+  await db.deleteMonsterById(id)
+  res.json({})
+})
+
+router.patch('/monster/:id/edit', async (req, res) => {
+  const id = req.params.id
+  const { monster_name } = req.body
+  await db.editMonsterName(id, { monster_name })
+  res.json({})
+})
+
 export default router
