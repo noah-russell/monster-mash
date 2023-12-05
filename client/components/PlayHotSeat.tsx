@@ -5,12 +5,16 @@ import { useCanvas } from './CanvasContext'
 import SubmitMonsterForm from './SubmitMonsterForm'
 
 function PlayHotSeat(props) {
+  const { topArtist, bottomArtist, isWelcome } = props
   const [gameState, setGameState] = useState(0)
   const artistNamesAndGameState = {
-    ...props,
+    topArtist,
+    bottomArtist,
     gameState,
+    isWelcome, // Include isWelcome in artistNamesAndGameState
   }
-  console.log(gameState)
+  console.log('gamestate in playhotseat', gameState)
+  console.log('isWelcome in PlayHotSeat', isWelcome)
 
   const { changeBrushColor, changeBrushSize } = useCanvas()
 

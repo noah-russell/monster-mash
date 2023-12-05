@@ -49,7 +49,8 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
 
   return (
     <>
-      <form className="vflex">
+
+      <form className={gameState === 2 ? 'vflex' : 'hidden'}>
         <div className="labels">
           <label className="vflex">
             <h3>Name your child:</h3>
@@ -64,11 +65,12 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
         </div>
         <br />
       </form>
-      <button className="download" onClick={saveCanvasAsImage}>
+      <button className={gameState === 2 ? 'download' : 'hidden'}
+        onClick={saveCanvasAsImage}>
         <p>Download</p>
       </button>
       <button
-        className="save-monster"
+        className={gameState === 2 ? 'save-monster' : 'hidden'}
         onClick={uploadMonsterToMenagerie}
         disabled={!monsterName.trim()} // Disable the button if monsterName is empty or contains only whitespace
       >
