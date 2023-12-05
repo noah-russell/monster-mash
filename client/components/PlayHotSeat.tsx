@@ -114,11 +114,13 @@ function PlayHotSeat(props) {
             </div>
           </div>
 
-          <button onClick={handleDoneClick}>
-            <p>done</p>
-          </button>
-          <div>
-            <SubmitMonsterForm {...artistNamesAndGameState} />
+          <div className="button-and-form-controls">
+            <button onClick={handleDoneClick}>
+              <p>done</p>
+            </button>
+            <div>
+              <SubmitMonsterForm {...artistNamesAndGameState} />
+            </div>
           </div>
         </div>
       </div>
