@@ -1,6 +1,10 @@
 import connection from './connection.js'
 
-import { NewMonster, Monster } from '../../models/monster-models.js'
+import {
+  NewMonster,
+  Monster,
+  newMonsterName,
+} from '../../models/monster-models.js'
 
 export async function getAllMonsters(): Promise<Monster[]> {
   try {
@@ -25,7 +29,7 @@ export async function getMonsterById(id: number): Promise<Monster> {
   }
 }
 
-export async function addMonster(newMonsterData) {
+export async function addMonster(newMonsterData: NewMonster) {
   try {
     const [insertedId] = await connection('monsters').insert({
       monster_name: newMonsterData.monster_name,
@@ -43,5 +47,15 @@ export async function addMonster(newMonsterData) {
 
 export async function deleteMonsterById(id: number) {
   const result = await connection('monsters').where({ id }).delete()
+  return result
+}
+
+export async function editMonsterName(
+  id: number,
+  editMonsterName: newMonsterName,
+) {
+  const result = await connection('monsters').where({ id }).update({
+    monster_name: editMonsterName.monster_name,
+  })
   return result
 }
