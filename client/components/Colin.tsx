@@ -1,5 +1,43 @@
-function Colin({ gameState, topArtist, bottomArtist}) {
+import { useState, useEffect } from 'react'
 
+function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
+  const [imgSrc, setImgSrc] = useState<string>(
+    'client/public/colingspeechbubble.png',
+  )
+
+  // useEffect(() => {
+  //   const timerId = setTimeout(() => {
+  //     setImgSrc('client/public/colin.png')
+  //   }, 5000)
+
+  //   return () => clearTimeout(timerId)
+  // }, [gameState])
+
+  useEffect(() => {
+    // Update image source based on gameState
+    if (isWelcome === false) {
+      setImgSrc('client/public/colingspeechbubble.png')
+    } else if (gameState === 1) {
+      setImgSrc('client/public/colingspeechbubble.png')
+    } else if (gameState === 2) {
+      setImgSrc('client/public/colingspeechbubble.png')
+      // Add more conditions as needed
+      // setImgSrc('new-image-url.png');
+    }
+
+    const timerId = setTimeout(() => {
+      setImgSrc('client/public/idle.png')
+    }, 5000)
+
+    return () => clearTimeout(timerId)
+  }, [gameState, isWelcome])
+
+  //testing
+  // console.log('gameState:', gameState)
+  // console.log('imgSrc:', imgSrc)
+  // console.log('colin isWelcome', isWelcome)
+  // console.log('artistNames in Colin', topArtist)
+  //
   const colinTips = [
     {
       tip1: `${bottomArtist}, close your eyes!`,
@@ -19,7 +57,7 @@ function Colin({ gameState, topArtist, bottomArtist}) {
   ]
 
   const currentColinTip = colinTips[gameState]
-
+  console.log('colin gamestate', gameState)
   return (
     <>
       <div className="speech-bubble">
@@ -30,7 +68,7 @@ function Colin({ gameState, topArtist, bottomArtist}) {
         <em>{currentColinTip.hint}</em>
       </div>
 
-      <img className="colin-image" src="client/public/colin.png" alt="colin" />
+      <img className="colin-image" src={imgSrc} alt="colin" />
     </>
   )
 }
