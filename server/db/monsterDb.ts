@@ -12,6 +12,19 @@ export async function getAllMonsters(): Promise<Monster[]> {
   }
 }
 
+export async function getMonsterById(id: number): Promise<Monster> {
+  try {
+    const result = await connection('monsters')
+      .where('id', id)
+      .select('*')
+      .first()
+    return result
+  } catch (error) {
+    console.error('Error in getMonsterById', error)
+    throw error
+  }
+}
+
 export async function addMonster(newMonsterData) {
   try {
     const [insertedId] = await connection('monsters').insert({
@@ -20,10 +33,10 @@ export async function addMonster(newMonsterData) {
       bottom_artist: newMonsterData.bottom_artist,
       image_url: newMonsterData.image_url,
       date_created: new Date(),
-    });
+    })
     return insertedId
   } catch (error) {
-    console.error('Error in addArt:', error);
-    throw error;
+    console.error('Error in addArt:', error)
+    throw error
   }
 }
