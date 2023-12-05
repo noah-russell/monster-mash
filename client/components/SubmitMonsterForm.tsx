@@ -53,7 +53,7 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
 
       <form className="vflex">
         <div className='labels'>
-        <label className="hflex">
+        <label className="vflex">
           <h3>Name your child:</h3>
           <input
             type="text"
