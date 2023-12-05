@@ -2,12 +2,10 @@ import Colin from './Colin'
 import DrawingZone from './DrawingZone'
 import { useState } from 'react'
 import { useCanvas } from './CanvasContext'
-import { useQuery } from '@tanstack/react-query'
 import SubmitMonsterForm from './SubmitMonsterForm'
 
 function PlayHotSeat(props) {
   const [gameState, setGameState] = useState(0)
-
   const artistNamesAndGameState = {
     ...props,
     gameState,
@@ -22,6 +20,7 @@ function PlayHotSeat(props) {
       setGameState(0)
     }
   }
+
 
   function handlePencilClick() {
     changeBrushColor('black')
@@ -42,19 +41,16 @@ function PlayHotSeat(props) {
     changeBrushColor('white')
   }
   function handleSmallBrushChange() {
-    // console.log('handleSmallBrushChange')
     changeBrushSize(5)
   }
   function handleMediumBrushChange() {
-    // console.log('handleMediumBrushChange')
     changeBrushSize(15)
   }
   function handleLargeBrushChange() {
-    // console.log('handleLargeBrushChange')
     changeBrushSize(30)
   }
 
-  // console.log('gameState', gameState)
+
   return (
     <>
       <div className="play-hot-seat">
