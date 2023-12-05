@@ -5,7 +5,8 @@ import { useCanvas } from './CanvasContext'
 import { useQuery } from '@tanstack/react-query'
 import SubmitMonsterForm from './SubmitMonsterForm'
 
-function PlayHotSeat() {
+function PlayHotSeat(props) {
+  
   //useQuery experiment
 
   // function increaseGameState() {
@@ -20,6 +21,11 @@ function PlayHotSeat() {
 
   //useState experiment
   const [gameState, setGameState] = useState(0)
+
+  const artistNamesAndGameState={
+    ...props,
+    gameState
+  }
 
   const { changeBrushColor } = useCanvas()
 
@@ -43,7 +49,7 @@ function PlayHotSeat() {
     <>
       <div className="play-hot-seat">
         <div className="colin">
-          <Colin gameState={gameState} />
+          <Colin  {...artistNamesAndGameState}/>
         </div>
         <div className="drawing-zone vflex">
           <div className="canvas">
@@ -76,7 +82,7 @@ function PlayHotSeat() {
             <p>done</p>
           </button>
           <div>
-            <SubmitMonsterForm />
+            <SubmitMonsterForm {...artistNamesAndGameState}/>
           </div>
         </div>
       </div>

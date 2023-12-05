@@ -1,21 +1,19 @@
-function Colin({ gameState }) {
-  const artistOne = 'Michael'
-  const artistTwo = 'Gaby'
+function Colin({ gameState, topArtist, bottomArtist}) {
 
   const colinTips = [
     {
-      tip1: `${artistTwo}, close your eyes!`,
-      tip2: `${artistOne}, draw me the top of the monster and then hit done when finished!`,
+      tip1: `${bottomArtist}, close your eyes!`,
+      tip2: `${topArtist}, draw me the top of the monster and then hit done when finished!`,
       hint: `Make sure you draw right the the bottom of the white canvas`,
     },
     {
-      tip1: `${artistOne}, close your eyes!`,
-      tip2: `${artistTwo}, draw me the bottom of the monster and then hit done when finished!`,
-      hint: `Make sure you draw right to the top of where Artist One's lines finish`,
+      tip1: `${topArtist}, close your eyes!`,
+      tip2: `${bottomArtist}, draw me the bottom of the monster and then hit done when finished!`,
+      hint: `Make sure you draw right to the top of where ${topArtist}'s lines finish`,
     },
     {
       tip1: 'Dreadfully delightful!',
-      tip2: `${artistOne} and ${artistTwo} look at your marvelous creation!`,
+      tip2: `${topArtist} and ${bottomArtist} look at your marvelous creation!`,
       hint: 'Dont forget to name and save your creation!',
     },
   ]
