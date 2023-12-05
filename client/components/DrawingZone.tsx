@@ -22,8 +22,10 @@ function DrawingZone({ gameState }) {
     changeBrushSize()
   }, [])
 
+
   return (
     <>
+        <img className={gameState === 2 ? 'done-frame' : 'done-frame hidden'} alt="frame" src='client/public/gameDoneFrame.png' />
         <div className="canvas-container">
           <img
             className={gameState === 1 ? 'question-top' : 'question-top hidden'}

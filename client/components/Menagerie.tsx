@@ -17,15 +17,23 @@ function Menagerie() {
         {monsters &&
           monsters.map((monster) => {
             return (
-              <>
-                <div className="menagerie-item">
-                  <Link to={`/monster/${monster.id}`}>
-                    <img
+              <> 
+                <Link to={`/monster/${monster.id}`}>
+                  <div className="menagerie-item">
+                 
+                    <img className='monster'
                       src={monster.image_url}
                       alt="Monster gallery thumbnail"
                     />
-                  </Link>
-                </div>
+                     <img className='frame'
+                      src='client/public/galleryFrame.png'
+                      alt="Monster gallery frame"
+                    />
+                    <div className = 'plaque'>
+                    <h4>{monster.monster_name}</h4>
+                    </div>
+                 </div> 
+                </Link>
               </>
             )
           })}
