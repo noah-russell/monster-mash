@@ -11,6 +11,56 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 function SingleMonsterView() {
   const id = useParams().id
 
+  function getMounthName(mounthNumber) {
+    switch (mounthNumber) {
+      case 1:
+        return 'January';
+      case 2:
+        return 'February';
+      case 3:
+        return 'March';
+      case 4:
+        return 'April';
+      case 5:
+        return 'May';
+      case 6:
+        return 'June';
+      case 7:
+        return 'July';
+      case 8:
+        return 'August';
+      case 9:
+        return 'September';
+      case 10:
+        return 'October';
+      case 11:
+        return 'November';
+      case 12:
+        return 'December';
+      default:
+        return 'Invalid month number';
+    }
+  }
+
+  function getDayWithSuffix(day) {
+    if (day < 1 || day > 31) {
+      return 'Invalid day';
+    }
+    const lastDigit = day % 10;
+    let suffix = 'th';
+    if (day >= 11 && day <= 13) {
+      suffix = 'th'; 
+    } else if (lastDigit === 1) {
+      suffix = 'st';
+    } else if (lastDigit === 2) {
+      suffix = 'nd';
+    } else if (lastDigit === 3) {
+      suffix = 'rd';
+    }
+    return `${day}${suffix}`;
+  }
+  
+
   const {
     data: monster,
     isLoading,
@@ -58,17 +108,30 @@ function SingleMonsterView() {
     handlePopupClose()
   }
 
+  // const day = new Date()
+  // const dayOf = day.getDate()
+  // console.log(dayOf)
+  // const month = getMounthName(monster.date_created.getMonth()+1)
+  // const year = monster.getFullYear()
+
+  const monsterDate = new Date(monster.date_created)
+  const dayNum = getDayWithSuffix(monsterDate.getDate())
+  const month = getMounthName(monsterDate.getMonth()+1)
+  const year = monsterDate.getFullYear()
+
+console.log(dayNum)
   return (
     <>
-      <div>Helloooooooooooo world</div>
-      <div className="single-monster-view">
-        <p>Monster name:{monster.monster_name}</p>
-        <p>
+      {/* <p>Monster name:{monster.monster_name}</p> */}
+
+      {/* <p>
           Artsits: <b>{monster.top_artist}</b> and{' '}
           <b>{monster.bottom_artist}</b>
-        </p>
-        <p>Date created: {Date(monster.date_created)}</p>
-        <img src={'/' + monster.image_url} alt="single monster view" />
+        </p> */}
+
+      {/* <p>Date created: {Date(monster.date_created)}</p> */}
+
+      {/* <div className='delete-button'>
         <Link to="/menagerie">
           <button
             onClick={() => {
@@ -78,10 +141,9 @@ function SingleMonsterView() {
             Delete!
           </button>
         </Link>
-        <button onClick={handlePopupOpen}>Edit Monster Name</button>
-      </div>
+      </div>  */}
 
-      {/* Pop-up form */}
+      {/* 
       {isPopupOpen && (
         <div className="popup">
           <div className="popup-content">
@@ -97,7 +159,27 @@ function SingleMonsterView() {
             <button onClick={handleEditMonsterName}>Save</button>
           </div>
         </div>
-      )}
+      )} */}
+      {/* <button onClick={handlePopupOpen}>Edit Monster Name</button> */}
+
+      <div className="single-monster-view">
+        <div className="single-view-top">
+          <div className="single-view-spacer"></div>
+          <div className="single-view-monster-window">
+            <img src={'/' + monster.image_url} alt="single monster view" />
+          </div>
+          <div className="single-view-delete"></div>
+        </div>
+        <div className='single-view-bottom'>
+          <div className="creater-details">
+            <h3>Created By: </h3>
+            <h2>{`${monster.top_artist} `}</h2>
+            <h3>&</h3>
+            <h2>{` ${monster.bottom_artist}`}</h2>
+            <h3>{`on the ${dayNum} of ${month}, ${year}`}</h3>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
