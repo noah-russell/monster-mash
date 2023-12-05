@@ -122,6 +122,18 @@ function SingleMonsterView() {
 console.log(dayNum)
   return (
     <>
+<!-- <<<<<<< S4-noah
+      <div className="single-monster-view">
+        <p>Monster name: {monster.monster_name}</p>
+        <p>
+          Artists: <b>{monster.top_artist}</b> and{' '}
+          <b>{monster.bottom_artist}</b>
+        </p>
+        <p>
+          Date created: {new Date(monster.date_created).toLocaleDateString()}
+        </p>
+        <img src={'/' + monster.image_url} alt="single monster view" />
+======= -->
       {/* <p>Monster name:{monster.monster_name}</p> */}
 
       {/* <p>

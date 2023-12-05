@@ -612,3 +612,52 @@ img.monster{
   font-size: 1.8rem;
  }
 }
+
+// Noah's stuff ----------------------------
+
+.pencil-crop img:hover {
+  animation: rock2 1s ease-in-out infinite; /* Adjust the duration and timing function as needed */
+  transform-origin: center; /* Set the transform origin to the center of the element */
+}
+
+.pencil-crop img:active {
+  animation:none
+}
+
+.menagerie-item:hover {
+  animation: rock1 1s ease-in-out infinite; /* Adjust the duration and timing function as needed */
+  transform-origin: center; /* Set the transform origin to the center of the element */
+}
+
+// Animations ------------------------------
+
+@keyframes rock1 {
+  0%, 100% {
+    transform: rotateZ(0deg);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  25% {
+    transform: rotateZ(-5deg);
+  }
+  75% {
+    transform: rotateZ(5deg);
+  }
+}
+
+@keyframes rock2 {
+  0%, 100% {
+    transform: rotateZ(0deg);
+  }
+  20% {
+    transform: rotateZ(-10deg);
+  }
+  40% {
+    transform: rotateZ(10deg);
+  }
+  60% {
+    transform: rotateZ(-10deg);
+  }
+  80% {
+    transform: rotateZ(10deg);
+  }
+}
