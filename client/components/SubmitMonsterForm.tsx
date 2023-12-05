@@ -9,10 +9,11 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [monsterName, setMonsterName] = useState('')
+
   const formData = new FormData()
 
   const handleMonsterNameChange = (
-    event: React.ChangeEvent<HTMLFormElement>,
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setMonsterName(event.target.value)
   }
@@ -22,6 +23,7 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
     const blobData = await fetch(dataURL).then((res) => res.blob())
     formData.append('file', blobData)
   }
+
   const uploadMonsterMutation = useMutation({
     mutationFn: uploadMonster,
     onSuccess: async () => {
@@ -47,6 +49,7 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
 
   return (
     <>
+
       <form className={gameState === 2 ? 'vflex' : 'hidden'}>
         <div className="labels">
           <label className="vflex">
@@ -54,22 +57,22 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
             <input
               type="text"
               name="name"
-              // value=
+              value={monsterName}
               onChange={handleMonsterNameChange}
+              required
             />
           </label>
         </div>
         <br />
       </form>
-      <button
-        className={gameState === 2 ? 'download' : 'hidden'}
-        onClick={saveCanvasAsImage}
-      >
+      <button className={gameState === 2 ? 'download' : 'hidden'}
+        onClick={saveCanvasAsImage}>
         <p>Download</p>
       </button>
       <button
         className={gameState === 2 ? 'save-monster' : 'hidden'}
         onClick={uploadMonsterToMenagerie}
+        disabled={!monsterName.trim()} // Disable the button if monsterName is empty or contains only whitespace
       >
         <p>Save to Monster Menagerie</p>
       </button>
