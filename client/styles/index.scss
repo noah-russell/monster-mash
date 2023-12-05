@@ -103,6 +103,7 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left:2rem;
 }
 
 h1{
@@ -157,4 +158,27 @@ nav p{
 
 nav p:hover{
   font-size:2.1rem;
+}
+
+@media only screen and (max-width:1360px){
+  header{
+    justify-content: left;
+  }
+  
+}
+
+@media only screen and (max-width:1000px){
+  html{
+    font-size:12px;
+  }
+}
+
+@media only screen and (max-width:750px){
+ h1{
+  font-size: 2.5rem;
+  max-width: 10rem;
+ }
+ nav p{
+  font-size: 1.8rem;
+ }
 }
