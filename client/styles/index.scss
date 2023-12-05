@@ -320,6 +320,16 @@ top: 250px;
 user-select: none;
 }
 
+.doneFrameParent{
+  position: relative;
+  width:600px;
+}
+
+.doneFrame{
+  width:600px;
+  position:absolute;
+}
+
 // _________________________________________
 // Controls
 .controls{

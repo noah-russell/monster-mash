@@ -6,28 +6,14 @@ import { useQuery } from '@tanstack/react-query'
 import SubmitMonsterForm from './SubmitMonsterForm'
 
 function PlayHotSeat(props) {
-  
-  //useQuery experiment
-
-  // function increaseGameState() {
-  //  return (gameState + 1)
-  // }
-
-  // const {
-  //   data: gameState
-  //   isLoading,
-  //   isError,
-  // } = useQuery({queryKey: ['gameState'], queryFn: increaseGameState})
-
-  //useState experiment
   const [gameState, setGameState] = useState(0)
 
-  const artistNamesAndGameState={
+  const artistNamesAndGameState = {
     ...props,
-    gameState
+    gameState,
   }
 
-  const { changeBrushColor } = useCanvas()
+  const { changeBrushColor, changeBrushSize } = useCanvas()
 
   function handleDoneClick() {
     if (gameState < 2) {
@@ -37,19 +23,43 @@ function PlayHotSeat(props) {
     }
   }
 
-  function handleBlackPencilClick() {
+  function handlePencilClick() {
     changeBrushColor('black')
   }
-
+  function handleLightPurplePencilClick() {
+    changeBrushColor('#ae76b3')
+  }
+  function handleDarkPurplePencilClick() {
+    changeBrushColor('#471352')
+  }
+  function handleRedPencilClick() {
+    changeBrushColor('#9b3008')
+  }
+  function handleColinGreyPencilClick() {
+    changeBrushColor('#9a9a9a')
+  }
   function handleRubberClick() {
     changeBrushColor('white')
   }
+  function handleSmallBrushChange() {
+    // console.log('handleSmallBrushChange')
+    changeBrushSize(5)
+  }
+  function handleMediumBrushChange() {
+    // console.log('handleMediumBrushChange')
+    changeBrushSize(15)
+  }
+  function handleLargeBrushChange() {
+    // console.log('handleLargeBrushChange')
+    changeBrushSize(30)
+  }
+
   // console.log('gameState', gameState)
   return (
     <>
       <div className="play-hot-seat">
         <div className="colin">
-          <Colin  {...artistNamesAndGameState}/>
+          <Colin {...artistNamesAndGameState} />
         </div>
         <div className="drawing-zone vflex">
           <div className="canvas">
@@ -65,9 +75,33 @@ function PlayHotSeat(props) {
 
           <div className="colour-controls">
             <img
-              onClick={handleBlackPencilClick}
+              onClick={handlePencilClick}
               src="client/public/pencil.png"
+              alt="black pencil icon"
+              draggable="false"
+            />
+            <img
+              onClick={handleDarkPurplePencilClick}
+              src="client/public/darkPurple.png"
+              alt="dark purple pencil icon"
+              draggable="false"
+            />
+            <img
+              onClick={handleLightPurplePencilClick}
+              src="client/public/lightPurple.png"
+              alt="light purple pencil icon"
+              draggable="false"
+            />
+            <img
+              onClick={handleColinGreyPencilClick}
+              src="client/public/colinGrey.png"
               alt="pencil icon"
+              draggable="false"
+            />
+            <img
+              onClick={handleRedPencilClick}
+              src="client/public/red.png"
+              alt="red pencil icon"
               draggable="false"
             />
             <img
@@ -76,13 +110,18 @@ function PlayHotSeat(props) {
               alt="rubber icon"
               draggable="false"
             />
+            <div className="hflex brush-sizes">
+              <button onClick={handleSmallBrushChange}>small</button>
+              <button onClick={handleMediumBrushChange}>medium</button>
+              <button onClick={handleLargeBrushChange}>large</button>
+            </div>
           </div>
 
           <button onClick={handleDoneClick}>
             <p>done</p>
           </button>
           <div>
-            <SubmitMonsterForm {...artistNamesAndGameState}/>
+            <SubmitMonsterForm {...artistNamesAndGameState} />
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ const CanvasContext = React.createContext({})
 export const CanvasProvider = ({ children }) => {
   const [isDrawing, setIsDrawing] = useState(false)
   const [brushColor, setBrushColor] = useState('black')
+  const [brushSize, setBrushSize] = useState(5)
   
 
   const canvasRef = useRef(null)
@@ -25,9 +26,11 @@ export const CanvasProvider = ({ children }) => {
     context.scale(2, 2)
     context.lineCap = 'round'
     context.strokeStyle = brushColor 
-    context.lineWidth = 5
+    context.lineWidth = brushSize
     contextRef.current = context
   }
+  
+
 
   const startDrawing = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent
@@ -64,8 +67,12 @@ export const CanvasProvider = ({ children }) => {
   }
 
   const changeBrushColor = (color) => {
-    setBrushColor(color)
+    // setBrushColor(color)
     contextRef.current.strokeStyle = color
+  }
+  const changeBrushSize = (size) => {
+  //   // setBrushSize(brushSize)
+    contextRef.current.lineWidth = size
   }
 
   const saveCanvasAsImage = () => {
@@ -89,7 +96,10 @@ export const CanvasProvider = ({ children }) => {
         clearCanvas,
         draw,
         brushColor,
+        brushSize,
         changeBrushColor,
+        changeBrushSize,
+        setBrushSize,
         handleMouseLeave,
         saveCanvasAsImage,
       }}
