@@ -28,6 +28,9 @@ body{
   justify-content: space-between;
   height:100%;
   padding-top:7rem;
+  background-image: url("../public/background.png");
+  background-size: cover;
+
 }
 #app{
   display:flex;
@@ -160,11 +163,66 @@ nav p:hover{
   font-size:2.1rem;
 }
 
+// Welcome ----------------------------------
+.welcome-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.colin-welcome{
+  padding:2rem;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:60%;
+  width:80%;
+}
+
+.colin-welcome img{
+  border-radius: 50%;
+  border: solid $lightPurple 1rem;
+}
+
+.colin-welcome .welcome-bubble{
+  margin-left:2rem;
+  height:100%;
+  display: flex;
+  align-items: center;
+
+}
+
+.welcome-bubble div{
+  background-color: $speechBubbleGrey;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:auto;
+  border-radius:3rem;
+}
+
+.welcome-bubble h2{
+  color: black;
+  font-family: 'Permanent Marker';
+  font-size: 3rem;
+  line-height: 3rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  font-weight: 200;
+  padding:2rem;
+}
+
+
 @media only screen and (max-width:1360px){
   header{
     justify-content: left;
   }
-  
+  .colin-welcome{
+    width:100%;
+  }
+  .welcome-bubble h2{
+    font-size: 2.5rem;
+  }
 }
 
 @media only screen and (max-width:1000px){
