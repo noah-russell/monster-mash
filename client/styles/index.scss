@@ -456,7 +456,8 @@ button.download{
 .brush-size-container{
 border: 3px solid black;
 background: $lightPurple;
-border-radius: 20%;
+border-radius: 30px / 30px;
+padding: 5px;
 align-items: center;
 justify-content: center;
 margin-top: 20px;
