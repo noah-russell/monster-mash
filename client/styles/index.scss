@@ -614,7 +614,7 @@ img.monster{
 }
 
 .single-view-top{
-  height:70%;
+  height:85%;
   display:flex;
   padding:2rem;
   width:100%;
@@ -653,8 +653,14 @@ img.monster{
   border-radius: 1rem;
 }
 
+.creater-details h3{
+  font-size: 2rem;
+  letter-spacing:0.1rem;
+}
+
 .creater-details h2{
-  font-family: 'Patrick Hand'
+  font-family: 'Patrick Hand';
+  font-size: 3rem;
 }
 
 .creater-details h2{
@@ -702,6 +708,9 @@ img.monster-detail{
   display:flex;
   justify-content: center;
   align-items: center;
+}
+.absolute-div-monster-name h2{
+padding-right: 2rem;
 }
 
 .popup{

@@ -180,7 +180,7 @@ function SingleMonsterView() {
             <h2>{`${monster.top_artist} `}</h2>
             <h3>&</h3>
             <h2>{` ${monster.bottom_artist}`}</h2>
-            <h3>{`on the ${dayNum} of ${month}, ${year}`}</h3>
+            <h3>{`on the ${dayNum} of ${month} - ${year}`}</h3>
           </div>
         </div>
       </div>
