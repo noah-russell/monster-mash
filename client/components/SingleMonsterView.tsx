@@ -79,7 +79,6 @@ function SingleMonsterView() {
   })
 
   const [isPopupOpen, setIsPopupOpen] = useState(false)
-  const [newMonsterName, setNewMonsterName] = useState('')
 
   if (isLoading) {
     return <div>Loading...</div>
@@ -106,6 +105,7 @@ function SingleMonsterView() {
     queryClient.invalidateQueries(['monster', id])
     handlePopupClose()
   }
+  const [newMonsterName, setNewMonsterName] = useState(monster.monster_name)
 
   // const day = new Date()
   // const dayOf = day.getDate()
@@ -135,51 +135,60 @@ function SingleMonsterView() {
 ======= --> */}
       {/* <p>Monster name:{monster.monster_name}</p> */}
 
-      {/* <p>
-          Artsits: <b>{monster.top_artist}</b> and{' '}
-          <b>{monster.bottom_artist}</b>
-        </p> */}
-
       {/* <p>Date created: {Date(monster.date_created)}</p> */}
 
-      {/* <div className='delete-button'>
-        <Link to="/menagerie">
-          <button
-            onClick={() => {
-              handleMonsterDelete(monster.id)
-            }}
-          >
-            Delete!
-          </button>
-        </Link>
-      </div>  */}
+  
 
-      {/* 
+  
+
+      <div className="single-monster-view">
+  
       {isPopupOpen && (
         <div className="popup">
           <div className="popup-content">
             <span className="close" onClick={handlePopupClose}>
               &times;
             </span>
-            <p>Edit Monster Name:</p>
+            <p>Edit</p>
             <input
               type="text"
               value={newMonsterName}
               onChange={(e) => setNewMonsterName(e.target.value)}
             />
-            <button onClick={handleEditMonsterName}>Save</button>
+            <br/>
+            <button onClick={handleEditMonsterName}><p>Save</p></button>
           </div>
         </div>
-      )} */}
-      {/* <button onClick={handlePopupOpen}>Edit Monster Name</button> */}
+      )} 
+      
 
-      <div className="single-monster-view">
+
+
         <div className="single-view-top">
           <div className="single-view-spacer"></div>
           <div className="single-view-monster-window">
-            <img src={'/' + monster.image_url} alt="single monster view" />
+            <div className="frame-relative">
+              <div className='absolute-div-monster-name'>
+                <h2>{monster.monster_name}</h2>
+                <button onClick={handlePopupOpen}><p>Edit</p></button>
+              </div>
+            <img className='details-frame-img'src={'/monsters/detailsFrame.png'}/>
+            <img className='monster-detail'src={'/' + monster.image_url} alt="single monster view" />
+            </div>
           </div>
-          <div className="single-view-delete"></div>
+          <div className="single-view-delete">
+                <div className='delete-button'>
+        <Link to="/menagerie">
+          <button
+            onClick={() => {
+              handleMonsterDelete(monster.id)
+            }}
+          >
+            <p>Delete Monster</p>
+          </button>
+        </Link>
+      </div> 
+          </div>
         </div>
         <div className="single-view-bottom">
           <div className="creater-details">
