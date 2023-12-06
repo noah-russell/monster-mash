@@ -49,11 +49,10 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
 
   return (
     <>
-
       <form className={gameState === 2 ? 'vflex' : 'hidden'}>
         <div className="labels">
           <label className="vflex">
-            <h3>Name your child:</h3>
+            <h3>Name your monster:</h3>
             <input
               type="text"
               name="name"
@@ -65,8 +64,10 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
         </div>
         <br />
       </form>
-      <button className={gameState === 2 ? 'download' : 'hidden'}
-        onClick={saveCanvasAsImage}>
+      <button
+        className={gameState === 2 ? 'download' : 'hidden'}
+        onClick={saveCanvasAsImage}
+      >
         <p>Download</p>
       </button>
       <button

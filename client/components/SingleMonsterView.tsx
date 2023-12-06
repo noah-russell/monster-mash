@@ -9,7 +9,9 @@ import { Link, useParams } from 'react-router-dom'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 function SingleMonsterView() {
-  const id = useParams().id
+  const id = useParams().id 
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+  const [newMonsterName, setNewMonsterName] = useState("")
 
   function getMounthName(mounthNumber) {
     switch (mounthNumber) {
@@ -78,7 +80,7 @@ function SingleMonsterView() {
     },
   })
 
-  const [isPopupOpen, setIsPopupOpen] = useState(false)
+ 
 
   if (isLoading) {
     return <div>Loading...</div>
@@ -105,7 +107,7 @@ function SingleMonsterView() {
     queryClient.invalidateQueries(['monster', id])
     handlePopupClose()
   }
-  const [newMonsterName, setNewMonsterName] = useState(monster.monster_name)
+  
 
   // const day = new Date()
   // const dayOf = day.getDate()
@@ -121,25 +123,7 @@ function SingleMonsterView() {
   console.log(dayNum)
   return (
     <>
-      {/* <!-- <<<<<<< S4-noah
-      <div className="single-monster-view">
-        <p>Monster name: {monster.monster_name}</p>
-        <p>
-          Artists: <b>{monster.top_artist}</b> and{' '}
-          <b>{monster.bottom_artist}</b>
-        </p>
-        <p>
-          Date created: {new Date(monster.date_created).toLocaleDateString()}
-        </p>
-        <img src={'/' + monster.image_url} alt="single monster view" />
-======= --> */}
-      {/* <p>Monster name:{monster.monster_name}</p> */}
-
-      {/* <p>Date created: {Date(monster.date_created)}</p> */}
-
-  
-
-  
+     
 
       <div className="single-monster-view">
   
