@@ -73,11 +73,12 @@ function PlayHotSeat(props) {
               gameState === 2 ? 'hidden colour-controls' : 'colour-controls'
             }
           >
-            <img
+            {/* <img
               className="controls-img"
               src="client/public/toolbar.png"
               draggable="false"
-            />
+              alt="toolbar background"
+            /> */}
 
             <div className="colours">
               <div className="pencil-crop" onClick={handlePencilClick}>
@@ -134,9 +135,26 @@ function PlayHotSeat(props) {
                 />
               </div>
               <div className="hflex brush-sizes">
-                <button onClick={handleSmallBrushChange}>small</button>
-                <button onClick={handleMediumBrushChange}>medium</button>
-                <button onClick={handleLargeBrushChange}>large</button>
+                <div className="hflex brush-size-container">
+                  <button
+                    className="small-brush"
+                    onClick={handleSmallBrushChange}
+                  >
+                    <div>{/* <p>small</p> */}</div>
+                  </button>
+                  <button
+                    className="medium-brush"
+                    onClick={handleMediumBrushChange}
+                  >
+                    <div>{/* <p>medium</p> */}</div>
+                  </button>
+                  <button
+                    className="large-brush"
+                    onClick={handleLargeBrushChange}
+                  >
+                    <div>{/* <p>large</p> */}</div>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
