@@ -21,12 +21,26 @@ function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
     return () => clearTimeout(timerId)
   }, [gameState, isWelcome])
 
-  //testing
-  // console.log('gameState:', gameState)
-  // console.log('imgSrc:', imgSrc)
-  // console.log('colin isWelcome', isWelcome)
-  // console.log('artistNames in Colin', topArtist)
-  //
+  // const colinPhrases = [
+  //   'Freakishly fantastic!',
+  //   'Marvelously monstrous!',
+  //   'Not sure what that is, but it certainly scares ME!',
+  //   'A delectable, demonstratively, devious and duplicitous demon!',
+  //   "Should it's face look like that?",
+  //   "I hope that thing doesn't eat other monsters",
+  //   "I'm gonna keep looking at you so I don't have to keep looking at THAT!",
+  //   'Did that thing come out of a Graveyard?',
+  //   'Fantastically ferocious!',
+  //   'Wonderfully weird!',
+  //   'Terrifically terrifying!',
+  //   'Eerily enchanting!',
+  //   'Bewitchingly bizarre!',
+  //   'Spectacularly spooky!',
+  //   'Mysteriously magical!',
+  //   'Strangely sublime!',
+  // ]
+  // colinPhrases[Math.floor(Math.random() * colinPhrases.length)]
+
   const colinTips = [
     {
       tip1: `${bottomArtist}, close your eyes!`,
@@ -39,9 +53,9 @@ function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
       hint: `Make sure you draw right to the top of where ${topArtist}'s lines finish`,
     },
     {
-      tip1: 'Dreadfully delightful!',
-      tip2: `${topArtist} and ${bottomArtist} look at your marvelous creation!`,
-      hint: 'Dont forget to name and save your creation!',
+      tip1: 'Not sure what that is, but it certainly scares ME!',
+      tip2: `${topArtist} and ${bottomArtist}, look at your marvelous creation!`,
+      hint: "Don't forget to name and save your monster!",
     },
   ]
 
