@@ -540,6 +540,7 @@ img.monster{
 
 .single-view-spacer{
   flex:1;
+  width:20%;
 }
 
 .single-view-top{
@@ -557,13 +558,18 @@ img.monster{
   justify-content: center;
 }
 .single-view-monster-window{
-  flex:0 0 80%;
+  flex:0 0 60%;
   display:flex;
   justify-content: center;
   align-content: start;
 }
+
+
 .single-view-delete{
   flex:1;
+  width:20%;
+  display: flex;
+  align-content: center;
 }
 .creater-details{
   font-family: 'Beau Rivage';
@@ -583,6 +589,37 @@ img.monster{
 
 .creater-details h2{
   margin:0 1rem;
+}
+.frame-relative{
+  position:relative;
+  display:flex;
+  justify-content: center;
+}
+.details-frame-img{
+  position:absolute;
+}
+img.monster-detail{
+  padding:29% 10% 12% 10%;
+}
+
+.single-view-delete{
+  display:flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.delete-button button{
+  background-color: $red;
+  padding:1rem;
+}
+
+.delete-button button p{
+  font-size:1rem;
+}
+
+.delete-button button p:hover{
+  font-size:1.5rem;
+  transition: font-size 0.3s;
 }
 
 @media only screen and (max-width:1360px){

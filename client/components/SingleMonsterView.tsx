@@ -131,17 +131,7 @@ console.log(dayNum)
 
       {/* <p>Date created: {Date(monster.date_created)}</p> */}
 
-      {/* <div className='delete-button'>
-        <Link to="/menagerie">
-          <button
-            onClick={() => {
-              handleMonsterDelete(monster.id)
-            }}
-          >
-            Delete!
-          </button>
-        </Link>
-      </div>  */}
+  
 
       {/* 
       {isPopupOpen && (
@@ -166,9 +156,24 @@ console.log(dayNum)
         <div className="single-view-top">
           <div className="single-view-spacer"></div>
           <div className="single-view-monster-window">
-            <img src={'/' + monster.image_url} alt="single monster view" />
+            <div className="frame-relative">
+            <img className='details-frame-img'src={'/monsters/detailsFrame.png'}/>
+            <img className='monster-detail'src={'/' + monster.image_url} alt="single monster view" />
+            </div>
           </div>
-          <div className="single-view-delete"></div>
+          <div className="single-view-delete">
+                <div className='delete-button'>
+        <Link to="/menagerie">
+          <button
+            onClick={() => {
+              handleMonsterDelete(monster.id)
+            }}
+          >
+            <p>Delete Monster</p>
+          </button>
+        </Link>
+      </div> 
+          </div>
         </div>
         <div className='single-view-bottom'>
           <div className="creater-details">
