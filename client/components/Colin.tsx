@@ -5,24 +5,13 @@ function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
     'client/public/colingspeechbubble.png',
   )
 
-  // useEffect(() => {
-  //   const timerId = setTimeout(() => {
-  //     setImgSrc('client/public/colin.png')
-  //   }, 5000)
-
-  //   return () => clearTimeout(timerId)
-  // }, [gameState])
-
   useEffect(() => {
-    // Update image source based on gameState
     if (isWelcome === false) {
       setImgSrc('client/public/colingspeechbubble.png')
     } else if (gameState === 1) {
       setImgSrc('client/public/colingspeechbubble.png')
     } else if (gameState === 2) {
       setImgSrc('client/public/colingspeechbubble.png')
-      // Add more conditions as needed
-      // setImgSrc('new-image-url.png');
     }
 
     const timerId = setTimeout(() => {
