@@ -137,22 +137,22 @@ function PlayHotSeat(props) {
               <div className="hflex brush-sizes">
                 <div className="hflex brush-size-container">
                   <button
-                    className="small-brush"
+                    className="brush-box"
                     onClick={handleSmallBrushChange}
                   >
-                    <div>{/* <p>small</p> */}</div>
+                    <div className="small-brush"></div>
                   </button>
                   <button
-                    className="medium-brush"
+                    className="brush-box"
                     onClick={handleMediumBrushChange}
                   >
-                    <div>{/* <p>medium</p> */}</div>
+                    <div className="medium-brush"></div>
                   </button>
                   <button
-                    className="large-brush"
+                    className="brush-box"
                     onClick={handleLargeBrushChange}
                   >
-                    <div>{/* <p>large</p> */}</div>
+                    <div className="large-brush"></div>
                   </button>
                 </div>
               </div>
