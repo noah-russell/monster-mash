@@ -19,7 +19,7 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
     const newName = event.target.value
     setMonsterName(newName)
     const charCount = newName.split("").length
-    if(charCount>11){
+    if(charCount>15){
       setNameTooLong(true)
     }else{
       setNameTooLong(false)
