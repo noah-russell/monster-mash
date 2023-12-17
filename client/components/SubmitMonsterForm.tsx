@@ -9,13 +9,21 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [monsterName, setMonsterName] = useState('')
+  const [nameTooLong, setNameTooLong] = useState(false)
 
   const formData = new FormData()
 
   const handleMonsterNameChange = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    setMonsterName(event.target.value)
+    const newName = event.target.value
+    setMonsterName(newName)
+    const charCount = newName.split("").length
+    if(charCount>11){
+      setNameTooLong(true)
+    }else{
+      setNameTooLong(false)
+    }
   }
 
   const generateFormDataWithBlob = async () => {
@@ -53,6 +61,8 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
         <div className="labels">
           <label className="vflex">
             <h3>Name your monster:</h3>
+            <p className={nameTooLong?``:`hidden`}>name too long!</p>
+            <br/>
             <input
               type="text"
               name="name"
@@ -73,7 +83,7 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
       <button
         className={gameState === 2 ? 'save-monster' : 'hidden'}
         onClick={uploadMonsterToMenagerie}
-        disabled={!monsterName.trim()} // Disable the button if monsterName is empty or contains only whitespace
+        disabled={!monsterName.trim()||nameTooLong}
       >
         <p>Save to Monster Menagerie</p>
       </button>
