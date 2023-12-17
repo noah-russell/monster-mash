@@ -614,7 +614,7 @@ img.monster{
 }
 
 .single-view-top{
-  height:85%;
+  max-height:85%;
   display:flex;
   padding:2rem;
   width:100%;
@@ -670,12 +670,16 @@ img.monster{
   position:relative;
   display:flex;
   justify-content: center;
+  align-items:start;
+
+  aspect-ratio: 0.8;
+
 }
 .details-frame-img{
   position:absolute;
 }
 img.monster-detail{
-  padding:29% 10% 12% 10%;
+  padding:35% 9% 15% 9%;
 }
 
 .single-view-delete{
@@ -701,7 +705,9 @@ img.monster-detail{
 .absolute-div-monster-name{
   position: absolute;
   z-index: 20;
-  top:14%;
+  top:13.1%;
+  height: 13.5%;
+  width: 67%;
   font-family:'Beau Rivage';
   font-weight:200;
   font-size:200%;
@@ -710,7 +716,7 @@ img.monster-detail{
   align-items: center;
 }
 .absolute-div-monster-name h2{
-padding-right: 2rem;
+padding-right: 2%;
 }
 
 .popup{
