@@ -566,19 +566,20 @@ background: #401043;
 .menagerie-item{
   position:relative;
   display:flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  margin:1rem;
-  margin-bottom: 3rem;
   width: 20rem;
 }
 
 .menagerie .frame{
-margin-top:-18rem;
-margin-left:-2.2rem;
+  position: relative;
 }
 
 img.monster{
-  width:15.2rem;
+  position: absolute;
+  max-width:74%;
+  top:11%;
 }
 
 .menagerie-item h4{
@@ -590,11 +591,11 @@ img.monster{
 
 .plaque{
   display:flex;
-  width: 14rem;
+  width: 68%;
+  height:13%;
   justify-content: center;
   position:absolute;
-  left: 1rem;
-  bottom: 3.5rem;
+  bottom:14%;
 }
 
 // single-monster view -----------------------------
