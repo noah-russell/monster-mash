@@ -479,21 +479,29 @@ margin-top: 20px;
   height: 5px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: #401043;
+  background: black;
 }
 
 .medium-brush{
   height: 15px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: #401043;
+  background: black;
   }
 
 .large-brush{
   height: 30px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: #401043;
+  background: black;
+  }
+
+  .brush{
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .brush-box:hover .brush{
+    animation: vibrate 0.5s ease-in-out infinite;
   }
 
 
@@ -819,5 +827,22 @@ padding:0.3rem;
   }
   80% {
     transform: rotateZ(10deg);
+  }
+}
+
+@keyframes vibrate {
+  0%, 100% {
+    transform: translateX(0);
+    transform: translateY(-1);
+  }
+  25% {
+    transform: translateX(-1px);
+  }
+  50% {
+    transform: translateX(1px);
+    transform: translateY(1px);
+  }
+  75% {
+    transform: translateX(-1px);
   }
 }
