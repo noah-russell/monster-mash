@@ -474,21 +474,21 @@ margin-top: 10px;
 }
 
 .small-brush{
-  height: 5px;
+  height: 10px;
   aspect-ratio: 1;
   border-radius: 50%;
   background: black;
 }
 
 .medium-brush{
-  height: 15px;
+  height: 20px;
   aspect-ratio: 1;
   border-radius: 50%;
   background: black;
   }
 
 .large-brush{
-  height: 30px;
+  height: 34px;
   aspect-ratio: 1;
   border-radius: 50%;
   background: black;
@@ -496,6 +496,7 @@ margin-top: 10px;
 
   .brush{
     transition: transform 0.2s ease-in-out;
+    border:solid black 2pt;
   }
 
   .brush-box:hover .brush{

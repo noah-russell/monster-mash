@@ -7,6 +7,7 @@ import SubmitMonsterForm from './SubmitMonsterForm'
 function PlayHotSeat(props) {
   const { topArtist, bottomArtist, isWelcome } = props
   const [gameState, setGameState] = useState(0)
+  const [brushDivBackground, setBrushDivBackground]=useState({})
   const artistNamesAndGameState = {
     topArtist,
     bottomArtist,
@@ -28,21 +29,27 @@ function PlayHotSeat(props) {
 
   function handlePencilClick() {
     changeBrushColor('black')
+    setBrushDivBackground({background:'black'})
   }
   function handleLightPurplePencilClick() {
     changeBrushColor('#ae76b3')
+    setBrushDivBackground({background:'#ae76b3'})
   }
   function handleDarkPurplePencilClick() {
     changeBrushColor('#471352')
+    setBrushDivBackground({background:'#471352'})
   }
   function handleRedPencilClick() {
     changeBrushColor('#9b3008')
+    setBrushDivBackground({background:'#9b3008'})
   }
   function handleColinGreyPencilClick() {
     changeBrushColor('#9a9a9a')
+    setBrushDivBackground({background:'#9a9a9a'})
   }
   function handleRubberClick() {
     changeBrushColor('white')
+    setBrushDivBackground({background:'white'})
   }
   function handleSmallBrushChange() {
     changeBrushSize(5)
@@ -140,19 +147,19 @@ function PlayHotSeat(props) {
                     className="brush-box"
                     onClick={handleSmallBrushChange}
                   >
-                    <div className="small-brush brush"></div>
+                    <div className="small-brush brush" style={brushDivBackground}></div>
                   </button>
                   <button
                     className="brush-box"
                     onClick={handleMediumBrushChange}
                   >
-                    <div className="medium-brush brush"></div>
+                    <div className="medium-brush brush" style={brushDivBackground}></div>
                   </button>
                   <button
                     className="brush-box"
                     onClick={handleLargeBrushChange}
                   >
-                    <div className="large-brush brush"></div>
+                    <div className="large-brush brush" style={brushDivBackground}></div>
                   </button>
                 </div>
               </div>
