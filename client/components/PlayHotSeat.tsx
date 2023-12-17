@@ -12,10 +12,8 @@ function PlayHotSeat(props) {
     topArtist,
     bottomArtist,
     gameState,
-    isWelcome, // Include isWelcome in artistNamesAndGameState
+    isWelcome, 
   }
-  console.log('gamestate in playhotseat', gameState)
-  console.log('isWelcome in PlayHotSeat', isWelcome)
 
   const { changeBrushColor, changeBrushSize } = useCanvas()
 
@@ -80,12 +78,6 @@ function PlayHotSeat(props) {
               gameState === 2 ? 'hidden colour-controls' : 'colour-controls'
             }
           >
-            {/* <img
-              className="controls-img"
-              src="client/public/toolbar.png"
-              draggable="false"
-              alt="toolbar background"
-            /> */}
 
             <div className="colours">
               <div className="pencil-crop" onClick={handlePencilClick}>

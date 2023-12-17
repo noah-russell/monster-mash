@@ -634,7 +634,9 @@ img.monster{
   flex:1;
   width:20%;
   display: flex;
-  align-content: center;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
 }
 .creater-details{
   font-family: 'Beau Rivage';
@@ -677,13 +679,9 @@ img.monster-detail{
   padding:35% 9% 15% 9%;
 }
 
-.single-view-delete{
-  display:flex;
-  justify-content: left;
-  align-items: center;
-}
 
 .delete-button button{
+  margin-top: 1rem;
   background-color: $red;
   padding:1rem;
 }

@@ -102,6 +102,17 @@ function SingleMonsterView() {
     setIsPopupOpen(false)
   }
 
+  function downloadMonster() {
+    const imageUrl = `/${monster.image_url}`;
+    const link = document.createElement('a');
+    link.href = imageUrl;
+    link.download = `${monster.monster_name}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+
   const handleEditMonsterName = async () => {
     await editMonsterName(monster.id, newMonsterName)
     queryClient.invalidateQueries(['monster', id])
@@ -109,11 +120,6 @@ function SingleMonsterView() {
   }
   
 
-  // const day = new Date()
-  // const dayOf = day.getDate()
-  // console.log(dayOf)
-  // const month = getMounthName(monster.date_created.getMonth()+1)
-  // const year = monster.getFullYear()
 
   const monsterDate = new Date(monster.date_created)
   const dayNum = getDayWithSuffix(monsterDate.getDate())
@@ -161,6 +167,11 @@ function SingleMonsterView() {
             </div>
           </div>
           <div className="single-view-delete">
+                <button
+                  onClick={downloadMonster}
+                >
+                  <p>Download</p>
+                </button>
                 <div className='delete-button'>
         <Link to="/menagerie">
           <button
