@@ -79,7 +79,7 @@ router.delete('/monster/:id/delete', async (req, res) => {
 })
 
 router.patch('/monster/:id/edit', async (req, res) => {
-  const id = req.params.id
+  const id:number = Number(req.params.id)
   const { monster_name } = req.body
   await db.editMonsterName(id, { monster_name })
   res.json({})
