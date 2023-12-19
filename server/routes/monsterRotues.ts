@@ -1,25 +1,20 @@
-import { Router } from 'express'
+import { Request, Response, Router } from 'express'
 import * as db from '../db/monsterDb.ts'
 import multer from 'multer'
 
-// import * as db from '../db/db.ts'
-// '/api/v1'
 
-const router = Router()
-
+// -----------------upload new monster--------------------------------
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination: function (req:Request, file:Express.Multer.File, cb) {
     return cb(null, 'monsters/')
   },
-  filename: function (req, file, cb) {
+  filename: function (req:Request, file:Express.Multer.File, cb) {
     return cb(null, `${Date.now()}.png`)
   },
 })
-
 const upload = multer({ storage })
 
-// upload new image
-router.post('/add', upload.single('file'), async (req, res) => {
+router.post('/add', upload.single('file'), async (req:Request, res:Response) => {
   console.log('router is being accessed')
   try {
     if (!req.file) {
@@ -32,8 +27,6 @@ router.post('/add', upload.single('file'), async (req, res) => {
       bottom_artist: req.body.bottom_artist,
       image_url: `monsters/${req.file.filename}`,
     }
-    console.log('monster Data For Db')
-    console.log(monsterDataForDb)
     const newMonsterId = await db.addMonster(monsterDataForDb)
     res.status(200).json({ newMonsterId })
   } catch (error) {
@@ -44,10 +37,10 @@ router.post('/add', upload.single('file'), async (req, res) => {
   }
 })
 
-router.get('/gallery', async (req, res) => {
+// -----------------get all monsters--------------------------------
+router.get('/gallery', async (req:Request, res:Response) => {
   try {
     const monsters = await db.getAllMonsters()
-
     res.json(monsters)
   } catch (error) {
     console.log(error)
@@ -55,16 +48,11 @@ router.get('/gallery', async (req, res) => {
   }
 })
 
-router.get('/monster/:id', async (req, res) => {
+// -----------------get monster by id--------------------------------
+router.get('/monster/:id', async (req:Request, res:Response) => {
   const id = Number(req.params.id)
-  if (isNaN(id)) {
-    res.status(404).json({ error: 'id must be a number' })
-    return
-  }
-
   try {
     const monster = await db.getMonsterById(id)
-
     res.json(monster)
   } catch (error) {
     console.log(error)
@@ -72,13 +60,15 @@ router.get('/monster/:id', async (req, res) => {
   }
 })
 
-router.delete('/monster/:id/delete', async (req, res) => {
+// -----------------delete monster--------------------------------
+router.delete('/monster/:id/delete', async (req:Request, res:Response) => {
   const id:number = Number(req.params.id)
   await db.deleteMonsterById(id)
   res.json({})
 })
 
-router.patch('/monster/:id/edit', async (req, res) => {
+// -----------------edit monster name--------------------------------
+router.patch('/monster/:id/edit', async (req:Request, res:Response) => {
   const id:number = Number(req.params.id)
   const { monster_name } = req.body
   await db.editMonsterName(id, { monster_name })
