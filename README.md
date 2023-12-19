@@ -14,7 +14,7 @@
     <li>[ ] Responsive canvas size</li>
     <li>[ ] Variable Colin Messages (conflicting with animation state)</li>
     <li>[ ] Artist Comment</li>
-    <li>[ ] </li>
+    <li>[ ] Curtain reveal state</li>
     <li>[ ] </li>
     <li>[ ] </li>
     <li>[ ] </li>
