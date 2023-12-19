@@ -15,7 +15,7 @@
     <li>[ ] Variable Colin Messages (conflicting with animation state)</li>
     <li>[ ] Artist Comment</li>
     <li>[ ] Curtain reveal state</li>
-    <li>[ ] </li>
+    <li>[ ] Confrim delete popup</li>
     <li>[ ] </li>
     <li>[ ] </li>
     <li>[ ] </li>
