@@ -3,6 +3,8 @@ import * as db from '../db/monsterDb.ts'
 import multer from 'multer'
 
 
+const router = Router()
+
 // -----------------upload new monster--------------------------------
 const storage = multer.diskStorage({
   destination: function (req:Request, file:Express.Multer.File, cb) {
