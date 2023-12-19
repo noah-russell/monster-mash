@@ -16,10 +16,11 @@
     <li>[ ] Artist Comment</li>
     <li>[ ] Curtain reveal state</li>
     <li>[ ] Confrim delete popup</li>
-    <li>[ ] </li>
-    <li>[ ] </li>
-    <li>[ ] </li>
-    <li>[ ] </li>
+    <li>[ ] Custom Mouse </li>
+    <li>[ ] Favicon</li>
+    <li>[ ] Canvas mouse represents selected dot</li>
+    <li>[ ] Brush tool makes spikes and artifacts</li>
+    <li>[ ] Increase responsiveness of Colin speech bubble</li>
     <li>[ ] </li>
     <li>[ ] </li>
 </ul>
