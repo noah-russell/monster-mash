@@ -1,6 +1,50 @@
 <h1>Documentation for Monster-Mash!</h1>
 
+<h2>To Do:</h2>
 
+<h3>Current Version V1</h3>
+<ul>
+    <li>[X] Colour state dependant brush size selector</li>
+    <li>[ ] Fix image files not deleting</li>
+    <li>[ ] Deploy</li>
+    <li>[ ] Link URL</li>
+    <li>[ ] Visual Indication of tool selected</li>
+    <li>[ ] Undo button</li>
+    <li>[ ] Additional drawing layer(?)</li>
+    <li>[ ] Responsive canvas size</li>
+    <li>[ ] Variable Colin Messages (conflicting with animation state)</li>
+    <li>[ ] Artist Comment</li>
+    <li>[ ] </li>
+    <li>[ ] </li>
+    <li>[ ] </li>
+    <li>[ ] </li>
+    <li>[ ] </li>
+    <li>[ ] </li>
+    <li>[ ] </li>
+    <li>[ ] </li>
+</ul>
+
+<h3>Wishlist V2</h3>
+ <ul>
+    <li>[ ] Authentification planning session</li>
+    <li>[ ] User comments</li>
+    <li>[ ] Scary/Cute Rating</li>
+    <li>[ ] Multiple players</li>
+    <li>[ ] AI image api</li>
+    <li>[ ] Online Multiplayer Mode</li>
+    <li>[ ] Mobile Version</li>
+    <li>[ ] </li>
+    <li>[ ] </li>
+    <li>[ ] </li>
+    <li>[ ] </li>
+    <li>[ ] </li>
+    <li>[ ] </li>
+ </ul>
+
+
+
+<h3>User Testing</h3>
+<h4>User Feedback:</h4>
 
 <h3>React states</h3>
 <h4>Game states (gameState, setGameState)</h4>
