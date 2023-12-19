@@ -34,7 +34,7 @@
     <li>[ ] AI image api</li>
     <li>[ ] Online Multiplayer Mode</li>
     <li>[ ] Mobile Version</li>
-    <li>[ ] Bought out by microsoft for $2Bn</li>
+    <li>[ ] Bought out by Microsoft for $2Bn</li>
     <li>[ ] </li>
     <li>[ ] </li>
     <li>[ ] </li>
