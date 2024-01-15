@@ -3,18 +3,26 @@ import DrawingZone from './DrawingZone'
 import { useState } from 'react'
 import { useCanvas } from './CanvasContext'
 import SubmitMonsterForm from './SubmitMonsterForm'
-import { BrushDivBackground} from '../../models/monster-models'
+import { BrushDivBackground } from '../../models/monster-models'
 
-function PlayHotSeat({...playHotSeatProps},{...welcomeProps}) {
-    const{topArtist, bottomArtist} = playHotSeatProps
-    const{isWelcome} = welcomeProps
+import pencilblack from '../public/pencil_black.png'
+import pencildarkpurple from '../public/pencil_dark_purple.png'
+import pencillightpurple from '../public/pencil_light_purple.png'
+import pencilgrey from '../public/pencil_grey.png'
+import pencilred from '../public/pencil_red.png'
+import rubber from '../public/rubber.png'
+
+function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
+  const { topArtist, bottomArtist } = playHotSeatProps
+  const { isWelcome } = welcomeProps
   const [gameState, setGameState] = useState<number>(0)
-  const [brushDivBackground, setBrushDivBackground]=useState<BrushDivBackground>({background:'black'})
+  const [brushDivBackground, setBrushDivBackground] =
+    useState<BrushDivBackground>({ background: 'black' })
   const artistNamesAndGameState = {
     topArtist,
     bottomArtist,
     gameState,
-    isWelcome, 
+    isWelcome,
   }
 
   const { changeBrushColor, changeBrushSize } = useCanvas()
@@ -29,27 +37,27 @@ function PlayHotSeat({...playHotSeatProps},{...welcomeProps}) {
 
   function handlePencilClick() {
     changeBrushColor('black')
-    setBrushDivBackground({background:'black'})
+    setBrushDivBackground({ background: 'black' })
   }
   function handleLightPurplePencilClick() {
     changeBrushColor('#ae76b3')
-    setBrushDivBackground({background:'#ae76b3'})
+    setBrushDivBackground({ background: '#ae76b3' })
   }
   function handleDarkPurplePencilClick() {
     changeBrushColor('#471352')
-    setBrushDivBackground({background:'#471352'})
+    setBrushDivBackground({ background: '#471352' })
   }
   function handleRedPencilClick() {
     changeBrushColor('#9b3008')
-    setBrushDivBackground({background:'#9b3008'})
+    setBrushDivBackground({ background: '#9b3008' })
   }
   function handleColinGreyPencilClick() {
     changeBrushColor('#9a9a9a')
-    setBrushDivBackground({background:'#9a9a9a'})
+    setBrushDivBackground({ background: '#9a9a9a' })
   }
   function handleRubberClick() {
     changeBrushColor('white')
-    setBrushDivBackground({background:'white'})
+    setBrushDivBackground({ background: 'white' })
   }
   function handleSmallBrushChange() {
     changeBrushSize(5)
@@ -80,11 +88,10 @@ function PlayHotSeat({...playHotSeatProps},{...welcomeProps}) {
               gameState === 2 ? 'hidden colour-controls' : 'colour-controls'
             }
           >
-
             <div className="colours">
               <div className="pencil-crop" onClick={handlePencilClick}>
                 <img
-                  src="client/public/pencil.png"
+                  src={pencilblack}
                   alt="black pencil icon"
                   draggable="false"
                 />
@@ -95,7 +102,7 @@ function PlayHotSeat({...playHotSeatProps},{...welcomeProps}) {
                 onClick={handleDarkPurplePencilClick}
               >
                 <img
-                  src="client/public/darkPurple.png"
+                  src={pencildarkpurple}
                   alt="dark purple pencil icon"
                   draggable="false"
                 />
@@ -106,34 +113,22 @@ function PlayHotSeat({...playHotSeatProps},{...welcomeProps}) {
                 onClick={handleLightPurplePencilClick}
               >
                 <img
-                  src="client/public/lightPurple.png"
+                  src={pencillightpurple}
                   alt="light purple pencil icon"
                   draggable="false"
                 />
               </div>
 
               <div className="pencil-crop" onClick={handleColinGreyPencilClick}>
-                <img
-                  src="client/public/colinGrey.png"
-                  alt="pencil icon"
-                  draggable="false"
-                />
+                <img src={pencilgrey} alt="pencil icon" draggable="false" />
               </div>
 
               <div className="pencil-crop" onClick={handleRedPencilClick}>
-                <img
-                  src="client/public/red.png"
-                  alt="red pencil icon"
-                  draggable="false"
-                />
+                <img src={pencilred} alt="red pencil icon" draggable="false" />
               </div>
 
               <div className="pencil-crop" onClick={handleRubberClick}>
-                <img
-                  src="client/public/rubber.png"
-                  alt="rubber icon"
-                  draggable="false"
-                />
+                <img src={rubber} alt="rubber icon" draggable="false" />
               </div>
               <div className="hflex brush-sizes">
                 <div className="hflex brush-size-container">
@@ -141,19 +136,28 @@ function PlayHotSeat({...playHotSeatProps},{...welcomeProps}) {
                     className="brush-box"
                     onClick={handleSmallBrushChange}
                   >
-                    <div className="small-brush brush" style={brushDivBackground}></div>
+                    <div
+                      className="small-brush brush"
+                      style={brushDivBackground}
+                    ></div>
                   </button>
                   <button
                     className="brush-box"
                     onClick={handleMediumBrushChange}
                   >
-                    <div className="medium-brush brush" style={brushDivBackground}></div>
+                    <div
+                      className="medium-brush brush"
+                      style={brushDivBackground}
+                    ></div>
                   </button>
                   <button
                     className="brush-box"
                     onClick={handleLargeBrushChange}
                   >
-                    <div className="large-brush brush" style={brushDivBackground}></div>
+                    <div
+                      className="large-brush brush"
+                      style={brushDivBackground}
+                    ></div>
                   </button>
                 </div>
               </div>
@@ -165,9 +169,7 @@ function PlayHotSeat({...playHotSeatProps},{...welcomeProps}) {
               className={gameState === 2 ? 'hidden' : ''}
               onClick={handleDoneClick}
             >
-              <p>{`${
-                gameState === 0 ? topArtist : bottomArtist
-              } done!`}</p>
+              <p>{`${gameState === 0 ? topArtist : bottomArtist} done!`}</p>
             </button>
             <div>
               <SubmitMonsterForm {...artistNamesAndGameState} />
