@@ -4,10 +4,9 @@ import { useState } from 'react'
 import { CanvasProvider } from './CanvasContext'
 
 function HotSeatMode() {
-  const [isWelcome, setIsWelcome] = useState(true)
-  // const [artistNames, setArtistNames] = useState(['', ''])
-  const [topArtist, setTopArtist] = useState('')
-  const [bottomArtist, setBottomArtist] = useState('')
+  const [isWelcome, setIsWelcome] = useState<boolean>(true)
+  const [topArtist, setTopArtist] = useState<string>('')
+  const [bottomArtist, setBottomArtist] = useState<string>('')
 
   const welcomeProps = {
     setTopArtist,
@@ -20,8 +19,6 @@ function HotSeatMode() {
     topArtist,
     bottomArtist,
   }
-
-  console.log('isWelcome in HotSeatMode', isWelcome)
 
   return (
     <>

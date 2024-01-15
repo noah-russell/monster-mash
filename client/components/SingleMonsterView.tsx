@@ -10,11 +10,11 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 function SingleMonsterView() {
   const id = useParams().id 
-  const [isPopupOpen, setIsPopupOpen] = useState(false)
-  const [newMonsterName, setNewMonsterName] = useState("")
+  const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false)
+  const [newMonsterName, setNewMonsterName] = useState<string>("")
 
-  function getMounthName(mounthNumber) {
-    switch (mounthNumber) {
+  function getMounthName(monthNumber:number) {
+    switch (monthNumber) {
       case 1:
         return 'January'
       case 2:

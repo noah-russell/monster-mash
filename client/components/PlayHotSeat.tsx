@@ -3,11 +3,12 @@ import DrawingZone from './DrawingZone'
 import { useState } from 'react'
 import { useCanvas } from './CanvasContext'
 import SubmitMonsterForm from './SubmitMonsterForm'
+import { BrushDivBackground} from '../../models/monster-models'
 
 function PlayHotSeat(props) {
   const { topArtist, bottomArtist, isWelcome } = props
-  const [gameState, setGameState] = useState(0)
-  const [brushDivBackground, setBrushDivBackground]=useState({})
+  const [gameState, setGameState] = useState<number>(0)
+  const [brushDivBackground, setBrushDivBackground]=useState<BrushDivBackground>({background:'black'})
   const artistNamesAndGameState = {
     topArtist,
     bottomArtist,

@@ -8,8 +8,8 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
   const { canvasRef, saveCanvasAsImage } = useCanvas()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
-  const [monsterName, setMonsterName] = useState('')
-  const [nameTooLong, setNameTooLong] = useState(false)
+  const [monsterName, setMonsterName] = useState<string>('')
+  const [nameTooLong, setNameTooLong] = useState<boolean>(false)
 
   const formData = new FormData()
 
@@ -40,7 +40,7 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
   })
 
   const uploadMonsterToMenagerie = async (
-    event: React.ChangeEvent<HTMLFormElement>,
+    event: React.MouseEvent<HTMLButtonElement>,
   ) => {
     event.preventDefault()
     await generateFormDataWithBlob()
