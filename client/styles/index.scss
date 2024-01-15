@@ -777,6 +777,22 @@ padding:0.3rem;
  }
 }
 
+@media only screen and (max-width:732px){
+    header{
+      justify-content: left;
+    }
+    .colin-welcome{
+      width:100%;
+      flex-direction: column-reverse;
+    }
+    .welcome-bubble h2{
+      font-size: 2.5rem;
+    }
+    .nicknames-welcome .labels{
+        flex-direction: column;
+    }
+  }  
+
 // Noah's stuff ----------------------------
 
 .pencil-crop img:hover {
