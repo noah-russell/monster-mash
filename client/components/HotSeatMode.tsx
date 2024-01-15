@@ -14,7 +14,6 @@ function HotSeatMode() {
     setIsWelcome,
     isWelcome,
   }
-
   const playHotSeatProps = {
     topArtist,
     bottomArtist,
