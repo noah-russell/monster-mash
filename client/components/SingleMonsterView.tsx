@@ -118,15 +118,11 @@ function SingleMonsterView() {
     queryClient.invalidateQueries(['monster', id])
     handlePopupClose()
   }
-  
-
 
   const monsterDate = new Date(monster.date_created)
   const dayNum = getDayWithSuffix(monsterDate.getDate())
   const month = getMounthName(monsterDate.getMonth() + 1)
   const year = monsterDate.getFullYear()
-
-  console.log(dayNum)
   return (
     <>
      

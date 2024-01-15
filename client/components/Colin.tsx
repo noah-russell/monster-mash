@@ -60,7 +60,7 @@ function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
   ]
 
   const currentColinTip = colinTips[gameState]
-  console.log('colin gamestate', gameState)
+
   return (
     <>
       <div className="speech-bubble">
