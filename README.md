@@ -5,14 +5,14 @@
 <h3>Current Version V1</h3>
 <ul>
     <li>[X] Colour state dependant brush size selector</li>
-    <li>[ ] Fix image files not deleting</li>
-    <li>[ ] Deploy</li>
+    <li>[X] Fix image files not deleting</li>
+    <li>[X] Deploy</li>
     <li>[ ] Link URL</li>
     <li>[ ] Visual Indication of tool selected</li>
     <li>[ ] Undo button</li>
     <li>[ ] Additional drawing layer(?)</li>
     <li>[ ] Responsive canvas size</li>
-    <li>[ ] Variable Colin Messages (conflicting with animation state)</li>
+    <li>[X] Variable Colin Messages (conflicting with animation state)</li>
     <li>[ ] Artist Comment</li>
     <li>[ ] Curtain reveal state</li>
     <li>[ ] Confrim delete popup</li>
