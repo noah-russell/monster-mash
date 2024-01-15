@@ -5,7 +5,7 @@ const CanvasContext = React.createContext({})
 
 export const CanvasProvider = ({ children }) => {
   const [isDrawing, setIsDrawing] = useState(false)
-  const [brushColor, setBrushColor] = useState('black')
+  const brushColor = 'black'
   const [brushSize, setBrushSize] = useState(5)
 
   const canvasRef = useRef(null)

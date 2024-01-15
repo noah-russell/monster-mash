@@ -10,11 +10,11 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 function SingleMonsterView() {
   const id = useParams().id 
-  const [isPopupOpen, setIsPopupOpen] = useState(false)
-  const [newMonsterName, setNewMonsterName] = useState("")
+  const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false)
+  const [newMonsterName, setNewMonsterName] = useState<string>("")
 
-  function getMounthName(mounthNumber) {
-    switch (mounthNumber) {
+  function getMounthName(monthNumber:number) {
+    switch (monthNumber) {
       case 1:
         return 'January'
       case 2:
@@ -102,25 +102,27 @@ function SingleMonsterView() {
     setIsPopupOpen(false)
   }
 
+  function downloadMonster() {
+    const imageUrl = `/${monster.image_url}`;
+    const link = document.createElement('a');
+    link.href = imageUrl;
+    link.download = `${monster.monster_name}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+
   const handleEditMonsterName = async () => {
     await editMonsterName(monster.id, newMonsterName)
     queryClient.invalidateQueries(['monster', id])
     handlePopupClose()
   }
-  
-
-  // const day = new Date()
-  // const dayOf = day.getDate()
-  // console.log(dayOf)
-  // const month = getMounthName(monster.date_created.getMonth()+1)
-  // const year = monster.getFullYear()
 
   const monsterDate = new Date(monster.date_created)
   const dayNum = getDayWithSuffix(monsterDate.getDate())
   const month = getMounthName(monsterDate.getMonth() + 1)
   const year = monsterDate.getFullYear()
-
-  console.log(dayNum)
   return (
     <>
      
@@ -161,6 +163,11 @@ function SingleMonsterView() {
             </div>
           </div>
           <div className="single-view-delete">
+                <button
+                  onClick={downloadMonster}
+                >
+                  <p>Download</p>
+                </button>
                 <div className='delete-button'>
         <Link to="/menagerie">
           <button

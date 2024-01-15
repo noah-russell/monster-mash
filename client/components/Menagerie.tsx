@@ -1,21 +1,27 @@
 import { getAllMonsters } from '../apiFunctions'
+import {Monster} from '../../models/monster-models'
 import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 function Menagerie() {
   const {
     data: monsters,
     isLoading,
     isError,
-    error,
   } = useQuery(['monsters'], getAllMonsters, {})
+
+  if(isLoading){
+    return(<p>Monsters are being rounded up.</p>)
+  }
+  if(isError){
+    return(<p>Oops, it appears there has been a mass breakout.</p>)
+  }
+
   return (
     <>
       <div className="menagerie">
         {monsters &&
-          monsters.map((monster) => {
+          monsters.map((monster:Monster) => {
             return (
               <> 
                 <Link to={`/monster/${monster.id}`}>

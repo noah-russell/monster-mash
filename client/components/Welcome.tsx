@@ -1,15 +1,16 @@
 import { useState } from 'react'
+import { WelcomeProps } from '../../models/monster-models'
 
-function Welcome({ setIsWelcome, setTopArtist, setBottomArtist }) {
-  const [dummyTopArtist, setDummyTopArtist] = useState('')
-  const [dummyBottomArtist, setDummyBottomArtist] = useState('')
+function Welcome({ setIsWelcome, setTopArtist, setBottomArtist }:WelcomeProps) {
+  const [dummyTopArtist, setDummyTopArtist] = useState<string>('')
+  const [dummyBottomArtist, setDummyBottomArtist] = useState<string>('')
 
-  const handleTopArtistChange = (event: React.ChangeEvent<HTMLFormElement>) => {
+  const handleTopArtistChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTopArtist(event.target.value)
     setDummyTopArtist(event.target.value)
   }
   const handleBottomArtistChange = (
-    event: React.ChangeEvent<HTMLFormElement>,
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setBottomArtist(event.target.value)
     setDummyBottomArtist(event.target.value)
@@ -39,7 +40,7 @@ function Welcome({ setIsWelcome, setTopArtist, setBottomArtist }) {
         </div>
       </div>
 
-      <form className="nicknames-welcome">
+      <form className="nicknames-welcome" onSubmit={handleStart}>
         <div className="labels">
           <label className="hflex">
             <h3>Minion 1 :</h3>
@@ -63,7 +64,7 @@ function Welcome({ setIsWelcome, setTopArtist, setBottomArtist }) {
 
         <button
           className="welcome"
-          onClick={handleStart}
+          type="submit"
           disabled={!dummyTopArtist || !dummyBottomArtist}
         >
           <p>Start</p>

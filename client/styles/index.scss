@@ -198,7 +198,6 @@ nav p:hover{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height:100%;
 }
 
 .colin-welcome{
@@ -349,21 +348,19 @@ input{
   flex-direction: column;
   height:100%;
   width:400px;
-  padding:2rem;
-
-
 }
 
 .colour-controls{
   position: relative;
+  margin:1rem 0 0 0;
   z-index:1;
   width:100%;
   height:100%;
   max-height:550px;
-  min-height:400px;
+  min-height:480px;
   // Remove to undo changes to background image
   background-image: url("../public/toolbar.png");
-  background-size: contain;
+  background-size: 70%;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -412,7 +409,7 @@ button.download{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  top:15%;
+  top:8%;
   left:8.5%;
   width:80%;
 
@@ -456,68 +453,64 @@ button.download{
 .brush-size-container{
 border: 3px solid black;
 background: $lightPurple;
-border-radius: 30px / 30px;
+border-radius: 10px / 10px;
 padding: 5px;
 align-items: center;
 justify-content: center;
-margin-top: 20px;
+margin-top: 10px;
+}
+
+.brush-box{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:40px;
+  aspect-ratio: 1;
+}
+
+.brush-box:hover{
+  background-color: rgba(255, 255, 255, 0.13);
 }
 
 .small-brush{
-height: 20px;
-width: 20px;
-border-radius: 50%;
-border: 3px solid black;
-margin: 10px;
-margin-left: 15px;
-background: #401043;
-
-}
-
-.small-brush p{
-  font-size:medium;
+  height: 10px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: black;
 }
 
 .medium-brush{
-  height: 35px;
-  width: 35px;
+  height: 20px;
+  aspect-ratio: 1;
   border-radius: 50%;
-  margin: 10px;
-  border: 3px solid black;
-margin: 10px;
-margin-left: 15px;
-background: #401043;
+  background: black;
   }
-
-.medium-brush p{
-  font-size: medium;
-}
 
 .large-brush{
-  height: 50px;
-  width: 50px;
+  height: 34px;
+  aspect-ratio: 1;
   border-radius: 50%;
-  margin: 10px;
-  margin-right: 15px;
-  border: 3px solid black;
-margin: 10px;
-margin-left: 15px;
-background: #401043;
+  background: black;
   }
 
-.large-brush p{
-  font-size: medium;
-}
+  .brush{
+    transition: transform 0.2s ease-in-out;
+    border:solid black 2pt;
+  }
+
+  .brush-box:hover .brush{
+    animation: vibrate 0.5s ease-in-out infinite;
+  }
 
 
 
 // colin------------------------------------------------
 
 .colin {
-   flex: 1;
   display: flex;
-  height:100%;
+//   height:100%;
   position: relative;
+  max-width:50%;
 }
 
 .colin img{
@@ -566,19 +559,20 @@ background: #401043;
 .menagerie-item{
   position:relative;
   display:flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  margin:1rem;
-  margin-bottom: 3rem;
   width: 20rem;
 }
 
 .menagerie .frame{
-margin-top:-18rem;
-margin-left:-2rem;
+  position: relative;
 }
 
 img.monster{
-  width:15.5rem;
+  position: absolute;
+  max-width:74%;
+  top:11%;
 }
 
 .menagerie-item h4{
@@ -590,11 +584,11 @@ img.monster{
 
 .plaque{
   display:flex;
-  width: 14rem;
+  width: 68%;
+  height:13%;
   justify-content: center;
   position:absolute;
-  left: 1rem;
-  bottom: 3.5rem;
+  bottom:14%;
 }
 
 // single-monster view -----------------------------
@@ -614,7 +608,7 @@ img.monster{
 }
 
 .single-view-top{
-  height:85%;
+  max-height:85%;
   display:flex;
   padding:2rem;
   width:100%;
@@ -639,7 +633,9 @@ img.monster{
   flex:1;
   width:20%;
   display: flex;
-  align-content: center;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
 }
 .creater-details{
   font-family: 'Beau Rivage';
@@ -670,21 +666,21 @@ img.monster{
   position:relative;
   display:flex;
   justify-content: center;
+  align-items:start;
+
+  aspect-ratio: 0.8;
+
 }
 .details-frame-img{
   position:absolute;
 }
 img.monster-detail{
-  padding:29% 10% 12% 10%;
+  padding:35% 9% 15% 9%;
 }
 
-.single-view-delete{
-  display:flex;
-  justify-content: left;
-  align-items: center;
-}
 
 .delete-button button{
+  margin-top: 1rem;
   background-color: $red;
   padding:1rem;
 }
@@ -701,7 +697,9 @@ img.monster-detail{
 .absolute-div-monster-name{
   position: absolute;
   z-index: 20;
-  top:14%;
+  top:13.1%;
+  height: 13.5%;
+  width: 67%;
   font-family:'Beau Rivage';
   font-weight:200;
   font-size:200%;
@@ -710,7 +708,7 @@ img.monster-detail{
   align-items: center;
 }
 .absolute-div-monster-name h2{
-padding-right: 2rem;
+padding-right: 2%;
 }
 
 .popup{
@@ -779,6 +777,22 @@ padding:0.3rem;
  }
 }
 
+@media only screen and (max-width:732px){
+    header{
+      justify-content: left;
+    }
+    .colin-welcome{
+      width:100%;
+      flex-direction: column-reverse;
+    }
+    .welcome-bubble h2{
+      font-size: 2.5rem;
+    }
+    .nicknames-welcome .labels{
+        flex-direction: column;
+    }
+  }  
+
 // Noah's stuff ----------------------------
 
 .pencil-crop img:hover {
@@ -825,5 +839,22 @@ padding:0.3rem;
   }
   80% {
     transform: rotateZ(10deg);
+  }
+}
+
+@keyframes vibrate {
+  0%, 100% {
+    transform: translateX(0);
+    transform: translateY(-1);
+  }
+  25% {
+    transform: translateX(-1px);
+  }
+  50% {
+    transform: translateX(1px);
+    transform: translateY(1px);
+  }
+  75% {
+    transform: translateX(-1px);
   }
 }

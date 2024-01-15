@@ -17,3 +17,13 @@ export interface Monster {
 export interface newMonsterName {
   monster_name: string
 }
+
+export interface BrushDivBackground{
+    background: string
+}
+
+export interface WelcomeProps {
+    setIsWelcome: React.Dispatch<React.SetStateAction<boolean>>;
+    setTopArtist: React.Dispatch<React.SetStateAction<string>>;
+    setBottomArtist: React.Dispatch<React.SetStateAction<string>>;
+  }
