@@ -8,7 +8,7 @@ const router = Router()
 // -----------------upload new monster--------------------------------
 const storage = multer.diskStorage({
   destination: function (req:Request, file:Express.Multer.File, cb) {
-    return cb(null, 'monsters/')
+    return cb(null, 'public/')
   },
   filename: function (req:Request, file:Express.Multer.File, cb) {
     return cb(null, `${Date.now()}.png`)
@@ -17,7 +17,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage })
 
 router.post('/add', upload.single('file'), async (req:Request, res:Response) => {
-  console.log('router is being accessed')
   try {
     if (!req.file) {
       res.status(400).json({ error: 'No file uploaded' })
@@ -27,7 +26,7 @@ router.post('/add', upload.single('file'), async (req:Request, res:Response) => 
       monster_name: req.body.monster_name,
       top_artist: req.body.top_artist,
       bottom_artist: req.body.bottom_artist,
-      image_url: `monsters/${req.file.filename}`,
+      image_url: `/${req.file.filename}`,
     }
     const newMonsterId = await db.addMonster(monsterDataForDb)
     res.status(200).json({ newMonsterId })
@@ -64,14 +63,14 @@ router.get('/monster/:id', async (req:Request, res:Response) => {
 
 // -----------------delete monster--------------------------------
 router.delete('/monster/:id/delete', async (req:Request, res:Response) => {
-  const id:number = Number(req.params.id)
+  const id= Number(req.params.id)
   await db.deleteMonsterById(id)
   res.json({})
 })
 
 // -----------------edit monster name--------------------------------
 router.patch('/monster/:id/edit', async (req:Request, res:Response) => {
-  const id:number = Number(req.params.id)
+  const id = Number(req.params.id)
   const { monster_name } = req.body
   await db.editMonsterName(id, { monster_name })
   res.json({})
