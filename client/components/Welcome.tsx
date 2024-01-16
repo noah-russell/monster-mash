@@ -31,7 +31,7 @@ function Welcome({
     <div className="welcome-container">
       <div className="colin-welcome">
         <img
-          src="public/colinwelcome.png"
+          src="/colinwelcome.png"
           alt="colin waving"
           className="colin"
         />
