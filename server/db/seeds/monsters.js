@@ -12,7 +12,7 @@ export async function seed(knex) {
       top_artist: 'Patrice',
       bottom_artist: 'Rose',
       date_created: new Date(),
-      image_url: '/Clause.png',
+      image_url: '/monsters/Clause.png',
     },
     {
       id: 2,
@@ -77,7 +77,7 @@ export async function seed(knex) {
       top_artist: 'Rose Juice',
       bottom_artist: 'Patrice',
       date_created: new Date(),
-      image_url: '/Picasso.png',
+      image_url: '/monsters/Picasso.png',
     },
     {
       id: 10,
@@ -87,7 +87,5 @@ export async function seed(knex) {
       date_created: new Date(),
       image_url: '/saw gangan.png',
     },
-
-
   ])
 }
