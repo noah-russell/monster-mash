@@ -1,190 +1,235 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
-// @import '../public/Courgette-Regular.ttf'
+// @import '/Courgette-Regular.ttf'
 
-// __________________________________
-// Colour Variables
+// colour variables ----------------------------
 $red: rgb(128, 46, 53);
 $lightPurple: rgb(178, 131, 206);
 $highlighterPurple: rgb(208, 150, 242);
 $whiteIsh: #d1d1d1;
 $colinGrey: #aba4a4;
 $speechBubbleGrey: #d2c8c8;
+$darkPurple: #401043;
 
-// __________________________________
-// grandparent styling
-
+// grandparent styling--------------------------
 *{
   box-sizing: border-box;
-}
-
-html, 
-body {
   margin:0;
-  display:flex;
-  flex-direction: column;
-  height:100%;
+  padding:0;
 }
-
-body {  
-  background-image: url("../public/background.png");
-  background-size: cover;
-  font-family: 'agbalumo';
-  color: $whiteIsh;
-  background-repeat: no-repeat;
-}
-
-#app{
+html{
   display: flex;
   flex-direction:column;
+  justify-content: space-between;
   height:100%;
 }
 
-// _______________________________________________
-// Generic Styling
+body{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+  height:100%;
+  padding-top:7rem;
+  background-image: url("/background.png");
+  background-size: cover;
+
+}
+#app{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  height:100%;
+}
+.app-layout{ //this element is underneath the header and wraps hot-seat-mode
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  height:100%;
+}
+
+.hot-seat-mode{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  height:100%;
+}
+
+
+// universal styling ---------------------------------
+.hidden{
+  display:none;
+}
 img{
-  max-width: 100%;
-  user-select: none;
+  max-width:100%;
+  max-height:100%;
+  height:auto;
+  user-select:none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none; 
+  -webkit-user-drag: none;
 }
 img:focus{
   outline:none;
 }
-
 button{
-  // padding: 1rem;
-  margin: 0.5rem;
-  border-radius: 0.5rem;;
-  background-color: $colinGrey;
-  border: transparent solid 2pt;
   display:flex;
   justify-content: center;
   align-items: center;
 }
-button:hover{
-  background-color: $highlighterPurple;
-  border: solid 0.2rem $whiteIsh;
+
+button{
+  border-radius: 0.5rem;
+  border: transparent solid 2pt;
+  background-color: $lightPurple;
+  }
+  
+  button:hover{
+    background-color: $red;
+    border: solid 2pt $whiteIsh;
+    color: $whiteIsh;
+  }
+
+  button:disabled:hover {
+    cursor: not-allowed;
+    background-color: $lightPurple;
+    color: $lightPurple;
+    border: transparent solid 2pt;
+  }
+  
+  button:active{
+    border: solid 2pt black;
+  }
+
+  button p{
+    font-size: 2rem;
+    font-family:'Permanent Marker';
+  }
+
+a{
+  text-decoration: none;
 }
 
-button:hover{
-  background-color: $highlighterPurple;
-  border: solid 2pt $whiteIsh;
-}
-
-button:active{
-  border: solid 0.2rem black;
-}
-
-
-button p{
-  font-family:'Permanent Marker';
-  font-size:3rem;
-  margin: 0.5rem;
-}
-
-
-// ________________________________
-// universal classes
-// can be used anywhere for a quick format
 .hflex{
-  display:flex; 
+  display:flex;
 }
 .vflex{
   display:flex;
-  flex-direction: column;
+  flex-direction:column;
 }
 
-.hidden{
-  display:none;
-}
-
-// ________________________________
-// top level component
-
-.app-layout{
-  height:100%;
-}
-// ________________________________
-// Header Styling
+// header ---------------------------------
 header{
-  background-color: rgba(0, 0, 0, 0.507);
-  height: auto;
-}
-
-.header-box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.722);
+  height: 7rem;
   display: flex;
   justify-content: center;
-  width:100%;
   align-items: center;
+  padding-left:2rem;
+  z-index: 20;
 }
 
 h1{
   font-family: Creepster;
   font-size: 4rem;
   font-weight: 100;
-  padding: 0.5rem;
-  margin:0;
   letter-spacing: 1rem;
   color: $whiteIsh;
 }
 
+// nav -----------------------------------
+
 nav{
-  position: absolute;
+  position:absolute;
   top:0;
   right:0;
-  height: 7rem;
-  align-items: center;
+  height:7rem;
+  display:flex;
+  align-items:center;
   justify-content: center;
-  padding:0.5rem;
+  margin-right:2rem;
+}
+.nav-button-div{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 11rem;
+  margin:0.5rem;
 }
 
 nav button{
-  height:4rem;
-  margin: 0.5rem;
-  border-radius: 0.5rem;;
-  background-color: $lightPurple;
-  border: transparent solid 2pt;
-  width:auto;
+max-width:15rem;
+height:5rem;
+border-radius: 0.5rem;
+border: transparent solid 2pt;
+background-color: $lightPurple;
+margin:0.5rem;
 }
+
 nav button:hover{
   background-color: $red;
   border: solid 2pt $whiteIsh;
+  color: $whiteIsh;
 }
+
+nav button:active{
+  border: solid 2pt black;
+}
+
 
 nav p{
   font-family:'Permanent Marker';
   font-size:2rem;
-  margin:0 0.5rem;
+  padding:1rem;
+  line-height: 1.6rem;
 }
 
-nav button p:hover{
-  color:$whiteIsh;
+nav p:hover{
+  font-size:2.1rem;
 }
 
-//____________________________________________
-//Welcome
-.welcome-container img{
-  border-radius: 50%;
-  border: solid $lightPurple 1rem;
-  max-width: 30%;
-  margin: 5%;
-  
-}
-
+// Welcome ----------------------------------
 .welcome-container{
   display:flex;
   flex-direction: column;
   align-items: center;
-  padding: 5% 10%;
+  justify-content: center;
 }
 
-.welcome-bubble{
- background-color: $speechBubbleGrey;
- border-radius: 10%;
- padding: 2rem;
- margin-right: 2rem;
- display: flex;
- align-items: center;
- justify-content: center;
- }
+.colin-welcome{
+  padding:2rem;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:60%;
+  width:80%;
+}
+
+.colin-welcome img{
+  border-radius: 50%;
+  border: solid $lightPurple 1rem;
+}
+
+.colin-welcome .welcome-bubble{
+  margin-left:2rem;
+  height:100%;
+  display: flex;
+  align-items: center;
+
+}
+
+.welcome-bubble div{
+  background-color: $speechBubbleGrey;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:auto;
+  border-radius:3rem;
+}
 
 .welcome-bubble h2{
   color: black;
@@ -193,61 +238,285 @@ nav button p:hover{
   line-height: 3rem;
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
+  font-weight: 200;
+  padding:2rem;
 }
 
-.welcome-flexbox{
+.nicknames-welcome{
+  padding:2rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+}
+
+.labels{
+  display:flex;
+  background-color: $darkPurple;
+  color:$whiteIsh;
+  border: 0.5rem solid black;
+}
+
+label{
+  margin:1rem 2rem;
+}
+label h3{
+  margin:2rem;
+  font-family:'Permanent Marker';
+  font-size:2rem;
+  line-height: 1.6rem;
+  font-weight:200;
+}
+
+input{
+  font-family: 'Patrick Hand';
+  font-size: 2rem;
+  line-height:2rem;
+  width:10rem;
+  padding: 0.5rem;
+}
+
+.welcome-container button{
+  padding: 0.5rem;
+  margin:0.5rem;
+}
+
+// play-------------------------------
+.play-hot-seat{
+  display:flex;
+  height:100%;
+  width:100%;
+}
+
+// drawing zone ----------------------------------
+
+.drawing-zone{
+  padding-top:3rem;
+  flex: 0 0 680px; 
+  display:flex;
+  align-items: start;
+  height:100%;
+  width:680px;
+}
+
+.canvas{
+  position:relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:680px;
+}
+.done-frame{
+  position:absolute;
+  top:0;
+  left:0px;
+  z-index:2;
+  width:680px;
+  height:680px;
+}
+
+.canvas-container{
+  position: relative;
+  top:7px;
+  left:0;
+  z-index:1;
+}
+
+.question-top{
+  position: absolute;
+  height: 230px;
+  width: 500px;
+}
+.question-bottom{
+  position:absolute;
+  height: 250px;
+  width: 500px;
+  top: 250px;
+}
+
+.canvas-container:hover{
+  border:$lightPurple solid 5pt;
+}
+
+// controls-------------------------------------------
+
+.controls{
+  flex: 0 0 400px; 
+  display:flex;
+  flex-direction: column;
+  height:100%;
+  width:400px;
+}
+
+.colour-controls{
+  position: relative;
+  margin:1rem 0 0 0;
+  z-index:1;
+  width:100%;
+  height:100%;
+  max-height:550px;
+  min-height:480px;
+  // Remove to undo changes to background image
+  background-image: url("/toolbar.png");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button-and-form-controls{
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+}
+
+.button-and-form-controls button{
+  margin:0.5rem;
+  padding:0.4rem;
+}
+
+button.save-monster{
+  background-color: $highlighterPurple;
+}
+button.save-monster:hover{
+  background-color: $darkPurple;
+}
+
+button.download{
+  color:rgba(0, 0, 0, 0.519);
+}
+
+.button-and-form-controls div{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+.controls-img{
+  position:absolute;
+  padding:1rem;
+  z-index:0;
+  width:100%;
+  height:100%;
+}
+
+.colours{
+  position:absolute;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top:8%;
+  left:8.5%;
+  width:80%;
+
+}
+
+.colours img{
+  width:100%;
+  height:190%;
+  max-height:none;
+  overflow: hidden; 
+}
+
+
+.pencil-crop{
+  height:2.5rem;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.controls label h3{
+  margin:0.5rem;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+.controls form{
+  margin:0.5rem;
+}
+
+.controls input{
+  width: 100%;
+}
+
+.controls label{
+  display:flex;
+  align-items: center;
+}
+
+.brush-size-container{
+border: 3px solid black;
+background: $lightPurple;
+border-radius: 10px / 10px;
+padding: 5px;
 align-items: center;
 justify-content: center;
-
+margin-top: 10px;
 }
 
-button.welcome{
-  padding: 2rem;
-  margin:1rem;
-  width: auto;
-  background-color: $highlighterPurple;
-  border: solid 0.3rem $whiteIsh;
+.brush-box{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:40px;
+  aspect-ratio: 1;
 }
 
-button.welcome:hover{
-  background-color: $red;
-  font-size: 2.5rem;
-  color:$whiteIsh;
+.brush-box:hover{
+  background-color: rgba(255, 255, 255, 0.13);
 }
 
-button.welcome p{
-  font-size: 2rem;
-  letter-spacing: 0.5rem;
+.small-brush{
+  height: 10px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: black;
 }
 
-// ___________________________________________
-// Second Level Component
-.hot-seat-mode{
-  height:100%;
-}
+.medium-brush{
+  height: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: black;
+  }
 
-// __________________________________________
-// Third Level Component
-.play-hot-seat {
-  display: flex;
-  justify-content: space-between;
-  height:100%;
-}
+.large-brush{
+  height: 34px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: black;
+  }
 
-// __________________________________________
-// colin
+  .brush{
+    transition: transform 0.2s ease-in-out;
+    border:solid black 2pt;
+  }
+
+  .brush-box:hover .brush{
+    animation: vibrate 0.5s ease-in-out infinite;
+  }
+
+
+
+// colin------------------------------------------------
+
 .colin {
   display: flex;
-  max-width: 600px;
-
-  // this bit is here so that the speech bubble can be overlapping.
+//   height:100%;
   position: relative;
+  max-width:50%;
 }
 
 .colin img{
   margin-top: auto;
-  width:80%;
   max-height:80%;
+  max-width:80%;
 }
 
 .speech-bubble{
@@ -276,197 +545,316 @@ button.welcome p{
   font-size: 1.5rem;
 }
 
-// __________________________________________
-// Drawing Zone
+// menagerie ------------------------------
 
-.drawing-zone {
-  // width: 50%;
+.menagerie{
+  display:flex;
+  flex-wrap: wrap;
+  height:100%;
   justify-content: center;
-  align-items:center;
-}
-
-.canvas{
-  // background-color: $whiteIsh;
-  max-width: 513px;
-  width: 100%;
-  aspect-ratio: 1;
-  border:transparent solid 5pt;
-}
-
-.canvas:hover{
-  border:$lightPurple solid 5pt;
-}
-
-.canvas-container{
-position: relative;
-}
-
-.question-top{
-position: absolute;
-height: 230px;
-width: 500px;
-user-select: none;
-}
-
-.question-bottom{
-position: absolute;
-height: 250px;
-width: 500px;
-top: 250px;
-user-select: none;
-}
-
-// _________________________________________
-// Controls
-.controls{
-  width: 25%;
-  justify-content: center;
-  padding:3rem 0.2rem;
   align-items: center;
-  position: relative;
-  height:auto;
+  padding:3rem 2rem;
 }
-.colour-controls{
-  position: static;
+
+.menagerie-item{
+  position:relative;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 20rem;
+}
+
+.menagerie .frame{
+  position: relative;
+}
+
+img.monster{
+  position: absolute;
+  max-width:74%;
+  top:11%;
+}
+
+.menagerie-item h4{
+ 
+  font-size:2.5rem;
+  color:black;
+  font-family: 'Beau Rivage';
+}
+
+.plaque{
+  display:flex;
+  width: 68%;
+  height:13%;
+  justify-content: center;
+  position:absolute;
+  bottom:14%;
+}
+
+// single-monster view -----------------------------
+
+.single-monster-view{
+  position: relative;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height:100%;
+}
+
+.single-view-spacer{
+  flex:1;
+  width:20%;
+}
+
+.single-view-top{
+  max-height:85%;
+  display:flex;
+  padding:2rem;
+  width:100%;
+}
+.single-view-bottom{
+  height:30%;
+  width:100%;
+  padding:0 2rem 2rem 2rem;
+
+  display:flex;
+  justify-content: center;
+}
+.single-view-monster-window{
+  flex:0 0 60%;
+  display:flex;
+  justify-content: center;
+  align-content: start;
+}
+
+
+.single-view-delete{
+  flex:1;
+  width:20%;
   display: flex;
   flex-direction:column;
-  padding: 10rem 20%;
-  width:100%;
-  height:60%;
+  justify-content: center;
   align-items: center;
 }
+.creater-details{
+  font-family: 'Beau Rivage';
+  background-color: $colinGrey;
+  border: 0.2rem solid black;
+  display:flex;
+  min-height:2rem;
+  align-items: center;
+  padding:1rem;
+  height:fit-content;
+  border-radius: 1rem;
+}
 
-.colour-controls-bg{
-  position:static;
+.creater-details h3{
+  font-size: 2rem;
+  letter-spacing:0.1rem;
+}
+
+.creater-details h2{
+  font-family: 'Patrick Hand';
+  font-size: 3rem;
+}
+
+.creater-details h2{
+  margin:0 1rem;
+}
+.frame-relative{
+  position:relative;
   display:flex;
   justify-content: center;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 120%;
+  align-items:start;
+
+  aspect-ratio: 0.8;
+
 }
-.controls-img{
+.details-frame-img{
   position:absolute;
-  z-index: -1;
-  width:100%;
-  height:40%
+}
+img.monster-detail{
+  padding:35% 9% 15% 9%;
 }
 
-.controls img{
-  border: 5px solid transparent;
-  max-width: 80%;
+
+.delete-button button{
+  margin-top: 1rem;
+  background-color: $red;
+  padding:1rem;
 }
 
-.controls img:hover{
-  border: 5px solid $whiteIsh; 
+.delete-button button p{
+  font-size:1rem;
 }
 
-.controls img:active{
-  border: 5px solid black; 
+.delete-button button p:hover{
+  font-size:1.5rem;
+  transition: font-size 0.3s;
 }
 
-.controls button{
-  width:60%;
-  height:5rem;
-  border: solid 0.3rem $whiteIsh;
-  background-color: $lightPurple;
+.absolute-div-monster-name{
+  position: absolute;
+  z-index: 20;
+  top:13.1%;
+  height: 13.5%;
+  width: 67%;
+  font-family:'Beau Rivage';
+  font-weight:200;
+  font-size:200%;
   display:flex;
+  justify-content: center;
   align-items: center;
 }
-.controls button p{
-  font-size: 2rem;
-  letter-spacing: 0.5rem;
-  color: black;
+.absolute-div-monster-name h2{
+padding-right: 2%;
 }
 
-.controls button p:hover{
-  font-size: 2rem;
-  letter-spacing: 0.5rem;
-  color: $whiteIsh;
-  font-size: 2.2rem;
+.popup{
+  position:absolute;
+  right: 70%;
+  top:10%;
+  z-index:21;
+  padding:1rem;
+  background: $colinGrey;
+  border: solid 0.5rem black;
 }
 
-.controls button:hover{
-  background-color: $red;
+.popup p{
+  font-size: 1rem;
+  font-family:'Permanent Marker';
+  margin:0.5rem;
 }
 
-.controls button:active{
-  border: solid 0.3rem black;
+.popup button{
+  margin: 0.5rem;
 }
 
 
+button{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 
-// __________________________________
-// Small Screen Size Stuff
+.absolute-div-monster-name button p{
+font-size:1rem;
+padding:0.3rem;
+}
 
-@media only screen and (max-width:1600px){
-  header h1{
-    letter-spacing:1rem;
-    font-size: 4rem;
-    }
-    
-    nav.hflex button{
-      height: 3rem;
-    }
-    nav p{
-      font-size:2rem;
-      margin:0 0.5rem;
-    }
-    
-    .speech-bubble p{
-      font-size: 1.3rem;
-    }
-
-    .speech-bubble em{
-      font-size: 1.3rem;
-    }
-
-    button{
-      height:3rem;
-      margin: 0.5rem;
-      width: 6rem;
-    }
-
-    button p{
-      font-size:1.5rem;
-      margin:0 0.5rem;
-    }
-
+.absolute-div-monster-name button{
+  height:2rem;
+  margin:0.5rem;
   }
 
 
-@media only screen and (max-width:1200px){
-  header h1{
-    letter-spacing:0.5rem;
+@media only screen and (max-width:1360px){
+  header{
+    justify-content: left;
+  }
+  .colin-welcome{
+    width:100%;
+  }
+  .welcome-bubble h2{
     font-size: 2.5rem;
-    }
-    nav.hflex button{
-      height: 3rem;
-    }
-    nav button p{
-      font-size:1.5rem;
-      line-height: 1.5rem;
-    }
-    header .header-box{
-      justify-content: left;
-      align-items: center;
-    }
-    header nav{
-      position: static;
-    }
-
-    .speech-bubble p{
-      font-size: 1rem;
-    }
-
-    .welcome-bubble h2{
-      font-size: 1.8rem;
-      line-height: 2rem;
-    }
-    .button.welcome p{
-      padding:1rem;
-    }
-    .welcome-container img{
-      border: solid $lightPurple 0.5rem;
-    }
-    
   }
+}
+
+@media only screen and (max-width:1000px){
+  html{
+    font-size:12px;
+  }
+}
+
+@media only screen and (max-width:750px){
+ h1{
+  font-size: 2.5rem;
+  max-width: 10rem;
+ }
+ nav p{
+  font-size: 1.8rem;
+ }
+}
+
+@media only screen and (max-width:732px){
+    header{
+      justify-content: left;
+    }
+    .colin-welcome{
+      width:100%;
+      flex-direction: column-reverse;
+    }
+    .welcome-bubble h2{
+      font-size: 2.5rem;
+    }
+    .nicknames-welcome .labels{
+        flex-direction: column;
+    }
+  }  
+
+// Noah's stuff ----------------------------
+
+.pencil-crop img:hover {
+  animation: rock2 1s ease-in-out infinite; /* Adjust the duration and timing function as needed */
+  transform-origin: center; /* Set the transform origin to the center of the element */
+}
+
+.pencil-crop img:active {
+  animation:none
+}
+
+.menagerie-item:hover {
+  animation: rock1 1s ease-in-out infinite; /* Adjust the duration and timing function as needed */
+  transform-origin: center; /* Set the transform origin to the center of the element */
+}
+
+// Animations ------------------------------
+
+@keyframes rock1 {
+  0%, 100% {
+    transform: rotateZ(0deg);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  25% {
+    transform: rotateZ(-5deg);
+  }
+  75% {
+    transform: rotateZ(5deg);
+  }
+}
+
+@keyframes rock2 {
+  0%, 100% {
+    transform: rotateZ(0deg);
+  }
+  20% {
+    transform: rotateZ(-10deg);
+  }
+  40% {
+    transform: rotateZ(10deg);
+  }
+  60% {
+    transform: rotateZ(-10deg);
+  }
+  80% {
+    transform: rotateZ(10deg);
+  }
+}
+
+@keyframes vibrate {
+  0%, 100% {
+    transform: translateX(0);
+    transform: translateY(-1);
+  }
+  25% {
+    transform: translateX(-1px);
+  }
+  50% {
+    transform: translateX(1px);
+    transform: translateY(1px);
+  }
+  75% {
+    transform: translateX(-1px);
+  }
+}
