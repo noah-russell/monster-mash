@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useCanvas } from './CanvasContext'
-import gameDoneFrame from '../public/gameDoneFrame.png'
-import question from '../public/question.png'
+import gameDoneFrame from '../../public/gameDoneFrame.png'
+import question from '../../public/question.png'
 
 function DrawingZone({ gameState }) {
   const {

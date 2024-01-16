@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import colinspeechbubble from '../public/colingspeechbubble.png'
-import idle from '../public/idle.png'
+import colinspeechbubble from '../../public/colingspeechbubble.png'
+import idle from '../../public/idle.png'
 
 function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
   const [imgSrc, setImgSrc] = useState<string>(colinspeechbubble)

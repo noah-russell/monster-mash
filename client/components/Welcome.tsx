@@ -1,16 +1,22 @@
 import { useState } from 'react'
 import { WelcomeProps } from '../../models/monster-models'
 
-function Welcome({ setIsWelcome, setTopArtist, setBottomArtist }:WelcomeProps) {
+function Welcome({
+  setIsWelcome,
+  setTopArtist,
+  setBottomArtist,
+}: WelcomeProps) {
   const [dummyTopArtist, setDummyTopArtist] = useState<string>('')
   const [dummyBottomArtist, setDummyBottomArtist] = useState<string>('')
 
-  const handleTopArtistChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTopArtistChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setTopArtist(event.target.value)
     setDummyTopArtist(event.target.value)
   }
   const handleBottomArtistChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setBottomArtist(event.target.value)
     setDummyBottomArtist(event.target.value)
@@ -25,7 +31,7 @@ function Welcome({ setIsWelcome, setTopArtist, setBottomArtist }:WelcomeProps) {
     <div className="welcome-container">
       <div className="colin-welcome">
         <img
-          src="client/public/colinwelcome.png"
+          src="/public/colinwelcome.png"
           alt="colin waving"
           className="colin"
         />

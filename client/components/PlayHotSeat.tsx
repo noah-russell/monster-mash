@@ -5,12 +5,12 @@ import { useCanvas } from './CanvasContext'
 import SubmitMonsterForm from './SubmitMonsterForm'
 import { BrushDivBackground } from '../../models/monster-models'
 
-import pencilblack from '../public/pencil_black.png'
-import pencildarkpurple from '../public/pencil_dark_purple.png'
-import pencillightpurple from '../public/pencil_light_purple.png'
-import pencilgrey from '../public/pencil_grey.png'
-import pencilred from '../public/pencil_red.png'
-import rubber from '../public/rubber.png'
+import pencilblack from '../../public/pencil_black.png'
+import pencildarkpurple from '../../public/pencil_dark_purple.png'
+import pencillightpurple from '../../public/pencil_light_purple.png'
+import pencilgrey from '../../public/pencil_grey.png'
+import pencilred from '../../public/pencil_red.png'
+import rubber from '../../public/rubber.png'
 
 function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
   const { topArtist, bottomArtist } = playHotSeatProps
