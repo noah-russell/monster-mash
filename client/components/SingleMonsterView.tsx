@@ -103,7 +103,7 @@ function SingleMonsterView() {
   }
 
   function downloadMonster() {
-    const imageUrl = `/${monster.image_url}`;
+    const imageUrl = `${monster.image_url}`;
     const link = document.createElement('a');
     link.href = imageUrl;
     link.download = `${monster.monster_name}.png`;
