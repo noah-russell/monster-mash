@@ -87,6 +87,15 @@ export async function seed(knex) {
       date_created: new Date(),
       image_url: '/saw gangan.png',
     },
+    {
+      id: 11,
+      monster_name: 'Success Goblin',
+      top_artist: 'Rose',
+      bottom_artist: 'Rose',
+      date_created: new Date(),
+      image_url: '/1705369028732.png',
+    },
+
 
 
   ])
