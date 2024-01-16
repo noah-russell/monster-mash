@@ -98,13 +98,9 @@ function SingleMonsterView() {
     deleteMonsterMutation.mutate(id)
   }
 
-
-
-
   const handleNameEditPopup = () => {
     if (isNameEditPopupOpen === true) setIsNameEditPopupOpen(false)
     else if (isNameEditPopupOpen === false) setIsNameEditPopupOpen(true)
-
   }
 
   const handleEditMonsterName = async () => {
@@ -114,14 +110,14 @@ function SingleMonsterView() {
   }
 
   function downloadMonster() {
-    const imageUrl = `${monster.image_url}`;
-    const link = document.createElement('a');
-    link.href = imageUrl;
-    link.download = `${monster.monster_name}.png`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
+    const imageUrl = `${monster.image_url}`
+    const link = document.createElement('a')
+    link.href = imageUrl
+    link.download = `${monster.monster_name}.png`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
   const monsterDate = new Date(monster.date_created)
   const dayNum = getDayWithSuffix(monsterDate.getDate())
   const month = getMounthName(monsterDate.getMonth() + 1)
@@ -185,9 +181,12 @@ function SingleMonsterView() {
                 </button>
               </div>
 
-            <img className='details-frame-img'src={'/detailsFrame.png'}/>
-            <img className='monster-detail'src={monster.image_url} alt="single monster view" />
-
+              <img className="details-frame-img" src={'/detailsFrame.png'} />
+              <img
+                className="monster-detail"
+                src={monster.image_url}
+                alt="single monster view"
+              />
             </div>
           </div>
           <div className="single-view-delete">
