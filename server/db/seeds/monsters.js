@@ -95,8 +95,29 @@ export async function seed(knex) {
       date_created: new Date(),
       image_url: '/1705369028732.png',
     },
-
-
-
+    {
+      id: 12,
+      monster_name: 'Ginarbdab',
+      top_artist: 'anon',
+      bottom_artist: 'anonipoop',
+      date_created: new Date(),
+      image_url: '/Ginarbdab.png',
+    },
+    {
+      id: 13,
+      monster_name: 'saymose',
+      top_artist: 'No',
+      bottom_artist: 'ah',
+      date_created: new Date(),
+      image_url: '/saymose.png',
+    },
+    {
+      id: 14,
+      monster_name: 'Pen Guin',
+      top_artist: 'Tim',
+      bottom_artist: 'Tam',
+      date_created: new Date(),
+      image_url: '/Pen Guin.png',
+    },
   ])
 }
