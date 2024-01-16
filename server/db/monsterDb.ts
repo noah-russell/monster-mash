@@ -52,7 +52,7 @@ export async function deleteMonsterById(id: number) {
     if (!monster) {
       throw new Error('Monster not found')
     }
-    const imageUrl = monster.image_url
+    const imageUrl = `public${monster.image_url}`
 
     await fs.unlink(imageUrl)
 
