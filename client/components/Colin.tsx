@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import colinspeechbubble from '/colingspeechbubble.png'
+// import colinspeechbubble from '/colingspeechbubble.png'
 
 function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
-  const [imgSrc, setImgSrc] = useState<string>(colinspeechbubble)
+  const [imgSrc, setImgSrc] = useState<string>('/colinspeechbubble.png')
   //This is the colinPhrases fix.
   const [selectedColinPhrase, setSelectedColinPhrase] = useState<string>('')
 
