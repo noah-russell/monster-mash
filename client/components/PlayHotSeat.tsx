@@ -5,13 +5,6 @@ import { useCanvas } from './CanvasContext'
 import SubmitMonsterForm from './SubmitMonsterForm'
 import { BrushDivBackground } from '../../models/monster-models'
 
-import pencilblack from '../../public/pencil_black.png'
-import pencildarkpurple from '../../public/pencil_dark_purple.png'
-import pencillightpurple from '../../public/pencil_light_purple.png'
-import pencilgrey from '../../public/pencil_grey.png'
-import pencilred from '../../public/pencil_red.png'
-import rubber from '../../public/rubber.png'
-
 function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
   const { topArtist, bottomArtist } = playHotSeatProps
   const { isWelcome } = welcomeProps
@@ -91,7 +84,7 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
             <div className="colours">
               <div className="pencil-crop" onClick={handlePencilClick}>
                 <img
-                  src={pencilblack}
+                  src='/pencilblack.png'
                   alt="black pencil icon"
                   draggable="false"
                 />
@@ -102,7 +95,7 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
                 onClick={handleDarkPurplePencilClick}
               >
                 <img
-                  src={pencildarkpurple}
+                  src='/pencildarkpurple.png'
                   alt="dark purple pencil icon"
                   draggable="false"
                 />
@@ -113,22 +106,22 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
                 onClick={handleLightPurplePencilClick}
               >
                 <img
-                  src={pencillightpurple}
+                  src='/pencillightpurple.png'
                   alt="light purple pencil icon"
                   draggable="false"
                 />
               </div>
 
               <div className="pencil-crop" onClick={handleColinGreyPencilClick}>
-                <img src={pencilgrey} alt="pencil icon" draggable="false" />
+                <img src='/pencilgrey.png' alt="pencil icon" draggable="false" />
               </div>
 
               <div className="pencil-crop" onClick={handleRedPencilClick}>
-                <img src={pencilred} alt="red pencil icon" draggable="false" />
+                <img src='/pencilred.png' alt="red pencil icon" draggable="false" />
               </div>
 
               <div className="pencil-crop" onClick={handleRubberClick}>
-                <img src={rubber} alt="rubber icon" draggable="false" />
+                <img src='/rubber.png' alt="rubber icon" draggable="false" />
               </div>
               <div className="hflex brush-sizes">
                 <div className="hflex brush-size-container">

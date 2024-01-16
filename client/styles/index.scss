@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
-// @import '../public/Courgette-Regular.ttf'
+// @import '/Courgette-Regular.ttf'
 
 // colour variables ----------------------------
 $red: rgb(128, 46, 53);
@@ -29,7 +29,7 @@ body{
   justify-content: space-between;
   height:100%;
   padding-top:7rem;
-  background-image: url("../public/background.png");
+  background-image: url("/background.png");
   background-size: cover;
 
 }
@@ -359,7 +359,7 @@ input{
   max-height:550px;
   min-height:480px;
   // Remove to undo changes to background image
-  background-image: url("../public/toolbar.png");
+  background-image: url("/toolbar.png");
   background-size: 70%;
   background-repeat: no-repeat;
   background-position: center;

@@ -32,7 +32,7 @@ function Menagerie() {
                       alt="Monster gallery thumbnail"
                     />
                      <img className='frame'
-                      src='client/public/galleryFrame.png'
+                      src='/galleryFrame.png'
                       alt="Monster gallery frame"
                     />
                     <div className = 'plaque'>

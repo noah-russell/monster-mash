@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import colinspeechbubble from '../../public/colingspeechbubble.png'
-import idle from '../../public/idle.png'
+import colinspeechbubble from '/colingspeechbubble.png'
 
 function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
   const [imgSrc, setImgSrc] = useState<string>(colinspeechbubble)
@@ -17,15 +16,15 @@ function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
 
   useEffect(() => {
     if (isWelcome === false) {
-      setImgSrc(colinspeechbubble)
+      setImgSrc('/colinspeechbubble.png')
     } else if (gameState === 1) {
-      setImgSrc(colinspeechbubble)
+      setImgSrc('/colinspeechbubble.png')
     } else if (gameState === 2) {
-      setImgSrc(colinspeechbubble)
+      setImgSrc('/colinspeechbubble.png')
     }
 
     const timerId = setTimeout(() => {
-      setImgSrc(idle)
+      setImgSrc('/idle.png')
     }, 5000)
 
     return () => clearTimeout(timerId)

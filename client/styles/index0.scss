@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
-// @import '../public/Courgette-Regular.ttf'
+// @import '/Courgette-Regular.ttf'
 
 // __________________________________
 // Colour Variables
@@ -26,7 +26,7 @@ body {
 }
 
 body {  
-  background-image: url("../public/background.png");
+  background-image: url("/background.png");
   background-size: cover;
   font-family: 'agbalumo';
   color: $whiteIsh;
