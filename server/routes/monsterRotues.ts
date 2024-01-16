@@ -27,7 +27,7 @@ router.post('/add', upload.single('file'), async (req:Request, res:Response) => 
       monster_name: req.body.monster_name,
       top_artist: req.body.top_artist,
       bottom_artist: req.body.bottom_artist,
-      image_url: `monsters/${req.file.filename}`,
+      image_url: `/${req.file.filename}`,
     }
     const newMonsterId = await db.addMonster(monsterDataForDb)
     res.status(200).json({ newMonsterId })
