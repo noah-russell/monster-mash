@@ -129,9 +129,6 @@ function SingleMonsterView() {
         {isNameEditPopupOpen && (
           <div className="popup">
             <div className="popup-content">
-              <span className="close" onClick={handleNameEditPopup}>
-                &times;
-              </span>
               <p>Edit</p>
               <input
                 type="text"
@@ -142,28 +139,33 @@ function SingleMonsterView() {
               <button onClick={handleEditMonsterName}>
                 <p>Save</p>
               </button>
+              <button onClick={handleNameEditPopup}>
+                <p>Cancel</p>
+              </button>
             </div>
           </div>
         )}
         {isDeletePopupOpen && (
-          <div className="popup">
+          <div className="popup, delete-monster">
             <div className="popup-content">
-              <span className="close" onClick={handleDeletePopupOpen}>
-                &times;
-              </span>
-              <p>Are you sure you want to delete {monster.monster_name}?</p>
+              <p>
+                Are you sure you want to delete <b>{monster.monster_name}</b>?
+              </p>
 
               <br />
-              <div>
+              <div className="delete-buttons-container">
                 <Link to="/menagerie">
                   <button
                     onClick={() => {
                       handleMonsterDelete(monster.id)
                     }}
                   >
-                    <p>Save</p>
+                    <p>Delete</p>
                   </button>
                 </Link>
+                <button onClick={handleDeletePopupOpen}>
+                  <p>Cancel</p>
+                </button>
               </div>
             </div>
           </div>
