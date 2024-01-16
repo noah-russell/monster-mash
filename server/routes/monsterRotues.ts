@@ -8,7 +8,7 @@ const router = Router()
 // -----------------upload new monster--------------------------------
 const storage = multer.diskStorage({
   destination: function (req:Request, file:Express.Multer.File, cb) {
-    return cb(null, 'monsters/')
+    return cb(null, 'public/')
   },
   filename: function (req:Request, file:Express.Multer.File, cb) {
     return cb(null, `${Date.now()}.png`)

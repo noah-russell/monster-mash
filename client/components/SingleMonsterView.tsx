@@ -158,8 +158,8 @@ function SingleMonsterView() {
                 <h2>{monster.monster_name}</h2>
                 <button onClick={handlePopupOpen}><p>Edit</p></button>
               </div>
-            <img className='details-frame-img'src={'/monsters/detailsFrame.png'}/>
-            <img className='monster-detail'src={'/' + monster.image_url} alt="single monster view" />
+            <img className='details-frame-img'src={'/detailsFrame.png'}/>
+            <img className='monster-detail'src={monster.image_url} alt="single monster view" />
             </div>
           </div>
           <div className="single-view-delete">
