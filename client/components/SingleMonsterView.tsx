@@ -145,6 +145,29 @@ function SingleMonsterView() {
             </div>
           </div>
         )}
+        {isDeletePopupOpen && (
+          <div className="popup">
+            <div className="popup-content">
+              <span className="close" onClick={handleDeletePopupOpen}>
+                &times;
+              </span>
+              <p>Are you sure you want to delete {monster.monster_name}?</p>
+
+              <br />
+              <div>
+                <Link to="/menagerie">
+                  <button
+                    onClick={() => {
+                      handleMonsterDelete(monster.id)
+                    }}
+                  >
+                    <p>Save</p>
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="single-view-top">
           <div className="single-view-spacer"></div>
@@ -172,15 +195,9 @@ function SingleMonsterView() {
               <p>Download</p>
             </button>
             <div className="delete-button">
-              <Link to="/menagerie">
-                <button
-                  onClick={() => {
-                    handleMonsterDelete(monster.id)
-                  }}
-                >
-                  <p>Delete Monster</p>
-                </button>
-              </Link>
+              <button onClick={handleDeletePopupOpen}>
+                <p>Delete Monster</p>
+              </button>
             </div>
           </div>
         </div>
