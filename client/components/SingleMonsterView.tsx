@@ -91,7 +91,7 @@ function SingleMonsterView() {
 
   const handleDeletePopupOpen = () => {
     if (isDeletePopupOpen === true) setIsDeletePopupOpen(false)
-    else setIsDeletePopupOpen(true)
+    else if (isDeletePopupOpen === false) setIsDeletePopupOpen(true)
   }
 
   function handleMonsterDelete(id: number) {
@@ -103,13 +103,11 @@ function SingleMonsterView() {
     else if (isNameEditPopupOpen === false) setIsNameEditPopupOpen(true)
   }
 
-  // const handleNameEditPopupOpen = () => {
-  //   setIsNameEditPopupOpen(true)
-  // }
-
-  // const handleNameEditPopupClose = () => {
-  //   setIsNameEditPopupOpen(false)
-  // }
+  const handleEditMonsterName = async () => {
+    await editMonsterName(monster.id, newMonsterName)
+    queryClient.invalidateQueries(['monster', id])
+    handleNameEditPopup()
+  }
 
   function downloadMonster() {
     const imageUrl = `/${monster.image_url}`
@@ -119,12 +117,6 @@ function SingleMonsterView() {
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
-  }
-
-  const handleEditMonsterName = async () => {
-    await editMonsterName(monster.id, newMonsterName)
-    queryClient.invalidateQueries(['monster', id])
-    handleNameEditPopup()
   }
 
   const monsterDate = new Date(monster.date_created)
