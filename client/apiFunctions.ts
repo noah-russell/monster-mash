@@ -17,6 +17,7 @@ export async function uploadMonster(formData: FormData) {
 }
 
 export async function deleteMonsterById(id: number) {
+  console.log('the frontend routes ran', id)
   const response = await request.delete(`/api/v1/monster/${id}/delete`)
 }
 

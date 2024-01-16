@@ -64,14 +64,15 @@ router.get('/monster/:id', async (req:Request, res:Response) => {
 
 // -----------------delete monster--------------------------------
 router.delete('/monster/:id/delete', async (req:Request, res:Response) => {
-  const id:number = Number(req.params.id)
+  const id= Number(req.params.id)
+  console.log('the backend routes ran', id)
   await db.deleteMonsterById(id)
   res.json({})
 })
 
 // -----------------edit monster name--------------------------------
 router.patch('/monster/:id/edit', async (req:Request, res:Response) => {
-  const id:number = Number(req.params.id)
+  const id = Number(req.params.id)
   const { monster_name } = req.body
   await db.editMonsterName(id, { monster_name })
   res.json({})
