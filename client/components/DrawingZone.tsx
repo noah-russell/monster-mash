@@ -10,7 +10,6 @@ function DrawingZone({ gameState }) {
     startDrawing,
     finishDrawing,
     draw,
-    clearCanvas,
     changeBrushColor,
     changeBrushSize,
     handleMouseLeave,
@@ -19,7 +18,6 @@ function DrawingZone({ gameState }) {
   // Set the intial States
   useEffect(() => {
     prepareCanvas()
-    clearCanvas()
     changeBrushColor()
     changeBrushSize()
   }, [])
