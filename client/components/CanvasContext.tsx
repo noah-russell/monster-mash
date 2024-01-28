@@ -3,7 +3,7 @@ import React, { useContext, useRef, useState } from 'react'
 
 const CanvasContext = React.createContext({})
 
-export const CanvasProvider = ({ children }) => {
+export function CanvasProvider({ children }){
   const [isDrawing, setIsDrawing] = useState(false)
   const brushColor = 'black'
   const [brushSize, setBrushSize] = useState(5)
@@ -66,11 +66,9 @@ export const CanvasProvider = ({ children }) => {
   }
 
   const changeBrushColor = (color) => {
-    // setBrushColor(color)
     contextRef.current.strokeStyle = color
   }
   const changeBrushSize = (size) => {
-    //   // setBrushSize(brushSize)
     contextRef.current.lineWidth = size
   }
 
@@ -108,4 +106,5 @@ export const CanvasProvider = ({ children }) => {
   )
 }
 
+// this code means you can use context in order to import
 export const useCanvas = () => useContext(CanvasContext)

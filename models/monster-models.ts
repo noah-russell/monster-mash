@@ -27,3 +27,7 @@ export interface WelcomeProps {
     setTopArtist: React.Dispatch<React.SetStateAction<string>>;
     setBottomArtist: React.Dispatch<React.SetStateAction<string>>;
   }
+
+export interface MonsterCanvasInfo {
+
+}
