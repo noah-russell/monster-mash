@@ -1,13 +1,14 @@
 // CanvasProvider.js
 import React, { useContext, useRef, useState } from 'react'
 
+// initates the context hook
 const CanvasContext = React.createContext({})
 
 export function CanvasProvider({ children }){
   const [isDrawing, setIsDrawing] = useState(false)
+  const brushSize = 5
   const brushColor = 'black'
-  const [brushSize, setBrushSize] = useState(5)
-
+  
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
 
@@ -15,12 +16,10 @@ export function CanvasProvider({ children }){
     const canvas = canvasRef.current
     const canvasWidth = 500
     const canvasHeight = 500
-
     canvas.width = canvasWidth * 2
     canvas.height = canvasHeight * 2
     canvas.style.width = `${canvasWidth}px`
     canvas.style.height = `${canvasHeight}px`
-
     const context = canvas.getContext('2d')
     context.scale(2, 2)
     context.lineCap = 'round'
@@ -28,7 +27,6 @@ export function CanvasProvider({ children }){
     context.lineWidth = brushSize
     contextRef.current = context
   }
-
   const startDrawing = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent
     contextRef.current.beginPath()
@@ -37,18 +35,21 @@ export function CanvasProvider({ children }){
     contextRef.current.lineTo(offsetX, offsetY)
     contextRef.current.stroke()
   }
-
   const finishDrawing = () => {
     contextRef.current.closePath()
     setIsDrawing(false)
   }
-
   const handleMouseLeave = () => {
     if (isDrawing) {
       finishDrawing()
     }
   }
-
+    const clearCanvas = () => {
+    const canvas = canvasRef.current
+    const context = canvas.getContext('2d')
+    context.fillStyle = 'white'
+    context.fillRect(0, 0, canvas.width, canvas.height)
+  }
   const draw = ({ nativeEvent }) => {
     if (!isDrawing) {
       return
@@ -57,21 +58,12 @@ export function CanvasProvider({ children }){
     contextRef.current.lineTo(offsetX, offsetY)
     contextRef.current.stroke()
   }
-
-  const clearCanvas = () => {
-    const canvas = canvasRef.current
-    const context = canvas.getContext('2d')
-    context.fillStyle = 'white'
-    context.fillRect(0, 0, canvas.width, canvas.height)
-  }
-
   const changeBrushColor = (color) => {
     contextRef.current.strokeStyle = color
   }
   const changeBrushSize = (size) => {
     contextRef.current.lineWidth = size
   }
-
   const saveCanvasAsImage = () => {
     const dataURL = canvasRef.current.toDataURL('image/png')
     const link = document.createElement('a')
@@ -81,22 +73,17 @@ export function CanvasProvider({ children }){
     link.click()
     document.body.removeChild(link)
   }
-
   return (
     <CanvasContext.Provider
       value={{
         canvasRef,
-        contextRef,
         prepareCanvas,
         startDrawing,
         finishDrawing,
         clearCanvas,
         draw,
-        brushColor,
-        brushSize,
         changeBrushColor,
         changeBrushSize,
-        setBrushSize,
         handleMouseLeave,
         saveCanvasAsImage,
       }}
@@ -105,6 +92,8 @@ export function CanvasProvider({ children }){
     </CanvasContext.Provider>
   )
 }
+
+
 
 // this code means you can use context in order to import
 export const useCanvas = () => useContext(CanvasContext)

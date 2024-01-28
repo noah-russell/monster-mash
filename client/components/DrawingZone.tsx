@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useCanvas } from './CanvasContext'
 
 
-
+// seems to be importing all the functions including canvasRef
 function DrawingZone({ gameState }) {
   const {
     canvasRef,
