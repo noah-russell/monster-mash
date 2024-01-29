@@ -42,8 +42,11 @@ function DrawingZone({ gameState }) {
         />
         <canvas
           onMouseDown={startDrawing}
+          onTouchStart={startDrawing}
           onMouseUp={finishDrawing}
+          onTouchEnd={finishDrawing}
           onMouseMove={draw}
+          onTouchMove={draw}
           onMouseLeave={handleMouseLeave}
           ref={canvasRef}
         />

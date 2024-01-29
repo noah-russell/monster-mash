@@ -6,8 +6,6 @@ const CanvasContext = React.createContext({})
 
 export function CanvasProvider({ children }) {
   const [isDrawing, setIsDrawing] = useState(false)
-  const brushSize = 5
-  const brushcolour = 'black'
 
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
@@ -24,8 +22,8 @@ export function CanvasProvider({ children }) {
 
     context.lineCap = 'round'
     context.lineJoin = 'round'
-    context.strokeStyle = brushcolour
-    context.lineWidth = brushSize
+    context.strokeStyle = 'black'
+    context.lineWidth = 5
     contextRef.current = context
     context.fillStyle = 'white'
     context.fillRect(0, 0, canvas.width, canvas.height)
@@ -48,6 +46,7 @@ export function CanvasProvider({ children }) {
       finishDrawing()
     }
   }
+  
   const draw = ({ nativeEvent }) => {
     if (!isDrawing) {
       return
