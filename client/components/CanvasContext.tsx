@@ -4,10 +4,10 @@ import React, { useContext, useRef, useState } from 'react'
 // initates the context hook
 const CanvasContext = React.createContext({})
 
-export function CanvasProvider({ children }){
+export function CanvasProvider({ children }) {
   const [isDrawing, setIsDrawing] = useState(false)
   const brushSize = 5
-  const brushColor = 'black'
+  const brushcolour = 'black'
 
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
@@ -16,16 +16,14 @@ export function CanvasProvider({ children }){
     const canvas = canvasRef.current
     const context = canvas.getContext('2d')
 
-
     const canvasWidth = 500
     canvas.width = canvasWidth
     canvas.height = canvasWidth
     canvas.style.width = `${canvasWidth}px`
     canvas.style.height = `${canvasWidth}px`
 
-
     context.lineCap = 'round'
-    context.strokeStyle = brushColor
+    context.strokeStyle = brushcolour
     context.lineWidth = brushSize
     contextRef.current = context
     context.fillStyle = 'white'
@@ -56,8 +54,8 @@ export function CanvasProvider({ children }){
     contextRef.current.lineTo(offsetX, offsetY)
     contextRef.current.stroke()
   }
-  const changeBrushColor = (color) => {
-    contextRef.current.strokeStyle = color
+  const changeBrushColour = (colour) => {
+    contextRef.current.strokeStyle = colour
   }
   const changeBrushSize = (size) => {
     contextRef.current.lineWidth = size
@@ -79,7 +77,7 @@ export function CanvasProvider({ children }){
         startDrawing,
         finishDrawing,
         draw,
-        changeBrushColor,
+        changeBrushColour,
         changeBrushSize,
         handleMouseLeave,
         saveCanvasAsImage,
@@ -89,8 +87,6 @@ export function CanvasProvider({ children }){
     </CanvasContext.Provider>
   )
 }
-
-
 
 // this code means you can use context in order to import
 export const useCanvas = () => useContext(CanvasContext)

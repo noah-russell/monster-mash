@@ -10,16 +10,12 @@ function DrawingZone({ gameState }) {
     startDrawing,
     finishDrawing,
     draw,
-    changeBrushColor,
-    changeBrushSize,
     handleMouseLeave,
   } = useCanvas()
 
   // Set the intial States
   useEffect(() => {
     prepareCanvas()
-    changeBrushColor()
-    changeBrushSize()
   }, [])
 
   return (
