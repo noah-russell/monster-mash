@@ -12,7 +12,7 @@ export function CanvasProvider({ children }) {
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
 
-  const prepareCanvas = () => {
+  function prepareCanvas():void{
     const canvas = canvasRef.current
     const context = canvas.getContext('2d')
 
@@ -23,12 +23,14 @@ export function CanvasProvider({ children }) {
     canvas.style.height = `${canvasWidth}px`
 
     context.lineCap = 'round'
+    context.lineJoin = 'round'
     context.strokeStyle = brushcolour
     context.lineWidth = brushSize
     contextRef.current = context
     context.fillStyle = 'white'
     context.fillRect(0, 0, canvas.width, canvas.height)
   }
+  
   const startDrawing = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent
     contextRef.current.beginPath()
