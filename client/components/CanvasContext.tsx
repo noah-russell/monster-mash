@@ -29,6 +29,8 @@ export function CanvasProvider({ children }) {
     context.fillRect(0, 0, canvas.width, canvas.height)
   }
   
+  // open and close path is needed else that path will remain live and anyone 
+  // can change the colour or width of it in the browser. 
   const startDrawing = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent
     contextRef.current.beginPath()
