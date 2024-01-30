@@ -3,7 +3,7 @@ import { useCanvas } from './CanvasContext'
 
 
 // seems to be importing all the functions including canvasRef
-function DrawingZone({ gameState }) {
+function DrawingZone({ gameState }: { gameState: number }) {
   const {
     canvasRef,
     prepareCanvas,
@@ -42,11 +42,9 @@ function DrawingZone({ gameState }) {
         />
         <canvas
           onMouseDown={startDrawing}
-          onTouchStart={startDrawing}
           onMouseUp={finishDrawing}
           onTouchEnd={finishDrawing}
           onMouseMove={draw}
-          onTouchMove={draw}
           onMouseLeave={handleMouseLeave}
           ref={canvasRef}
         />
