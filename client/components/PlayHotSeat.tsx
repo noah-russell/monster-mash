@@ -8,6 +8,7 @@ import { BrushDivBackground } from '../../models/monster-models'
 function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
   const { topArtist, bottomArtist } = playHotSeatProps
   const { isWelcome } = welcomeProps
+  const [selectedSize, setSelectedSize] = useState<number>(5)
   const [gameState, setGameState] = useState<number>(0)
   const [brushDivBackground, setBrushDivBackground] =
     useState<BrushDivBackground>({ background: 'black' })
@@ -54,12 +55,15 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
   }
   function handleSmallBrushChange() {
     changeBrushSize(5)
+    setSelectedSize(5)
   }
   function handleMediumBrushChange() {
     changeBrushSize(15)
+    setSelectedSize(15)
   }
   function handleLargeBrushChange() {
     changeBrushSize(30)
+    setSelectedSize(30)
   }
 
   return (
@@ -134,7 +138,9 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
               <div className="hflex brush-sizes">
                 <div className="hflex brush-size-container">
                   <button
-                    className="brush-box"
+                    className={`brush-box ${
+                      selectedSize == 5 ? 'selectedSize' : ''
+                    }`}
                     onClick={handleSmallBrushChange}
                   >
                     <div
@@ -143,7 +149,9 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
                     ></div>
                   </button>
                   <button
-                    className="brush-box"
+                    className={`brush-box ${
+                      selectedSize == 15 ? 'selectedSize' : ''
+                    }`}
                     onClick={handleMediumBrushChange}
                   >
                     <div
@@ -152,7 +160,9 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
                     ></div>
                   </button>
                   <button
-                    className="brush-box"
+                    className={`brush-box ${
+                      selectedSize == 30 ? 'selectedSize' : ''
+                    }`}
                     onClick={handleLargeBrushChange}
                   >
                     <div
