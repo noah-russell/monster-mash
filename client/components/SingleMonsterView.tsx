@@ -9,11 +9,12 @@ import { Link, useParams } from 'react-router-dom'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 function SingleMonsterView() {
-  const id = useParams().id 
-  const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false)
-  const [newMonsterName, setNewMonsterName] = useState<string>("")
+  const id = useParams().id
+  const [isNameEditPopupOpen, setIsNameEditPopupOpen] = useState<boolean>(false)
+  const [newMonsterName, setNewMonsterName] = useState<string>('')
+  const [isDeletePopupOpen, setIsDeletePopupOpen] = useState<boolean>(false)
 
-  function getMounthName(monthNumber:number) {
+  function getMounthName(monthNumber: number) {
     switch (monthNumber) {
       case 1:
         return 'January'
@@ -80,8 +81,6 @@ function SingleMonsterView() {
     },
   })
 
- 
-
   if (isLoading) {
     return <div>Loading...</div>
   }
@@ -90,95 +89,130 @@ function SingleMonsterView() {
     return <div>Error: {error.message}</div>
   }
 
+  const handleDeletePopupOpen = () => {
+    if (isDeletePopupOpen === true) setIsDeletePopupOpen(false)
+    else if (isDeletePopupOpen === false) setIsDeletePopupOpen(true)
+    setIsNameEditPopupOpen(false)
+  }
+
   function handleMonsterDelete(id: number) {
     deleteMonsterMutation.mutate(id)
   }
 
-  const handlePopupOpen = () => {
-    setIsPopupOpen(true)
+  const handleNameEditPopup = () => {
+    if (isNameEditPopupOpen === true) setIsNameEditPopupOpen(false)
+    else if (isNameEditPopupOpen === false) setIsNameEditPopupOpen(true)
+    setIsDeletePopupOpen(false)
   }
-
-  const handlePopupClose = () => {
-    setIsPopupOpen(false)
-  }
-
-  function downloadMonster() {
-    const imageUrl = `${monster.image_url}`;
-    const link = document.createElement('a');
-    link.href = imageUrl;
-    link.download = `${monster.monster_name}.png`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-
 
   const handleEditMonsterName = async () => {
     await editMonsterName(monster.id, newMonsterName)
     queryClient.invalidateQueries(['monster', id])
-    handlePopupClose()
+    handleNameEditPopup()
   }
 
+  function downloadMonster() {
+    const imageUrl = `${monster.image_url}`
+    const link = document.createElement('a')
+    link.href = imageUrl
+    link.download = `${monster.monster_name}.png`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
   const monsterDate = new Date(monster.date_created)
   const dayNum = getDayWithSuffix(monsterDate.getDate())
   const month = getMounthName(monsterDate.getMonth() + 1)
   const year = monsterDate.getFullYear()
   return (
     <>
-     
-
       <div className="single-monster-view">
-  
-      {isPopupOpen && (
-        <div className="popup">
-          <div className="popup-content">
-            <span className="close" onClick={handlePopupClose}>
-              &times;
-            </span>
-            <p>Edit</p>
-            <input
-              type="text"
-              value={newMonsterName}
-              onChange={(e) => setNewMonsterName(e.target.value)}
-            />
-            <br/>
-            <button onClick={handleEditMonsterName}><p>Save</p></button>
+        {isNameEditPopupOpen && (
+          <div className="popup">
+            <div className="popup-content">
+              <label>
+                <p>Edit name:</p>
+                <input
+                  type="text"
+                  value={newMonsterName}
+                  defaultValue={monster.name}
+                  maxLength={15}
+                  onChange={(e) => setNewMonsterName(e.target.value)}
+                />
+              </label>
+              <br />
+              <div className="delete-buttons-container">
+                <button
+                  style={{ backgroundColor: '#97539c' }}
+                  onClick={handleEditMonsterName}
+                >
+                  <p>Save</p>
+                </button>
+                <button onClick={handleNameEditPopup}>
+                  <p>Cancel</p>
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      )} 
-      
+        )}
+        {isDeletePopupOpen && (
+          <div className="popup">
+            <div className="popup-content">
+              <p>
+                Are you sure you want to delete <b>{monster.monster_name}</b>?
+              </p>
 
-
+              <br />
+              <div className="delete-buttons-container">
+                <Link to="/menagerie">
+                  <button
+                    onClick={() => {
+                      handleMonsterDelete(monster.id)
+                    }}
+                    style={{ backgroundColor: '#97539c' }}
+                  >
+                    <p>Delete</p>
+                  </button>
+                </Link>
+                <button onClick={handleDeletePopupOpen}>
+                  <p>Cancel</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="single-view-top">
           <div className="single-view-spacer"></div>
           <div className="single-view-monster-window">
             <div className="frame-relative">
-              <div className='absolute-div-monster-name'>
+              <div className="absolute-div-monster-name">
                 <h2>{monster.monster_name}</h2>
-                <button onClick={handlePopupOpen}><p>Edit</p></button>
+                <button
+                  onClick={handleNameEditPopup}
+                  style={{ backgroundColor: '#97539c', padding: '.5rem' }}
+                >
+                  <p>Edit</p>
+                </button>
               </div>
-            <img className='details-frame-img'src={'/detailsFrame.png'}/>
-            <img className='monster-detail'src={monster.image_url} alt="single monster view" />
+
+              <img className="details-frame-img" src={'/detailsFrame.png'} />
+              <img
+                className="monster-detail"
+                src={monster.image_url}
+                alt="single monster view"
+              />
             </div>
           </div>
           <div className="single-view-delete">
-                <button
-                  onClick={downloadMonster}
-                >
-                  <p>Download</p>
-                </button>
-                <div className='delete-button'>
-        <Link to="/menagerie">
-          <button
-            onClick={() => {
-              handleMonsterDelete(monster.id)
-            }}
-          >
-            <p>Delete Monster</p>
-          </button>
-        </Link>
-      </div> 
+            <button onClick={downloadMonster}>
+              <p>Download</p>
+            </button>
+            <div className="delete-button">
+              <button onClick={handleDeletePopupOpen}>
+                <p>Delete Monster</p>
+              </button>
+            </div>
           </div>
         </div>
         <div className="single-view-bottom">

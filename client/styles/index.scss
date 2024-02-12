@@ -9,6 +9,7 @@ $whiteIsh: #d1d1d1;
 $colinGrey: #aba4a4;
 $speechBubbleGrey: #d2c8c8;
 $darkPurple: #401043;
+$darkPurpleAccent: #97539c;
 
 // grandparent styling--------------------------
 *{
@@ -275,6 +276,7 @@ input{
   line-height:2rem;
   width:10rem;
   padding: 0.5rem;
+  display: flex;
 }
 
 .welcome-container button{
@@ -712,14 +714,18 @@ padding-right: 2%;
 }
 
 .popup{
+
   position:absolute;
-  right: 70%;
-  top:10%;
+  left: 50%;
+  top:20%;
   z-index:21;
+  transform: translate(-50%, -50%);
   padding:1rem;
   background: $colinGrey;
   border: solid 0.5rem black;
+  border-radius: 15px;
 }
+
 
 .popup p{
   font-size: 1rem;
@@ -727,15 +733,31 @@ padding-right: 2%;
   margin:0.5rem;
 }
 
-.popup button{
+.delete-monster p{
+  font-size: 1rem;
+  font-family:'Permanent Marker';
+  margin:0.5rem;
+}
+
+.delete-buttons-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.delete-buttons-container button{
   margin: 0.5rem;
 }
 
 
 button{
   display:flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+}
+
+.confirm-button{
+  background-color: #401043;
 }
 
 .absolute-div-monster-name button p{
