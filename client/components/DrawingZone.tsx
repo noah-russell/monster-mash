@@ -2,26 +2,20 @@ import { useEffect } from 'react'
 import { useCanvas } from './CanvasContext'
 
 
-
-function DrawingZone({ gameState }) {
+// seems to be importing all the functions including canvasRef
+function DrawingZone({ gameState }: { gameState: number }) {
   const {
     canvasRef,
     prepareCanvas,
     startDrawing,
     finishDrawing,
     draw,
-    clearCanvas,
-    changeBrushColor,
-    changeBrushSize,
     handleMouseLeave,
   } = useCanvas()
 
   // Set the intial States
   useEffect(() => {
     prepareCanvas()
-    clearCanvas()
-    changeBrushColor()
-    changeBrushSize()
   }, [])
 
   return (
@@ -49,6 +43,7 @@ function DrawingZone({ gameState }) {
         <canvas
           onMouseDown={startDrawing}
           onMouseUp={finishDrawing}
+          onTouchEnd={finishDrawing}
           onMouseMove={draw}
           onMouseLeave={handleMouseLeave}
           ref={canvasRef}
