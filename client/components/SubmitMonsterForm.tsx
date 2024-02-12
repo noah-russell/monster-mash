@@ -18,10 +18,10 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
   ) => {
     const newName = event.target.value
     setMonsterName(newName)
-    const charCount = newName.split("").length
-    if(charCount>15){
+    const charCount = newName.split('').length
+    if (charCount > 15) {
       setNameTooLong(true)
-    }else{
+    } else {
       setNameTooLong(false)
     }
   }
@@ -61,12 +61,13 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
         <div className="labels">
           <label className="vflex">
             <h3>Name your monster:</h3>
-            <p className={nameTooLong?``:`hidden`}>name too long!</p>
-            <br/>
+            <p className={nameTooLong ? `` : `hidden`}>name too long!</p>
+            <br />
             <input
               type="text"
               name="name"
               value={monsterName}
+              maxLength={16}
               onChange={handleMonsterNameChange}
               required
             />
@@ -83,7 +84,7 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }) {
       <button
         className={gameState === 2 ? 'save-monster' : 'hidden'}
         onClick={uploadMonsterToMenagerie}
-        disabled={!monsterName.trim()||nameTooLong}
+        disabled={!monsterName.trim() || nameTooLong}
       >
         <p>Save to Monster Menagerie</p>
       </button>

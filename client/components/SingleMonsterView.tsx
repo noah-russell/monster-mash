@@ -92,6 +92,7 @@ function SingleMonsterView() {
   const handleDeletePopupOpen = () => {
     if (isDeletePopupOpen === true) setIsDeletePopupOpen(false)
     else if (isDeletePopupOpen === false) setIsDeletePopupOpen(true)
+    setIsNameEditPopupOpen(false)
   }
 
   function handleMonsterDelete(id: number) {
@@ -101,6 +102,7 @@ function SingleMonsterView() {
   const handleNameEditPopup = () => {
     if (isNameEditPopupOpen === true) setIsNameEditPopupOpen(false)
     else if (isNameEditPopupOpen === false) setIsNameEditPopupOpen(true)
+    setIsDeletePopupOpen(false)
   }
 
   const handleEditMonsterName = async () => {
@@ -128,24 +130,33 @@ function SingleMonsterView() {
         {isNameEditPopupOpen && (
           <div className="popup">
             <div className="popup-content">
-              <p>Edit</p>
-              <input
-                type="text"
-                value={newMonsterName}
-                onChange={(e) => setNewMonsterName(e.target.value)}
-              />
+              <label>
+                <p>Edit name:</p>
+                <input
+                  type="text"
+                  value={newMonsterName}
+                  maxLength={15}
+                  defaultValue={monster.name}
+                  onChange={(e) => setNewMonsterName(e.target.value)}
+                />
+              </label>
               <br />
-              <button onClick={handleEditMonsterName}>
-                <p>Save</p>
-              </button>
-              <button onClick={handleNameEditPopup}>
-                <p>Cancel</p>
-              </button>
+              <div className="delete-buttons-container">
+                <button
+                  style={{ backgroundColor: '#97539c' }}
+                  onClick={handleEditMonsterName}
+                >
+                  <p>Save</p>
+                </button>
+                <button onClick={handleNameEditPopup}>
+                  <p>Cancel</p>
+                </button>
+              </div>
             </div>
           </div>
         )}
         {isDeletePopupOpen && (
-          <div className="popup, delete-monster">
+          <div className="popup">
             <div className="popup-content">
               <p>
                 Are you sure you want to delete <b>{monster.monster_name}</b>?
@@ -158,6 +169,7 @@ function SingleMonsterView() {
                     onClick={() => {
                       handleMonsterDelete(monster.id)
                     }}
+                    style={{ backgroundColor: '#97539c' }}
                   >
                     <p>Delete</p>
                   </button>
@@ -176,7 +188,10 @@ function SingleMonsterView() {
             <div className="frame-relative">
               <div className="absolute-div-monster-name">
                 <h2>{monster.monster_name}</h2>
-                <button onClick={handleNameEditPopup}>
+                <button
+                  onClick={handleNameEditPopup}
+                  style={{ backgroundColor: '#97539c', padding: '.5rem' }}
+                >
                   <p>Edit</p>
                 </button>
               </div>
