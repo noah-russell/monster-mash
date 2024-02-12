@@ -44,7 +44,7 @@ function SingleMonsterView() {
     }
   }
 
-  function getDayWithSuffix(day) {
+  function getDayWithSuffix(day:number) {
     if (day < 1 || day > 31) {
       return 'Invalid day'
     }

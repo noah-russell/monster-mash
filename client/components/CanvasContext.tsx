@@ -1,5 +1,5 @@
 // CanvasProvider.js
-import { useContext, useRef, useState, createContext, ReactNode} from 'react'
+import { useContext, useRef, useState, createContext} from 'react'
 import { CanvasContextProps, CanvasProviderProps } from '../../models/monster-models'
 
 // initates the context hook
@@ -15,7 +15,6 @@ export function CanvasProvider({ children }: CanvasProviderProps): JSX.Element {
     const canvas = canvasRef.current
     if (canvas) {
       const context = canvas.getContext('2d');
-
       const canvasWidth = 500
       canvas.width = canvasWidth
       canvas.height = canvasWidth
