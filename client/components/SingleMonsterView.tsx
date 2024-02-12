@@ -135,8 +135,8 @@ function SingleMonsterView() {
                 <input
                   type="text"
                   value={newMonsterName}
-                  maxLength={15}
                   defaultValue={monster.name}
+                  maxLength={15}
                   onChange={(e) => setNewMonsterName(e.target.value)}
                 />
               </label>
