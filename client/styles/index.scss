@@ -142,6 +142,10 @@ h1{
   color: $whiteIsh;
 }
 
+.title-and-version{
+align-items: center;
+}
+
 .version-no{
   font-family: monospace;
   color: #aba4a4;
@@ -429,7 +433,7 @@ button.download{
   width:100%;
   height:190%;
   max-height:none;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 
@@ -792,6 +796,9 @@ padding:0.3rem;
   header{
     justify-content: left;
   }
+  .title-and-version{
+    align-items: start;
+  }
   .colin-welcome{
     width:100%;
   }
@@ -808,8 +815,11 @@ padding:0.3rem;
 
 @media only screen and (max-width:750px){
  h1{
-  font-size: 2.5rem;
-  max-width: 10rem;
+  font-size: 2.2rem;
+  max-width: 12rem;
+ }
+ .version-no{
+  font-size: 10px;
  }
  nav p{
   font-size: 1.8rem;
@@ -819,6 +829,12 @@ padding:0.3rem;
 @media only screen and (max-width:732px){
     header{
       justify-content: left;
+    }
+    .title-and-version{
+      align-items: start;
+    }
+    nav{
+      height:6rem;
     }
     .colin-welcome{
       width:100%;
@@ -835,8 +851,7 @@ padding:0.3rem;
 // Noah's stuff ----------------------------
 
 .pencil-crop img:hover {
-  animation: rock2 1s ease-in-out infinite; /* Adjust the duration and timing function as needed */
-  transform-origin: center; /* Set the transform origin to the center of the element */
+  animation: rock2 1s ease-in-out infinite;
 }
 
 .pencil-crop img:active {
@@ -844,8 +859,8 @@ padding:0.3rem;
 }
 
 .menagerie-item:hover {
-  animation: rock1 1s ease-in-out infinite; /* Adjust the duration and timing function as needed */
-  transform-origin: center; /* Set the transform origin to the center of the element */
+  animation: rock1 1s ease-in-out infinite;
+  transform-origin: center;
 }
 
 // Animations ------------------------------
