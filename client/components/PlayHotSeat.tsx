@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useCanvas } from './CanvasContext'
 import SubmitMonsterForm from './SubmitMonsterForm'
 import { BrushDivBackground } from '../../models/monster-models'
+import Curtains from './Curtains'
 
 function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
   const { topArtist, bottomArtist } = playHotSeatProps
@@ -70,9 +71,11 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
         </div>
 
         <div className="drawing-zone vflex">
+       
           <div className="canvas">
             <DrawingZone gameState={gameState} />
           </div>
+    
         </div>
 
         <div className="controls vflex">

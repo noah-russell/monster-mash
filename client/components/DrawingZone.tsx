@@ -20,6 +20,7 @@ function DrawingZone({ gameState }: { gameState: number }) {
 
   return (
     <>
+    
       <img
         className={gameState === 2 ? 'done-frame' : 'done-frame hidden'}
         alt="frame"
