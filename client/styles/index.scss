@@ -412,7 +412,6 @@ button.download{
   top:8%;
   left:8.5%;
   width:80%;
-
 }
 
 .colours img{
@@ -465,11 +464,15 @@ margin-top: 10px;
   justify-content: center;
   align-items: center;
   width:40px;
+  margin: 0 2px;
   aspect-ratio: 1;
 }
 
 .brush-box:hover{
   background-color: rgba(255, 255, 255, 0.13);
+}
+.selected-size{
+  background-color: rgba(255, 255, 255, 0.40);
 }
 
 .small-brush{
