@@ -23,7 +23,9 @@ function Header() {
             </div>
           </nav>
         </div>
-        <p className="version-no">version alpha 1.5 - a game by Noah, Iggy, Rose and Cody </p>
+        <p className="version-no">
+          version alpha 1.5 - a game by Noah, Iggy, Rose and Cody{' '}
+        </p>
       </header>
     </>
   )
