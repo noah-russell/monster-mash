@@ -71,6 +71,7 @@ export function CanvasProvider({ children }: CanvasProviderProps): JSX.Element {
     }
   };
 
+
   const changeBrushSize = (size: number): void => {
     if (contextRef.current) {
       contextRef.current.lineWidth = size;
