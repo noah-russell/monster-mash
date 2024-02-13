@@ -86,7 +86,14 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
             }
           >
             <div className="colours">
-              <div className="pencil-crop" onClick={handlePencilClick}>
+              <div
+                className={`pencil-crop ${
+                  brushDivBackground.background == 'black'
+                    ? 'selected-colour'
+                    : ''
+                }`}
+                onClick={handlePencilClick}
+              >
                 <img
                   src="/pencil_black.png"
                   alt="black pencil icon"
@@ -95,7 +102,11 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
               </div>
 
               <div
-                className="pencil-crop"
+                className={`pencil-crop ${
+                  brushDivBackground.background == '#471352'
+                    ? 'selected-colour'
+                    : ''
+                }`}
                 onClick={handleDarkPurplePencilClick}
               >
                 <img
@@ -106,7 +117,11 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
               </div>
 
               <div
-                className="pencil-crop"
+                className={`pencil-crop ${
+                  brushDivBackground.background == '#ae76b3'
+                    ? 'selected-colour'
+                    : ''
+                }`}
                 onClick={handleLightPurplePencilClick}
               >
                 <img
@@ -116,7 +131,14 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
                 />
               </div>
 
-              <div className="pencil-crop" onClick={handleColinGreyPencilClick}>
+              <div
+                className={`pencil-crop ${
+                  brushDivBackground.background == '#9a9a9a'
+                    ? 'selected-colour'
+                    : ''
+                }`}
+                onClick={handleColinGreyPencilClick}
+              >
                 <img
                   src="/pencil_grey.png"
                   alt="pencil icon"
@@ -124,7 +146,14 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
                 />
               </div>
 
-              <div className="pencil-crop" onClick={handleRedPencilClick}>
+              <div
+                className={`pencil-crop ${
+                  brushDivBackground.background == '#9b3008'
+                    ? 'selected-colour'
+                    : ''
+                }`}
+                onClick={handleRedPencilClick}
+              >
                 <img
                   src="/pencil_red.png"
                   alt="red pencil icon"
@@ -132,7 +161,14 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
                 />
               </div>
 
-              <div className="pencil-crop" onClick={handleRubberClick}>
+              <div
+                className={`pencil-crop ${
+                  brushDivBackground.background == 'white'
+                    ? 'selected-colour'
+                    : ''
+                }`}
+                onClick={handleRubberClick}
+              >
                 <img src="/rubber.png" alt="rubber icon" draggable="false" />
               </div>
               <div className="hflex brush-sizes">
