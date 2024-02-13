@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom'
 function Header() {
   return (
     <>
-      <header className="vflex">
+      <header>
         <div className="hflex">
+          <div className='vflex title-and-version'>
           <h1>Monster Mash</h1>
+          <p className="version-no">
+          version alpha 1.5 - a game by Noah, Iggy, Rose and Cody{' '}
+        </p>
+        </div>
           <nav className="hflex">
             <div className="nav-button-div">
               <a href="/">
@@ -23,9 +28,7 @@ function Header() {
             </div>
           </nav>
         </div>
-        <p className="version-no">
-          version alpha 1.5 - a game by Noah, Iggy, Rose and Cody{' '}
-        </p>
+        
       </header>
     </>
   )
