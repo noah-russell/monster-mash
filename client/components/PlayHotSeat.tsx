@@ -139,7 +139,7 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
                 <div className="hflex brush-size-container">
                   <button
                     className={`brush-box ${
-                      selectedSize == 5 ? 'selectedSize' : ''
+                      selectedSize == 5 ? 'selected-size' : ''
                     }`}
                     onClick={handleSmallBrushChange}
                   >
@@ -150,7 +150,7 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
                   </button>
                   <button
                     className={`brush-box ${
-                      selectedSize == 15 ? 'selectedSize' : ''
+                      selectedSize == 15 ? 'selected-size' : ''
                     }`}
                     onClick={handleMediumBrushChange}
                   >
@@ -161,7 +161,7 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
                   </button>
                   <button
                     className={`brush-box ${
-                      selectedSize == 30 ? 'selectedSize' : ''
+                      selectedSize == 30 ? 'selected-size' : ''
                     }`}
                     onClick={handleLargeBrushChange}
                   >
