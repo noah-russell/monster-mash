@@ -429,7 +429,7 @@ button.download{
   width:100%;
   height:190%;
   max-height:none;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 
@@ -835,8 +835,7 @@ padding:0.3rem;
 // Noah's stuff ----------------------------
 
 .pencil-crop img:hover {
-  animation: rock2 1s ease-in-out infinite; /* Adjust the duration and timing function as needed */
-  transform-origin: center; /* Set the transform origin to the center of the element */
+  animation: rock2 1s ease-in-out infinite;
 }
 
 .pencil-crop img:active {
@@ -844,8 +843,8 @@ padding:0.3rem;
 }
 
 .menagerie-item:hover {
-  animation: rock1 1s ease-in-out infinite; /* Adjust the duration and timing function as needed */
-  transform-origin: center; /* Set the transform origin to the center of the element */
+  animation: rock1 1s ease-in-out infinite;
+  transform-origin: center;
 }
 
 // Animations ------------------------------
