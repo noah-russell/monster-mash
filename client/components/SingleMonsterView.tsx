@@ -45,7 +45,7 @@ function SingleMonsterView() {
     }
   }
 
-  function getDayWithSuffix(day:number) {
+  function getDayWithSuffix(day: number) {
     if (day < 1 || day > 31) {
       return 'Invalid day'
     }
@@ -137,6 +137,7 @@ function SingleMonsterView() {
                   value={newMonsterName}
                   defaultValue={monster.name}
                   maxLength={15}
+                  minLength={3}
                   onChange={(e) => setNewMonsterName(e.target.value)}
                 />
               </label>

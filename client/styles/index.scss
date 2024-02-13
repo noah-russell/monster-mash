@@ -142,6 +142,12 @@ h1{
   color: $whiteIsh;
 }
 
+.version-no{
+  font-family: monospace;
+  color: #aba4a4;
+  opacity: .7;
+}
+
 // nav -----------------------------------
 
 nav{
@@ -257,6 +263,7 @@ nav p:hover{
   background-color: $darkPurple;
   color:$whiteIsh;
   border: 0.5rem solid black;
+  border-radius:  12px / 12px;
 }
 
 label{
@@ -277,6 +284,7 @@ input{
   width:10rem;
   padding: 0.5rem;
   display: flex;
+  border-radius: 10px;
 }
 
 .welcome-container button{
