@@ -10,13 +10,13 @@ function Welcome({
   const [dummyBottomArtist, setDummyBottomArtist] = useState<string>('')
 
   const handleTopArtistChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setTopArtist(event.target.value)
     setDummyTopArtist(event.target.value)
   }
   const handleBottomArtistChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setBottomArtist(event.target.value)
     setDummyBottomArtist(event.target.value)
@@ -30,11 +30,7 @@ function Welcome({
   return (
     <div className="welcome-container">
       <div className="colin-welcome">
-        <img
-          src="/colinwelcome.png"
-          alt="colin waving"
-          className="colin"
-        />
+        <img src="/colinwelcome.png" alt="colin waving" className="colin" />
         <div className="welcome-bubble">
           <div>
             <h2>
@@ -54,6 +50,7 @@ function Welcome({
               type="text"
               name="topArtist"
               onChange={handleTopArtistChange}
+              maxLength={15}
               required
             />
           </label>
@@ -63,6 +60,7 @@ function Welcome({
               type="text"
               name="bottomArtist"
               onChange={handleBottomArtistChange}
+              maxLength={15}
               required
             />
           </label>

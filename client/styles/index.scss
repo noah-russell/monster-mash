@@ -9,6 +9,7 @@ $whiteIsh: #d1d1d1;
 $colinGrey: #aba4a4;
 $speechBubbleGrey: #d2c8c8;
 $darkPurple: #401043;
+$darkPurpleAccent: #97539c;
 
 // grandparent styling--------------------------
 *{
@@ -141,6 +142,17 @@ h1{
   color: $whiteIsh;
 }
 
+.title-and-version{
+align-items: center;
+}
+
+.version-no{
+  font-family: monospace;
+  color: #aba4a4;
+  opacity: .6;
+  font-size: smaller;
+}
+
 // nav -----------------------------------
 
 nav{
@@ -197,7 +209,7 @@ nav p:hover{
   display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  margin:1rem;
 }
 
 .colin-welcome{
@@ -245,7 +257,6 @@ nav p:hover{
 .nicknames-welcome{
   padding:2rem;
   display:flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width:100%;
@@ -256,6 +267,7 @@ nav p:hover{
   background-color: $darkPurple;
   color:$whiteIsh;
   border: 0.5rem solid black;
+  border-radius:  12px / 12px;
 }
 
 label{
@@ -275,11 +287,13 @@ input{
   line-height:2rem;
   width:10rem;
   padding: 0.5rem;
+  display: flex;
+  border-radius: 10px;
 }
 
 .welcome-container button{
   padding: 0.5rem;
-  margin:0.5rem;
+  margin:3rem;
 }
 
 // play-------------------------------
@@ -412,14 +426,13 @@ button.download{
   top:8%;
   left:8.5%;
   width:80%;
-
 }
 
 .colours img{
   width:100%;
   height:190%;
   max-height:none;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 
@@ -430,6 +443,11 @@ button.download{
   align-items: center;
   margin-top: 8px;
   margin-bottom: 8px;
+  border-radius: 10px/10px;
+}
+
+.selected-colour{
+  background-color: rgba(255, 255, 255, 0.445);
 }
 
 .controls label h3{
@@ -465,11 +483,15 @@ margin-top: 10px;
   justify-content: center;
   align-items: center;
   width:40px;
+  margin: 0 2px;
   aspect-ratio: 1;
 }
 
 .brush-box:hover{
   background-color: rgba(255, 255, 255, 0.13);
+}
+.selected-size{
+  background-color: rgba(255, 255, 255, 0.40);
 }
 
 .small-brush{
@@ -712,14 +734,18 @@ padding-right: 2%;
 }
 
 .popup{
+
   position:absolute;
-  right: 70%;
-  top:10%;
+  left: 50%;
+  top:20%;
   z-index:21;
+  transform: translate(-50%, -50%);
   padding:1rem;
   background: $colinGrey;
   border: solid 0.5rem black;
+  border-radius: 15px;
 }
+
 
 .popup p{
   font-size: 1rem;
@@ -727,15 +753,31 @@ padding-right: 2%;
   margin:0.5rem;
 }
 
-.popup button{
+.delete-monster p{
+  font-size: 1rem;
+  font-family:'Permanent Marker';
+  margin:0.5rem;
+}
+
+.delete-buttons-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.delete-buttons-container button{
   margin: 0.5rem;
 }
 
 
 button{
   display:flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+}
+
+.confirm-button{
+  background-color: #401043;
 }
 
 .absolute-div-monster-name button p{
@@ -753,6 +795,9 @@ padding:0.3rem;
   header{
     justify-content: left;
   }
+  .title-and-version{
+    align-items: start;
+  }
   .colin-welcome{
     width:100%;
   }
@@ -769,8 +814,11 @@ padding:0.3rem;
 
 @media only screen and (max-width:750px){
  h1{
-  font-size: 2.5rem;
-  max-width: 10rem;
+  font-size: 2.2rem;
+  max-width: 12rem;
+ }
+ .version-no{
+  font-size: 10px;
  }
  nav p{
   font-size: 1.8rem;
@@ -780,6 +828,12 @@ padding:0.3rem;
 @media only screen and (max-width:732px){
     header{
       justify-content: left;
+    }
+    .title-and-version{
+      align-items: start;
+    }
+    nav{
+      height:6rem;
     }
     .colin-welcome{
       width:100%;
@@ -796,8 +850,7 @@ padding:0.3rem;
 // Noah's stuff ----------------------------
 
 .pencil-crop img:hover {
-  animation: rock2 1s ease-in-out infinite; /* Adjust the duration and timing function as needed */
-  transform-origin: center; /* Set the transform origin to the center of the element */
+  animation: rock2 1s ease-in-out infinite;
 }
 
 .pencil-crop img:active {
@@ -805,8 +858,8 @@ padding:0.3rem;
 }
 
 .menagerie-item:hover {
-  animation: rock1 1s ease-in-out infinite; /* Adjust the duration and timing function as needed */
-  transform-origin: center; /* Set the transform origin to the center of the element */
+  animation: rock1 1s ease-in-out infinite;
+  transform-origin: center;
 }
 
 // Animations ------------------------------
