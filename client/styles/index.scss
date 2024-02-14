@@ -209,7 +209,7 @@ nav p:hover{
   display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  margin:1rem;
 }
 
 .colin-welcome{
@@ -257,7 +257,6 @@ nav p:hover{
 .nicknames-welcome{
   padding:2rem;
   display:flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width:100%;
@@ -294,7 +293,7 @@ input{
 
 .welcome-container button{
   padding: 0.5rem;
-  margin:0.5rem;
+  margin:3rem;
 }
 
 // play-------------------------------
