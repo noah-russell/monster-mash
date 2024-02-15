@@ -1,25 +1,18 @@
 import { useState, useEffect } from 'react'
-// import colinspeechbubble from '/colingspeechbubble.png'
+import { ColinProps } from '../../models/monster-models'
 
-function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
-  const [imgSrc, setImgSrc] = useState<string>('/colinspeechbubble.png')
-  //This is the colinPhrases fix.
+function Colin({ topArtist, bottomArtist, gameState }: ColinProps) {
+  const [imgSrc, setImgSrc] = useState<string>('/idle.png')
   const [selectedColinPhrase, setSelectedColinPhrase] = useState<string>('')
 
   useEffect(() => {
-    // Generate the random phrase only once when the component mounts
     setSelectedColinPhrase(
       colinPhrases[Math.floor(Math.random() * colinPhrases.length)],
     )
   }, [])
-  //End of fix
 
   useEffect(() => {
-    if (isWelcome === false) {
-      setImgSrc('/colinspeechbubble.png')
-    } else if (gameState === 1) {
-      setImgSrc('/colinspeechbubble.png')
-    } else if (gameState === 2) {
+    if (gameState === 1 || 2 || 3) {
       setImgSrc('/colinspeechbubble.png')
     }
 
@@ -28,7 +21,7 @@ function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
     }, 5000)
 
     return () => clearTimeout(timerId)
-  }, [gameState, isWelcome])
+  }, [gameState])
 
   const colinPhrases = [
     'Freakishly fantastic!',
@@ -50,6 +43,7 @@ function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
   ]
 
   const colinTips = [
+    {},
     {
       tip1: `${bottomArtist}, close your eyes!`,
       tip2: `${topArtist}, draw me the top of the monster and then hit done when finished!`,
@@ -68,6 +62,7 @@ function Colin({ gameState, topArtist, bottomArtist, isWelcome }) {
   ]
 
   const currentColinTip = colinTips[gameState]
+
   return (
     <>
       <div className="speech-bubble">

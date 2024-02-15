@@ -3,26 +3,30 @@ import DrawingZone from './DrawingZone'
 import { useState } from 'react'
 import { useCanvas } from './CanvasContext'
 import SubmitMonsterForm from './SubmitMonsterForm'
-import { BrushDivBackground } from '../../models/monster-models'
+import {
+  BrushDivBackground,
+  PlayHotSeatProps,
+} from '../../models/monster-models'
 
-function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
-  const { topArtist, bottomArtist } = playHotSeatProps
-  const { isWelcome } = welcomeProps
+function PlayHotSeat({
+  setGameState,
+  gameState,
+  topArtist,
+  bottomArtist,
+}: PlayHotSeatProps) {
   const [selectedSize, setSelectedSize] = useState<number>(5)
-  const [gameState, setGameState] = useState<number>(0)
   const [brushDivBackground, setBrushDivBackground] =
     useState<BrushDivBackground>({ background: 'black' })
   const artistNamesAndGameState = {
     topArtist,
     bottomArtist,
     gameState,
-    isWelcome,
   }
 
   const { changeBrushColour, changeBrushSize } = useCanvas()
 
   function handleDoneClick() {
-    if (gameState < 2) {
+    if (gameState < 3) {
       setGameState(gameState + 1)
     } else {
       setGameState(0)
@@ -82,7 +86,7 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
         <div className="controls vflex">
           <div
             className={
-              gameState === 2 ? 'hidden colour-controls' : 'colour-controls'
+              gameState === 3 ? 'hidden colour-controls' : 'colour-controls'
             }
           >
             <div className="colours">
@@ -213,10 +217,10 @@ function PlayHotSeat({ ...playHotSeatProps }, { ...welcomeProps }) {
 
           <div className="button-and-form-controls">
             <button
-              className={gameState === 2 ? 'hidden' : ''}
+              className={gameState === 3 ? 'hidden' : ''}
               onClick={handleDoneClick}
             >
-              <p>{`${gameState === 0 ? topArtist : bottomArtist} done!`}</p>
+              <p>{`${gameState === 1 ? topArtist : bottomArtist} done!`}</p>
             </button>
             <div>
               <SubmitMonsterForm {...artistNamesAndGameState} />

@@ -5,6 +5,7 @@ function Welcome({
   setIsWelcome,
   setTopArtist,
   setBottomArtist,
+  setGameState,
 }: WelcomeProps) {
   const [dummyTopArtist, setDummyTopArtist] = useState<string>('')
   const [dummyBottomArtist, setDummyBottomArtist] = useState<string>('')
@@ -25,6 +26,7 @@ function Welcome({
   const handleStart = async (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
     setIsWelcome(false)
+    setGameState(1)
   }
 
   return (

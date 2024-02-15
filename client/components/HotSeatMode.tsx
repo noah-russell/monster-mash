@@ -7,18 +7,22 @@ function HotSeatMode() {
   const [isWelcome, setIsWelcome] = useState<boolean>(true)
   const [topArtist, setTopArtist] = useState<string>('')
   const [bottomArtist, setBottomArtist] = useState<string>('')
+  const [gameState, setGameState] = useState<number>(0)
 
   const welcomeProps = {
     setTopArtist,
     setBottomArtist,
     setIsWelcome,
     isWelcome,
+    setGameState
   }
   const playHotSeatProps = {
     topArtist,
     bottomArtist,
+    setGameState,
+    gameState
   }
-
+  
   return (
     <>
       <div className={!isWelcome ? 'hot-seat-mode hidden' : 'hot-seat-mode'}>
