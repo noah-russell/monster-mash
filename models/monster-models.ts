@@ -1,4 +1,4 @@
-import {ReactNode} from 'react'
+import { ReactNode } from 'react'
 
 export interface NewMonster {
   monster_name: string
@@ -20,30 +20,43 @@ export interface newMonsterName {
   monster_name: string
 }
 
-export interface BrushDivBackground{
-    background: string
+export interface BrushDivBackground {
+  background: string
 }
 
 export interface WelcomeProps {
-    setIsWelcome: React.Dispatch<React.SetStateAction<boolean>>;
-    setTopArtist: React.Dispatch<React.SetStateAction<string>>;
-    setBottomArtist: React.Dispatch<React.SetStateAction<string>>;
-  }
-
-export interface MonsterCanvasInfo {
-
+  setIsWelcome: React.Dispatch<React.SetStateAction<boolean>>
+  setTopArtist: React.Dispatch<React.SetStateAction<string>>
+  setBottomArtist: React.Dispatch<React.SetStateAction<string>>
+  isWelcome: boolean
+  setGameState: React.Dispatch<React.SetStateAction<number>>
 }
 
-export interface CanvasContextProps{
-canvasRef: React.MutableRefObject<HTMLCanvasElement | null>
-prepareCanvas: () => void
-startDrawing: (event: React.MouseEvent<HTMLCanvasElement>) => void
-finishDrawing: () => void
-draw: (event: React.MouseEvent<HTMLCanvasElement>) => void
-changeBrushColour: (colour: string) => void
-changeBrushSize: (size: number) => void
-handleMouseLeave: () => void
-saveCanvasAsImage: () => void
+export interface PlayHotSeatProps {
+  topArtist: string
+  bottomArtist: string
+  gameState: number
+  setGameState: React.Dispatch<React.SetStateAction<number>>
+}
+
+export interface ColinProps {
+  topArtist: string
+  bottomArtist: string
+  gameState: number
+}
+
+export interface MonsterCanvasInfo {}
+
+export interface CanvasContextProps {
+  canvasRef: React.MutableRefObject<HTMLCanvasElement | null>
+  prepareCanvas: () => void
+  startDrawing: (event: React.MouseEvent<HTMLCanvasElement>) => void
+  finishDrawing: () => void
+  draw: (event: React.MouseEvent<HTMLCanvasElement>) => void
+  changeBrushColour: (colour: string) => void
+  changeBrushSize: (size: number) => void
+  handleMouseLeave: () => void
+  saveCanvasAsImage: () => void
 }
 
 export interface CanvasProviderProps {
