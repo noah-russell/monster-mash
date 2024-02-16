@@ -5,9 +5,7 @@ function AppLayout() {
   return (
     <>
       <Header />
-      <div className="under-header">
         <Outlet />
-      </div>
     </>
   )
 }
