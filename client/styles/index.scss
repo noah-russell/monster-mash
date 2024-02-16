@@ -28,9 +28,6 @@ body{
   background-size: cover;
 }
 #app{
-  display:flex;
-  flex-direction:column;
-  justify-content: space-between;
   height:100%;
 }
 .under-header{ //this element is underneath the header and wraps hot-seat-mode
