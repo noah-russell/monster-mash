@@ -9,12 +9,12 @@ function HotSeatMode() {
   return (
     <>
       <div
-        className={gamePhase == 0 ? 'hot-seat-mode hidden' : 'hot-seat-mode'}
+        className={gamePhase == 0? 'hot-seat-mode' : 'hot-seat-mode hidden'}
       >
         <Welcome />
       </div>
       <div
-        className={gamePhase == 0 ? 'hot-seat-mode hidden' : 'hot-seat-mode'}
+        className={gamePhase > 0 ? 'hot-seat-mode hidden' : 'hot-seat-mode'}
       >
         <CanvasProvider>
           <PlayHotSeat />

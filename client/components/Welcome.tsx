@@ -9,7 +9,7 @@ function Welcome() {
     topArtist,
     bottomArtist,
     setTopArtist,
-    SetBottomArtist,
+    setBottomArtist,
   } = useGameTracker()
   console.log('game phase', gamePhase)
   const [dummyTopArtist, setDummyTopArtist] = useState<string>('')
@@ -18,8 +18,8 @@ function Welcome() {
   const handleTopArtistChange = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    setTopArtist(event.target.value)
     setDummyTopArtist(event.target.value)
+    setTopArtist(event.target.value)
   }
   const handleBottomArtistChange = (
     event: React.ChangeEvent<HTMLInputElement>,
