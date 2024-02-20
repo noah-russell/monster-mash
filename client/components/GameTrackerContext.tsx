@@ -1,7 +1,8 @@
 import { useContext, useState, createContext } from 'react'
+import { GameTrackerProps, GameTrackerContextProps} from '../../models/monster-models'
 
-const GameTrackerContext = createContext(null)
-export function GameTrackerProvider({ children }) {
+const GameTrackerContext = createContext<GameTrackerContextProps|null>(null)
+export function GameTrackerProvider({ children }:GameTrackerProps): JSX.Element {
   const [gamePhase, setGamePhase] = useState(0)
   const [topArtist, setTopArtist] = useState<string>('')
   const [bottomArtist, setBottomArtist] = useState<string>('')
@@ -11,10 +12,10 @@ export function GameTrackerProvider({ children }) {
       value={{
         setGamePhase,
         gamePhase,
-        topArtist,
         setTopArtist,
-        bottomArtist,
+        topArtist,
         setBottomArtist,
+        bottomArtist,
       }}
     >
       {children}

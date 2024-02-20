@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, Dispatch, SetStateAction } from 'react';
 
 export interface NewMonster {
   monster_name: string
@@ -24,27 +24,6 @@ export interface BrushDivBackground {
   background: string
 }
 
-export interface WelcomeProps {
-  setIsWelcome: React.Dispatch<React.SetStateAction<boolean>>
-  setTopArtist: React.Dispatch<React.SetStateAction<string>>
-  setBottomArtist: React.Dispatch<React.SetStateAction<string>>
-  isWelcome: boolean
-  setGameState: React.Dispatch<React.SetStateAction<number>>
-}
-
-export interface PlayHotSeatProps {
-  topArtist: string
-  bottomArtist: string
-  gameState: number
-  setGameState: React.Dispatch<React.SetStateAction<number>>
-}
-
-export interface ColinProps {
-  topArtist: string
-  bottomArtist: string
-  gameState: number
-}
-
 export interface MonsterCanvasInfo {}
 
 export interface CanvasContextProps {
@@ -59,6 +38,19 @@ export interface CanvasContextProps {
   saveCanvasAsImage: () => void
 }
 
+export interface GameTrackerContextProps {
+  setGamePhase: Dispatch<SetStateAction<number>>
+  gamePhase: number 
+  setTopArtist: Dispatch<SetStateAction<string>>
+  topArtist: string
+  setBottomArtist: Dispatch<SetStateAction<string>>
+  bottomArtist: string
+}
+
 export interface CanvasProviderProps {
+  children: ReactNode
+}
+
+export interface GameTrackerProps {
   children: ReactNode
 }
