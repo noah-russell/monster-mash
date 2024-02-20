@@ -3,7 +3,14 @@ import { WelcomeProps } from '../../models/monster-models'
 import { useGameTracker } from './GameTrackerContext'
 
 function Welcome() {
-  const { gamePhase, setGamePhase } = useGameTracker()
+  const {
+    gamePhase,
+    setGamePhase,
+    topArtist,
+    bottomArtist,
+    setTopArtist,
+    SetBottomArtist,
+  } = useGameTracker()
   console.log('game phase', gamePhase)
   const [dummyTopArtist, setDummyTopArtist] = useState<string>('')
   const [dummyBottomArtist, setDummyBottomArtist] = useState<string>('')
@@ -23,8 +30,7 @@ function Welcome() {
 
   const handleStart = async (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setIsWelcome(false)
-    setGameState(1)
+    setGamePhase(1)
   }
 
   return (

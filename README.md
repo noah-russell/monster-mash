@@ -48,7 +48,7 @@
 <h4>User Feedback:</h4>
 
 <h3>React states</h3>
-<h4>Game states (gameState, setGameState)</h4>
+<h4>Game states (gamePhase, setGamePhase)</h4>
 <ul>
   <li>0. (activated by default) Colin says from colinTips[0]. Bottom half of canvas covered.</li>
   <li>1. (activated with done button onClick)Colin says from colinTips[1]. Top half of canvas is obscured and bottom half is revealed.</li>

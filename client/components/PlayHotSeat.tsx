@@ -7,29 +7,22 @@ import {
   BrushDivBackground,
   PlayHotSeatProps,
 } from '../../models/monster-models'
+import { useGameTracker } from './GameTrackerContext'
 
-function PlayHotSeat({
-  setGameState,
-  gameState,
-  topArtist,
-  bottomArtist,
-}: PlayHotSeatProps) {
+function PlayHotSeat() {
+  const{gamePhase, setGamePhase, topArtist, bottomArtist}= useGameTracker()
   const [selectedSize, setSelectedSize] = useState<number>(5)
   const [brushDivBackground, setBrushDivBackground] =
     useState<BrushDivBackground>({ background: 'black' })
-  const artistNamesAndGameState = {
-    topArtist,
-    bottomArtist,
-    gameState,
-  }
+
 
   const { changeBrushColour, changeBrushSize } = useCanvas()
 
   function handleDoneClick() {
-    if (gameState < 3) {
-      setGameState(gameState + 1)
+    if (gamePhase < 3) {
+      setGamePhase(gamePhase + 1)
     } else {
-      setGameState(0)
+      setGamePhase(0)
     }
   }
 
@@ -74,19 +67,19 @@ function PlayHotSeat({
     <>
       <div className="play-hot-seat">
         <div className="colin">
-          <Colin {...artistNamesAndGameState} />
+          <Colin />
         </div>
 
         <div className="drawing-zone vflex">
           <div className="canvas">
-            <DrawingZone gameState={gameState} />
+            <DrawingZone />
           </div>
         </div>
 
         <div className="controls vflex">
           <div
             className={
-              gameState === 3 ? 'hidden colour-controls' : 'colour-controls'
+              gamePhase === 3 ? 'hidden colour-controls' : 'colour-controls'
             }
           >
             <div className="colours">
@@ -217,13 +210,13 @@ function PlayHotSeat({
 
           <div className="button-and-form-controls">
             <button
-              className={gameState === 3 ? 'hidden' : ''}
+              className={gamePhase === 3 ? 'hidden' : ''}
               onClick={handleDoneClick}
             >
-              <p>{`${gameState === 1 ? topArtist : bottomArtist} done!`}</p>
+              <p>{`${gamePhase === 1 ? topArtist : bottomArtist} done!`}</p>
             </button>
             <div>
-              <SubmitMonsterForm {...artistNamesAndGameState} />
+              <SubmitMonsterForm />
             </div>
           </div>
         </div>

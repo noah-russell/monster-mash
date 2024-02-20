@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react'
 import { ColinProps } from '../../models/monster-models'
+import { useGameTracker } from './GameTrackerContext'
 
-function Colin({ topArtist, bottomArtist, gameState }: ColinProps) {
+function Colin() {
+  const {
+    gamePhase,
+    topArtist,
+    bottomArtist,
+  } = useGameTracker()
   const [imgSrc, setImgSrc] = useState<string>('/idle.png')
   const [selectedColinPhrase, setSelectedColinPhrase] = useState<string>('')
 
@@ -12,7 +18,7 @@ function Colin({ topArtist, bottomArtist, gameState }: ColinProps) {
   }, [])
 
   useEffect(() => {
-    if (gameState === 1 || 2 || 3) {
+    if (gamePhase === 1 || 2 || 3) {
       setImgSrc('/colinspeechbubble.png')
     }
 
@@ -21,7 +27,7 @@ function Colin({ topArtist, bottomArtist, gameState }: ColinProps) {
     }, 5000)
 
     return () => clearTimeout(timerId)
-  }, [gameState])
+  }, [gamePhase])
 
   const colinPhrases = [
     'Freakishly fantastic!',
@@ -61,7 +67,7 @@ function Colin({ topArtist, bottomArtist, gameState }: ColinProps) {
     },
   ]
 
-  const currentColinTip = colinTips[gameState]
+  const currentColinTip = colinTips[gamePhase]
 
   return (
     <>
