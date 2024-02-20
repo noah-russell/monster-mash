@@ -33,10 +33,15 @@ function SubmitMonsterForm() {
   }
 
   const generateFormDataWithBlob = async () => {
-    const dataURL = canvasRef.current.toDataURL('image/png')
-    const blobData = await fetch(dataURL).then((res) => res.blob())
-    formData.append('file', blobData)
+    const dataURL = canvasRef.current?.toDataURL('image/png')
+    if (dataURL) {
+      const blobData = await fetch(dataURL).then((res) => res.blob());
+      formData.append('file', blobData);
+    } else {
+      console.error('Error: canvasRef.current is null or undefined');
+    }
   }
+  
 
   const uploadMonsterMutation = useMutation({
     mutationFn: uploadMonster,
