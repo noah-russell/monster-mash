@@ -2,12 +2,7 @@ import { useState } from 'react'
 import { WelcomeProps } from '../../models/monster-models'
 import { useGameTracker } from './GameTrackerContext'
 
-function Welcome({
-  setIsWelcome,
-  setTopArtist,
-  setBottomArtist,
-  setGameState,
-}: WelcomeProps) {
+function Welcome() {
   const { gamePhase, setGamePhase } = useGameTracker()
   console.log('game phase', gamePhase)
   const [dummyTopArtist, setDummyTopArtist] = useState<string>('')
