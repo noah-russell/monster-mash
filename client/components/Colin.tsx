@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { ColinProps } from '../../models/monster-models'
 import { useGameTracker } from './GameTrackerContext'
 
 function Colin() {
