@@ -5,7 +5,6 @@ import { useCanvas } from './CanvasContext'
 import SubmitMonsterForm from './SubmitMonsterForm'
 import {
   BrushDivBackground,
-  PlayHotSeatProps,
 } from '../../models/monster-models'
 import { useGameTracker } from './GameTrackerContext'
 
