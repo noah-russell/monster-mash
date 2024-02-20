@@ -15,7 +15,7 @@ export function GameTrackerProvider({ children }){
   )
 }
 
-export const useGame =  ()=>{
+export const useGameTracker =  ()=>{
   const context = useContext(GameTrackerContext)
   if(!context){
     throw new Error('useGameTracker must be used within a GameTrackerProvider')
