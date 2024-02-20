@@ -1,24 +1,24 @@
 import { useContext, useState, createContext } from 'react'
 
-const GameContext = createContext(null)
-export function GameProvider({ children }){
-  const [gamePhase,setGamePhase]=useState(1)
+const GameTrackerContext = createContext(null)
+export function GameTrackerProvider({ children }){
+  const [gamePhase,setGamePhase]=useState(0)
 
   return (
-    <GameContext.Provider
+    <GameTrackerContext.Provider
     value={
      { setGamePhase,
       gamePhase}
     }>
       {children}
-    </GameContext.Provider>
+    </GameTrackerContext.Provider>
   )
 }
 
 export const useGame =  ()=>{
-  const context = useContext(GameContext)
+  const context = useContext(GameTrackerContext)
   if(!context){
-    throw new Error('useGame must be used within a GameProvider')
+    throw new Error('useGameTracker must be used within a GameTrackerProvider')
   }
   return context
 }
