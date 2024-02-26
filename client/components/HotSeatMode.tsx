@@ -1,36 +1,23 @@
 import Welcome from './Welcome'
 import PlayHotSeat from './PlayHotSeat'
-import { useState } from 'react'
 import { CanvasProvider } from './CanvasContext'
+import { useGameTracker } from './GameTrackerContext'
 
 function HotSeatMode() {
-  const [isWelcome, setIsWelcome] = useState<boolean>(true)
-  const [topArtist, setTopArtist] = useState<string>('')
-  const [bottomArtist, setBottomArtist] = useState<string>('')
-  const [gameState, setGameState] = useState<number>(0)
+  const{gamePhase}= useGameTracker()
 
-  const welcomeProps = {
-    setTopArtist,
-    setBottomArtist,
-    setIsWelcome,
-    isWelcome,
-    setGameState
-  }
-  const playHotSeatProps = {
-    topArtist,
-    bottomArtist,
-    setGameState,
-    gameState
-  }
-  
   return (
     <>
-      <div className={!isWelcome ? 'hot-seat-mode hidden' : 'hot-seat-mode'}>
-        <Welcome {...welcomeProps} />
+      <div
+        className={gamePhase == 0? 'hot-seat-mode' : 'hot-seat-mode hidden'}
+      >
+        <Welcome />
       </div>
-      <div className={isWelcome ? 'hot-seat-mode hidden' : 'hot-seat-mode'}>
+      <div
+        className={gamePhase > 0 ? 'hot-seat-mode' : 'hot-seat-mode hidden'}
+      >
         <CanvasProvider>
-          <PlayHotSeat {...playHotSeatProps} {...welcomeProps} />
+          <PlayHotSeat />
         </CanvasProvider>
       </div>
     </>

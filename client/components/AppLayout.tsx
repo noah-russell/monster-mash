@@ -4,10 +4,8 @@ import { Outlet } from 'react-router-dom'
 function AppLayout() {
   return (
     <>
-        <Header />
-      <div className="app-layout">
+      <Header />
         <Outlet />
-      </div>
     </>
   )
 }

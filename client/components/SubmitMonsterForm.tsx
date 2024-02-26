@@ -3,9 +3,14 @@ import { useState } from 'react'
 import { uploadMonster } from '../apiFunctions'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
-import { ColinProps } from '../../models/monster-models'
+import { useGameTracker } from './GameTrackerContext'
 
-function SubmitMonsterForm({ topArtist, bottomArtist, gameState }: ColinProps) {
+function SubmitMonsterForm() {
+  const {
+    gamePhase,
+    topArtist,
+    bottomArtist
+  } = useGameTracker()
   const { canvasRef, saveCanvasAsImage } = useCanvas()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
@@ -28,10 +33,15 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }: ColinProps) {
   }
 
   const generateFormDataWithBlob = async () => {
-    const dataURL = canvasRef.current.toDataURL('image/png')
-    const blobData = await fetch(dataURL).then((res) => res.blob())
-    formData.append('file', blobData)
+    const dataURL = canvasRef.current?.toDataURL('image/png')
+    if (dataURL) {
+      const blobData = await fetch(dataURL).then((res) => res.blob());
+      formData.append('file', blobData);
+    } else {
+      console.error('Error: canvasRef.current is null or undefined');
+    }
   }
+  
 
   const uploadMonsterMutation = useMutation({
     mutationFn: uploadMonster,
@@ -58,7 +68,7 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }: ColinProps) {
 
   return (
     <>
-      <form className={gameState === 3 ? 'vflex' : 'hidden'}>
+      <form className={gamePhase === 3 ? 'vflex' : 'hidden'}>
         <div className="labels">
           <label className="vflex">
             <h3>Name your monster:</h3>
@@ -77,13 +87,13 @@ function SubmitMonsterForm({ topArtist, bottomArtist, gameState }: ColinProps) {
         <br />
       </form>
       <button
-        className={gameState === 3 ? 'download' : 'hidden'}
+        className={gamePhase === 3 ? 'download' : 'hidden'}
         onClick={saveCanvasAsImage}
       >
         <p>Download</p>
       </button>
       <button
-        className={gameState === 3 ? 'save-monster' : 'hidden'}
+        className={gamePhase === 3 ? 'save-monster' : 'hidden'}
         onClick={uploadMonsterToMenagerie}
         disabled={!monsterName.trim() || nameTooLong}
       >
